@@ -6,10 +6,9 @@ start
 
 if (equipment has active maintenance plan?) then ([Yes])
   :Load equipment and maintenance plan;
-  :Find available maintenance job slots;
-  :Reserve proposed job slots;
+  :Find system-owned available maintenance job slots;
+  :Reserve 3 proposed job slots for 24 hours;
   :Create maintenance slots proposal;
-  :Create backoffice confirmation task;
   :Return success;
   stop
 else ([No])

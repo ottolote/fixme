@@ -78,7 +78,7 @@
       <bpmn:outgoing>Flow_1lgybaw</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_1lgybaw" sourceRef="Activity_0f5lxm8" targetRef="Activity_0jg4ump" />
-    <bpmn:task id="Activity_0jg4ump" name="Schedule backoffice task for confirming mintenance slot">
+    <bpmn:task id="Activity_0jg4ump" name="SI4.1 Create backoffice task">
       <bpmn:incoming>Flow_1lgybaw</bpmn:incoming>
       <bpmn:outgoing>Flow_0r73izr</bpmn:outgoing>
     </bpmn:task>
@@ -91,7 +91,7 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_0fatj79" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_1925haq" sourceRef="Event_18b2aqh" targetRef="Activity_055bdm8" />
-    <bpmn:task id="Activity_055bdm8" name="SI2.1 Notify user">
+    <bpmn:task id="Activity_055bdm8" name="SI2.3 Notify customer of maintenance slots proposal">
       <bpmn:incoming>Flow_1925haq</bpmn:incoming>
       <bpmn:outgoing>Flow_1qmac9i</bpmn:outgoing>
     </bpmn:task>

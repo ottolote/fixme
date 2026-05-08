@@ -1,12 +1,12 @@
 @startuml si4.1-create-backoffice-review-task
-title SI4.1 Create backoffice review task
+title SI4.1 Create backoffice task
 
 start
-:Receive create backoffice review task command;
+:Receive create backoffice task command;
 
-if (review subject valid?) then ([Yes])
-  :Create backoffice review task;
-  :Assign or queue task for review;
+if (task subject and type valid?) then ([Yes])
+  :Create backoffice task;
+  :Assign or queue task for backoffice worker;
   :Return success;
   stop
 else ([No])

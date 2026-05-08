@@ -2,7 +2,7 @@
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0t8yvm5" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
   <bpmn:collaboration id="Collaboration_0t60qok">
     <bpmn:participant id="Participant_0q448c6" name="User" processRef="Process_1onttlf" />
-    <bpmn:participant id="Participant_1oeh87c" name="Systemt" processRef="Process_075iri2" />
+    <bpmn:participant id="Participant_1oeh87c" name="System" processRef="Process_075iri2" />
     <bpmn:messageFlow id="Flow_04g6jp0" sourceRef="Activity_0xhdiup" targetRef="Event_0kfsi86" />
     <bpmn:messageFlow id="Flow_0pxp1rp" sourceRef="Activity_06p0vil" targetRef="Event_0g4iff7" />
     <bpmn:messageFlow id="Flow_0qudicd" sourceRef="Activity_13eis6g" targetRef="Event_18qo0zi" />

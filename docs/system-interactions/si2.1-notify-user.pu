@@ -6,7 +6,7 @@ start
 
 if (notification request valid?) then ([Yes])
   :Resolve recipient and channel;
-  :Render notification content;
+  :Render notification content from template name or ID;
   :Send notification;
   :Return success;
   stop

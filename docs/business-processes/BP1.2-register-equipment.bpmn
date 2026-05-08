@@ -15,12 +15,12 @@
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_013v0dy</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:task id="Activity_0xhdiup" name="Click &#34;register eqiupment&#34;">
+    <bpmn:task id="Activity_0xhdiup" name="Click &#34;register equipment&#34;">
       <bpmn:incoming>Flow_013v0dy</bpmn:incoming>
       <bpmn:outgoing>Flow_092ceqt</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_013v0dy" sourceRef="StartEvent_1" targetRef="Activity_0xhdiup" />
-    <bpmn:task id="Activity_0nfgyzw" name="Choose equipment type, etc etc">
+    <bpmn:task id="Activity_0nfgyzw" name="Choose equipment type and details">
       <bpmn:incoming>Flow_092ceqt</bpmn:incoming>
       <bpmn:outgoing>Flow_18mmelc</bpmn:outgoing>
     </bpmn:task>

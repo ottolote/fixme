@@ -7,7 +7,7 @@ start
 if (resolution request valid?) then ([Yes])
   :Load pending maintenance plan;
   if (is activation?) then ([Yes])
-    :Attach signed agreement;
+    :Attach customer-signed agreement;
     :Mark maintenance plan as active;
   else ([No, rejection])
     :Store rejection reason if provided;

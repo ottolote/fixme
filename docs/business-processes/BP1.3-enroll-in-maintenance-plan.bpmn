@@ -98,7 +98,7 @@
       <bpmn:outgoing>Flow_02xxgk0</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0efpc16" sourceRef="Event_1ukidl2" targetRef="Activity_1jubxnh" />
-    <bpmn:task id="Activity_0idt3ex" name="SI4.1 Create backoffice review task">
+    <bpmn:task id="Activity_0idt3ex" name="SI4.1 Create backoffice task">
       <bpmn:incoming>Flow_02xxgk0</bpmn:incoming>
       <bpmn:outgoing>Flow_0gqmfwz</bpmn:outgoing>
     </bpmn:task>

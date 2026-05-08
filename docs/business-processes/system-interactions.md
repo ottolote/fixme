@@ -16,5 +16,5 @@
 | SI3.5 | Cancel maintenance job |
 | SI3.6 | Accept maintenance slots proposal |
 | SI3.7 | Create maintenance job slots proposal |
-| SI4.1 | Create backoffice review task |
+| SI4.1 | Create backoffice task |
 | SI5.1 | Initiate eSigning for maintenance plan |
