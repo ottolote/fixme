@@ -6,9 +6,14 @@
 | SI1.2 | Confirm user email |
 | SI1.3 | Update user password |
 | SI1.4 | Set user preferences |
+| SI1.5 | Create pending registration |
+| SI1.6 | Load registration |
+| SI1.7 | Accept registration |
+| SI1.8 | Reject registration |
 | SI2.1 | Notify user |
 | SI2.2 | Notify customer of rejected maintenance plan |
 | SI2.3 | Notify customer of maintenance slots proposal |
+| SI2.4 | Notify customer of accepted registration |
 | SI3.1 | Match maintenance plan offering |
 | SI3.2 | Create pending maintenance plan |
 | SI3.3 | Reject maintenance plan |
