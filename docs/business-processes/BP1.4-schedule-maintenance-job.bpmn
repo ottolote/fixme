@@ -91,7 +91,7 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_0fatj79" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_1925haq" sourceRef="Event_18b2aqh" targetRef="Activity_055bdm8" />
-    <bpmn:task id="Activity_055bdm8" name="SI2.3 Notify customer of maintenance slots proposal">
+    <bpmn:task id="Activity_055bdm8" name="SI2.1 Notify user">
       <bpmn:incoming>Flow_1925haq</bpmn:incoming>
       <bpmn:outgoing>Flow_1qmac9i</bpmn:outgoing>
     </bpmn:task>

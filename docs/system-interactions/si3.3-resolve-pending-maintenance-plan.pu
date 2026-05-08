@@ -1,0 +1,23 @@
+@startuml si3.3-resolve-pending-maintenance-plan
+title SI3.3 Resolve pending maintenance plan
+
+start
+:Receive resolve maintenance plan command or event;
+
+if (resolution request valid?) then ([Yes])
+  :Load pending maintenance plan;
+  if (is activation?) then ([Yes])
+    :Attach signed agreement;
+    :Mark maintenance plan as active;
+  else ([No, rejection])
+    :Store rejection reason if provided;
+    :Mark maintenance plan as rejected;
+  endif
+  :Return success;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

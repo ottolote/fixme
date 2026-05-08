@@ -115,12 +115,12 @@
       <bpmn:outgoing>Flow_14zr9e9</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_02di8sd" />
     </bpmn:startEvent>
-    <bpmn:task id="Activity_0t4lsyi" name="SI3.3 Reject maintenance plan">
+    <bpmn:task id="Activity_0t4lsyi" name="SI3.3 Resolve pending maintenance plan">
       <bpmn:incoming>Flow_14zr9e9</bpmn:incoming>
       <bpmn:outgoing>Flow_0k0f2ka</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_14zr9e9" sourceRef="Event_0wl2kxd" targetRef="Activity_0t4lsyi" />
-    <bpmn:task id="Activity_1tpcl1v" name="SI2.2 Notify customer of rejected maintenance plan">
+    <bpmn:task id="Activity_1tpcl1v" name="SI2.1 Notify user">
       <bpmn:incoming>Flow_0k0f2ka</bpmn:incoming>
       <bpmn:outgoing>Flow_0ekjwqe</bpmn:outgoing>
     </bpmn:task>
@@ -152,7 +152,7 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_0113ym8" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_1kj65s3" sourceRef="Event_1c4ow6v" targetRef="Activity_1m79quw" />
-    <bpmn:task id="Activity_1m79quw" name="SI3.4 Activate maintenance plan">
+    <bpmn:task id="Activity_1m79quw" name="SI3.3 Resolve pending maintenance plan">
       <bpmn:incoming>Flow_1kj65s3</bpmn:incoming>
       <bpmn:outgoing>Flow_0pkds2h</bpmn:outgoing>
     </bpmn:task>

@@ -8,16 +8,11 @@
 | SI1.4 | Set user preferences |
 | SI1.5 | Create pending registration |
 | SI1.6 | Load registration |
-| SI1.7 | Accept registration |
-| SI1.8 | Reject registration |
+| SI1.7 | Resolve pending registration |
 | SI2.1 | Notify user |
-| SI2.2 | Notify customer of rejected maintenance plan |
-| SI2.3 | Notify customer of maintenance slots proposal |
-| SI2.4 | Notify customer of accepted registration |
 | SI3.1 | Match maintenance plan offering |
 | SI3.2 | Create pending maintenance plan |
-| SI3.3 | Reject maintenance plan |
-| SI3.4 | Activate maintenance plan |
+| SI3.3 | Resolve pending maintenance plan |
 | SI3.5 | Cancel maintenance job |
 | SI3.6 | Accept maintenance slots proposal |
 | SI3.7 | Create maintenance job slots proposal |

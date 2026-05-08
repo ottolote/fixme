@@ -1,0 +1,23 @@
+@startuml si1.7-resolve-pending-registration
+title SI1.7 Resolve pending registration
+
+start
+:Receive resolve registration command;
+
+if (resolution request valid?) then ([Yes])
+  :Load pending registration;
+  if (is acceptance?) then ([Yes])
+    :Create or activate registered equipment;
+    :Mark registration as accepted;
+  else ([No, rejection])
+    :Store rejection reason if provided;
+    :Mark registration as rejected;
+  endif
+  :Return success;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

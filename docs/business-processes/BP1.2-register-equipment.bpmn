@@ -83,7 +83,7 @@
       <bpmn:incoming>Flow_16m0pc8</bpmn:incoming>
       <bpmn:outgoing>Flow_0bscyk1</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_00sp4y8" name="SI1.8 Reject registration">
+    <bpmn:task id="Activity_00sp4y8" name="SI1.7 Resolve pending registration">
       <bpmn:incoming>Flow_092a1pf</bpmn:incoming>
       <bpmn:outgoing>Flow_0jd31k3</bpmn:outgoing>
     </bpmn:task>
@@ -95,12 +95,12 @@
       <bpmn:outgoing>Flow_191kc9n</bpmn:outgoing>
       <bpmn:messageEventDefinition id="MessageEventDefinition_0e6w5e1" />
     </bpmn:startEvent>
-    <bpmn:task id="Activity_1edac1s" name="SI1.7 Accept registration">
+    <bpmn:task id="Activity_1edac1s" name="SI1.7 Resolve pending registration">
       <bpmn:incoming>Flow_191kc9n</bpmn:incoming>
       <bpmn:outgoing>Flow_0l5mf0n</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_191kc9n" sourceRef="Event_1nq7wst" targetRef="Activity_1edac1s" />
-    <bpmn:task id="Activity_0lcl5u6" name="SI2.4 Notify customer of accepted registration">
+    <bpmn:task id="Activity_0lcl5u6" name="SI2.1 Notify user">
       <bpmn:incoming>Flow_0l5mf0n</bpmn:incoming>
       <bpmn:outgoing>Flow_1i3fikg</bpmn:outgoing>
     </bpmn:task>
