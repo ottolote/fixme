@@ -1,0 +1,19 @@
+@startuml si5.1-initiate-esigning-for-maintenance-plan
+title SI5.1 Initiate eSigning for maintenance plan
+
+start
+:Receive approved maintenance plan request;
+
+if (maintenance plan can be signed?) then ([Yes])
+  :Load pending maintenance plan;
+  :Generate maintenance plan agreement;
+  :Request signatures; <<sendCommand>>
+  :Store signature order reference;
+  :Return signature request;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml si1.8-reject-registration
+title SI1.8 Reject registration
+
+start
+:Receive reject registration command;
+
+if (pending registration can be rejected?) then ([Yes])
+  :Load pending registration;
+  :Mark registration as rejected;
+  :Store rejection reason if provided;
+  :Return success;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

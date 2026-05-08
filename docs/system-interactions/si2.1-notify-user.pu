@@ -1,0 +1,18 @@
+@startuml si2.1-notify-user
+title SI2.1 Notify user
+
+start
+:Receive notify user command;
+
+if (notification request valid?) then ([Yes])
+  :Resolve recipient and channel;
+  :Render notification content;
+  :Send notification;
+  :Return success;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

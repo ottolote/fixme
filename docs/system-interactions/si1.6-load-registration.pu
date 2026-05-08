@@ -1,0 +1,22 @@
+@startuml si1.6-load-registration
+title SI1.6 Load registration
+
+start
+:Receive load registration request;
+
+if (requester may access registration?) then ([Yes])
+  :Load registration by identifier;
+
+  if (registration exists?) then ([Yes])
+    :Return registration details;
+    stop
+  else ([No])
+    :Return not found;
+    stop
+  endif
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

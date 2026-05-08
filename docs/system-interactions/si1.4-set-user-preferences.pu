@@ -1,0 +1,17 @@
+@startuml si1.4-set-user-preferences
+title SI1.4 Set user preferences
+
+start
+:Receive set preferences command;
+
+if (preferences valid?) then ([Yes])
+  :Load user profile;
+  :Store name and address preferences;
+  :Return success;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

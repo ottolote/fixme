@@ -1,0 +1,23 @@
+@startuml si3.1-match-maintenance-plan-offering
+title SI3.1 Match maintenance plan offering
+
+start
+:Receive maintenance plan enrollment request;
+
+if (equipment is registered and eligible?) then ([Yes])
+  :Load equipment details;
+  :Find matching maintenance plan offerings;
+
+  if (matches found?) then ([Yes])
+    :Return options with pricing;
+    stop
+  else ([No])
+    :Return no match;
+    stop
+  endif
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

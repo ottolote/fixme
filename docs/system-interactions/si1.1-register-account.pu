@@ -1,0 +1,17 @@
+@startuml si1.1-register-account
+title SI1.1 Register account
+
+start
+:Receive register account command;
+
+if (valid email and account not already registered?) then ([Yes])
+  :Create user account in unconfirmed state;
+  :Create email confirmation token;
+  :Return registration accepted;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

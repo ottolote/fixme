@@ -1,0 +1,11 @@
+{
+  "name": "sonat/use-case-mapping",
+  "version": "1.0.0",
+  "private": true,
+  "summary": "Extract and categorize use cases from codebases or requirements/interview notes. Use this skill whenever the user asks to map use cases, extract use cases, what does this system do, analyze codebase for use cases, use case inventory, distill use cases, legacy system analysis, find all use cases, codebase behavior analysis, map out legacy behavior, or what are the use cases. Also trigger when reviewing a legacy system before migration, onboarding to an unfamiliar codebase, or preparing input for volatility-based decomposition. Produces categorized use case tables and call chain traces that feed directly into the volatility-analysis skill.",
+  "skills": {
+    "use-case-mapping": {
+      "path": "SKILL.md"
+    }
+  }
+}

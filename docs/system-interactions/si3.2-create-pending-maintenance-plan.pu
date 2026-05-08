@@ -1,0 +1,17 @@
+@startuml si3.2-create-pending-maintenance-plan
+title SI3.2 Create pending maintenance plan
+
+start
+:Receive selected maintenance plan option;
+
+if (selection valid?) then ([Yes])
+  :Load customer, equipment, and offering;
+  :Create pending maintenance plan;
+  :Return success;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml si2.2-notify-customer-of-rejected-maintenance-plan
+title SI2.2 Notify customer of rejected maintenance plan
+
+start
+:Receive maintenance plan rejected event;
+
+if (event valid?) then ([Yes])
+  :Load customer and rejected maintenance plan;
+  :Render rejection notification;
+  :Send notification to customer;
+  :Return success;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

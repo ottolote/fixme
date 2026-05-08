@@ -1,0 +1,20 @@
+@startuml si3.7-create-maintenance-job-slots-proposal
+title SI3.7 Create maintenance job slots proposal
+
+start
+:Receive maintenance slot request for equipment;
+
+if (equipment has active maintenance plan?) then ([Yes])
+  :Load equipment and maintenance plan;
+  :Find available maintenance job slots;
+  :Reserve proposed job slots;
+  :Create maintenance slots proposal;
+  :Create backoffice confirmation task;
+  :Return success;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml si2.3-notify-customer-of-maintenance-slots-proposal
+title SI2.3 Notify customer of maintenance slots proposal
+
+start
+:Receive confirmed maintenance slots proposal;
+
+if (proposal valid?) then ([Yes])
+  :Load customer and proposed slots;
+  :Render proposal notification;
+  :Send notification to customer;
+  :Return success;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

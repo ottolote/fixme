@@ -1,0 +1,16 @@
+@startuml si1.5-create-pending-registration
+title SI1.5 Create pending registration
+
+start
+:Receive equipment registration submission;
+
+if (customer and equipment data valid?) then ([Yes])
+  :Create pending equipment registration;
+  :Return pending registration;
+  stop
+else ([No])
+  :Return failure;
+  stop
+endif
+
+@enduml

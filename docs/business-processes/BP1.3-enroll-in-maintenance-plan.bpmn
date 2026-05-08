@@ -134,7 +134,7 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_1gz6ynm" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_03rhtn6" sourceRef="Event_1qtz74r" targetRef="Activity_0ujzf10" />
-    <bpmn:task id="Activity_0ujzf10" name="SI 5.1 Initiate eSigning for maintenance plan">
+    <bpmn:task id="Activity_0ujzf10" name="SI5.1 Initiate eSigning for maintenance plan">
       <bpmn:incoming>Flow_03rhtn6</bpmn:incoming>
       <bpmn:outgoing>Flow_0c3kvkm</bpmn:outgoing>
     </bpmn:task>

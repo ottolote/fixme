@@ -1,0 +1,7 @@
+{
+  "name": "tessl/npm-bpmn-moddle",
+  "version": "9.0.0",
+  "docs": "docs/index.md",
+  "describes": "pkg:npm/bpmn-moddle@9.0.3",
+  "summary": "A moddle wrapper for BPMN 2.0 that provides reading and writing of BPMN diagram files"
+}
