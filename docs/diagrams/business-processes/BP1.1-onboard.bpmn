@@ -8,6 +8,10 @@
     <bpmn:messageFlow id="Flow_0qudicd" sourceRef="Activity_13eis6g" targetRef="Event_18qo0zi" />
     <bpmn:messageFlow id="Flow_1klinq1" sourceRef="Activity_1l6qk4t" targetRef="Event_18orvxx" />
     <bpmn:messageFlow id="Flow_1cq9nm8" sourceRef="Event_0bv8m3e" targetRef="Event_05lf1p2" />
+    <bpmn:textAnnotation id="TextAnnotation_1fmj1lx">
+      <bpmn:text>Activation email</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_14okyc2" associationDirection="None" sourceRef="Activity_1dx9p8g" targetRef="TextAnnotation_1fmj1lx" />
   </bpmn:collaboration>
   <bpmn:process id="Process_1onttlf" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1">
@@ -80,21 +84,21 @@
     <bpmn:endEvent id="Event_1t94xw9">
       <bpmn:incoming>Flow_0a4cjkj</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:callActivity id="Activity_0oxudpu" name="SI1.2 Confirm user email">
+    <bpmn:callActivity id="Activity_0oxudpu" name="SI1.2 Confirm customer email">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_17f2qaa</bpmn:incoming>
       <bpmn:outgoing>Flow_0a4cjkj</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="Activity_0q7uv29" name="SI1.3 Update user password">
+    <bpmn:callActivity id="Activity_0q7uv29" name="SI1.3 Update customer password">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0xuwav2</bpmn:incoming>
       <bpmn:outgoing>Flow_1hh3i1z</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="Activity_0xnlvu5" name="SI1.4 Set user preferences">
+    <bpmn:callActivity id="Activity_0xnlvu5" name="SI1.4 Set customer preferences">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>
@@ -107,7 +111,7 @@
     <bpmn:sequenceFlow id="Flow_0xnf0lb" sourceRef="Activity_0xnlvu5" targetRef="Event_0fzk33q" />
     <bpmn:sequenceFlow id="Flow_17f2qaa" sourceRef="Event_18orvxx" targetRef="Activity_0oxudpu" />
     <bpmn:sequenceFlow id="Flow_0a4cjkj" sourceRef="Activity_0oxudpu" targetRef="Event_1t94xw9" />
-    <bpmn:callActivity id="Activity_1dx9p8g" name="SI2.1 Notify user">
+    <bpmn:callActivity id="Activity_1dx9p8g" name="SI2.1 Notify customer">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>
@@ -127,7 +131,7 @@
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0t60qok">
       <bpmndi:BPMNShape id="Participant_0q448c6_di" bpmnElement="Participant_0q448c6" isHorizontal="true">
-        <dc:Bounds x="132" y="80" width="2096" height="260" />
+        <dc:Bounds x="132" y="80" width="2256" height="260" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
@@ -217,6 +221,7 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_10phaf6_di" bpmnElement="Activity_0oxudpu">
         <dc:Bounds x="1250" y="450" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1pfn3i6_di" bpmnElement="Activity_0q7uv29">
         <dc:Bounds x="1650" y="450" width="100" height="80" />
@@ -224,6 +229,7 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_01pber5_di" bpmnElement="Activity_0xnlvu5">
         <dc:Bounds x="2080" y="450" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_00d3da2" bpmnElement="Activity_1dx9p8g">
         <dc:Bounds x="830" y="450" width="100" height="80" />
@@ -269,6 +275,10 @@
         <di:waypoint x="930" y="490" />
         <di:waypoint x="1022" y="490" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_14okyc2_di" bpmnElement="Association_14okyc2">
+        <di:waypoint x="922" y="530" />
+        <di:waypoint x="964" y="570" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_04g6jp0_di" bpmnElement="Flow_04g6jp0">
         <di:waypoint x="530" y="248" />
         <di:waypoint x="530" y="472" />
@@ -276,10 +286,6 @@
       <bpmndi:BPMNEdge id="Flow_0pxp1rp_di" bpmnElement="Flow_0pxp1rp">
         <di:waypoint x="1570" y="248" />
         <di:waypoint x="1570" y="472" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1cq9nm8_di" bpmnElement="Flow_1cq9nm8">
-        <di:waypoint x="1040" y="472" />
-        <di:waypoint x="1040" y="226" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0qudicd_di" bpmnElement="Flow_0qudicd">
         <di:waypoint x="1990" y="248" />
@@ -289,6 +295,14 @@
         <di:waypoint x="1180" y="248" />
         <di:waypoint x="1180" y="472" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1cq9nm8_di" bpmnElement="Flow_1cq9nm8">
+        <di:waypoint x="1040" y="472" />
+        <di:waypoint x="1040" y="226" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1fmj1lx_di" bpmnElement="TextAnnotation_1fmj1lx">
+        <dc:Bounds x="930" y="570" width="100" height="30" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
