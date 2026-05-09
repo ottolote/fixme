@@ -2,8 +2,8 @@
 title SI2.3 Notify customer of maintenance slots proposal
 
 start
-:Consume business event
-Maintenance slots proposal confirmed;
+:Consume event
+Maintenance slots proposal confirmed; <<acceptEvent>>
 
 :Load maintenance slots proposal;
 if (proposal found?) then ([Yes])
@@ -15,27 +15,31 @@ if (proposal found?) then ([Yes])
         :Send notification to customer;
         if (delivery accepted?) then ([Yes])
           :Produce business event
-Maintenance slots proposal notification sent;
-          :Return success;
+Maintenance slots proposal notification sent; <<sendSignal>>
           stop
         else ([No])
-          :Return delivery-failed failure;
+          :Nack event to DLQ <<sendSignal>>
+delivery-failed failure;
           stop
         endif
       else ([No])
-        :Return channel-unavailable failure;
+        :Nack event to DLQ <<sendSignal>>
+channel-unavailable failure;
         stop
       endif
     else ([No])
-      :Return slots-unavailable failure;
+      :Nack event to DLQ <<sendSignal>>
+slots-unavailable failure;
       stop
     endif
   else ([No])
-    :Return proposal-not-confirmed failure;
+    :Nack event to DLQ <<sendSignal>>
+proposal-not-confirmed failure;
     stop
   endif
 else ([No])
-  :Return proposal-not-found failure;
+  :Nack event to DLQ <<sendSignal>>
+proposal-not-found failure;
   stop
 endif
 

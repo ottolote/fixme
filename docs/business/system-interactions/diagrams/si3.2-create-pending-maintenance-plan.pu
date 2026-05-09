@@ -10,7 +10,7 @@ if (selected offering exists?) then ([Yes])
       :Load customer, equipment, and offering;
       :Create pending maintenance plan;
       :Produce business event
-Pending maintenance plan created;
+Pending maintenance plan created; <<sendSignal>>
       :Return success;
       stop
     else ([No])

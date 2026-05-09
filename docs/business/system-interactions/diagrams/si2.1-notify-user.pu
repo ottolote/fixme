@@ -2,8 +2,8 @@
 title SI2.1 Notify user
 
 start
-:Consume business event
-notification-triggering business event;
+:Consume event
+notification-triggering business event; <<acceptEvent>>
 
 if (recipient can be resolved?) then ([Yes])
   if (notification template exists?) then ([Yes])
@@ -14,27 +14,31 @@ if (recipient can be resolved?) then ([Yes])
         :Send notification;
         if (delivery accepted?) then ([Yes])
           :Produce business event
-User notification sent;
-          :Return success;
+User notification sent; <<sendSignal>>
           stop
         else ([No])
-          :Return delivery-failed failure;
+          :Nack event to DLQ <<sendSignal>>
+delivery-failed failure;
           stop
         endif
       else ([No])
-        :Return channel-unavailable failure;
+        :Nack event to DLQ <<sendSignal>>
+channel-unavailable failure;
         stop
       endif
     else ([No])
-      :Return invalid-payload failure;
+      :Nack event to DLQ <<sendSignal>>
+invalid-payload failure;
       stop
     endif
   else ([No])
-    :Return template-not-found failure;
+    :Nack event to DLQ <<sendSignal>>
+template-not-found failure;
     stop
   endif
 else ([No])
-  :Return recipient-resolution failure;
+  :Nack event to DLQ <<sendSignal>>
+recipient-resolution failure;
   stop
 endif
 

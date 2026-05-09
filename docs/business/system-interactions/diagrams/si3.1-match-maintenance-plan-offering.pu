@@ -12,7 +12,7 @@ if (equipment exists?) then ([Yes])
 
       if (matches found?) then ([Yes])
         :Produce business event
-Maintenance plan options matched;
+Maintenance plan options matched; <<sendSignal>>
         :Return options with pricing;
         stop
       else ([No])

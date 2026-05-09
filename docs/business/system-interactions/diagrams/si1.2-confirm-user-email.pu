@@ -12,7 +12,7 @@ if (confirmation token exists?) then ([Yes])
         :Mark email as confirmed;
         :Invalidate confirmation token;
         :Produce business event
-User email confirmed;
+User email confirmed; <<sendSignal>>
         :Return success;
         stop
       else ([No])

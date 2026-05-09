@@ -11,9 +11,9 @@ if (scheduled maintenance job found?) then ([Yes])
       :Mark job as cancelled;
       :Create backoffice task to notify provider;
       :Produce business event
-Maintenance job cancelled;
+Maintenance job cancelled; <<sendSignal>>
       :Produce business event
-Maintenance provider cancellation task created;
+Maintenance provider cancellation task created; <<sendSignal>>
       :Return success;
       stop
     else ([No])

@@ -11,7 +11,7 @@ if (name valid?) then ([Yes])
       if (user profile found?) then ([Yes])
         :Store name and address preferences;
         :Produce business event
-User preferences set;
+User preferences set; <<sendSignal>>
         :Return success;
         stop
       else ([No])

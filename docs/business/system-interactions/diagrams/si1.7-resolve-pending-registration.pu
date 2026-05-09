@@ -12,12 +12,12 @@ if (decision valid?) then ([Yes])
         :Create or activate registered equipment;
         :Mark registration as accepted;
         :Produce business event
-Equipment registration accepted;
+Equipment registration accepted; <<sendSignal>>
       else ([No, rejection])
         :Store rejection reason if provided;
         :Mark registration as rejected;
         :Produce business event
-Equipment registration rejected;
+Equipment registration rejected; <<sendSignal>>
       endif
       :Return success;
       stop

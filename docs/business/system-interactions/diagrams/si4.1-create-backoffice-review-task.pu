@@ -2,8 +2,8 @@
 title SI4.1 Create backoffice task
 
 start
-:Consume business event
-backoffice-work business event;
+:Consume event
+backoffice-work business event; <<acceptEvent>>
 
 if (task type supported?) then ([Yes])
   if (task subject exists?) then ([Yes])
@@ -11,19 +11,21 @@ if (task type supported?) then ([Yes])
       :Create backoffice task;
       :Assign or queue task for backoffice worker;
       :Produce business event
-Backoffice task created;
-      :Return success;
+Backoffice task created; <<sendSignal>>
       stop
     else ([No])
-      :Return duplicate-task failure;
+      :Nack event to DLQ <<sendSignal>>
+duplicate-task failure;
       stop
     endif
   else ([No])
-    :Return subject-not-found failure;
+    :Nack event to DLQ <<sendSignal>>
+subject-not-found failure;
     stop
   endif
 else ([No])
-  :Return unsupported-task-type failure;
+  :Nack event to DLQ <<sendSignal>>
+unsupported-task-type failure;
   stop
 endif
 

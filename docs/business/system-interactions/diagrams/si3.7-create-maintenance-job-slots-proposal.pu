@@ -12,7 +12,7 @@ if (equipment exists?) then ([Yes])
       :Reserve 3 proposed job slots for 24 hours;
       :Create maintenance slots proposal;
       :Produce business event
-Maintenance slots proposal created;
+Maintenance slots proposal created; <<sendSignal>>
       :Return success;
       stop
     else ([No])

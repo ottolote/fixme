@@ -2,8 +2,8 @@
 title SI5.1 Initiate eSigning for maintenance plan
 
 start
-:Consume business event
-Maintenance plan request approved;
+:Consume event
+Maintenance plan request approved; <<acceptEvent>>
 
 :Load pending maintenance plan;
 if (pending maintenance plan found?) then ([Yes])
@@ -14,23 +14,26 @@ if (pending maintenance plan found?) then ([Yes])
       if (eSigning request accepted?) then ([Yes])
         :Store signature order reference;
         :Produce business event
-Maintenance plan signature requested;
-        :Return signature request;
+Maintenance plan signature requested; <<sendSignal>>
         stop
       else ([No])
-        :Return esigning-request-failed failure;
+        :Nack event to DLQ <<sendSignal>>
+esigning-request-failed failure;
         stop
       endif
     else ([No])
-      :Return customer-not-signable failure;
+      :Nack event to DLQ <<sendSignal>>
+customer-not-signable failure;
       stop
     endif
   else ([No])
-    :Return plan-not-approved failure;
+    :Nack event to DLQ <<sendSignal>>
+plan-not-approved failure;
     stop
   endif
 else ([No])
-  :Return plan-not-found failure;
+  :Nack event to DLQ <<sendSignal>>
+plan-not-found failure;
   stop
 endif
 

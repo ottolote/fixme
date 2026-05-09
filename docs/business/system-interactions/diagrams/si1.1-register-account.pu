@@ -12,7 +12,7 @@ if (email valid?) then ([Yes])
     :Create user account in unconfirmed state;
     :Create email confirmation token;
     :Produce business event
-preliminaryUserCreated;
+preliminaryUserCreated; <<sendSignal>>
     :Return registration accepted;
     stop
   endif

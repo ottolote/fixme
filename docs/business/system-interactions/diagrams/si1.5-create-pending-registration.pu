@@ -9,7 +9,7 @@ if (customer may register equipment?) then ([Yes])
     if (equipment data valid for type?) then ([Yes])
       :Create pending equipment registration;
       :Produce business event
-Pending equipment registration created;
+Pending equipment registration created; <<sendSignal>>
       :Return pending registration;
       stop
     else ([No])

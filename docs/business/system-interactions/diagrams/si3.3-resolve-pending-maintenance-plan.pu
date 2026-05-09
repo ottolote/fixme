@@ -2,8 +2,8 @@
 title SI3.3 Resolve pending maintenance plan
 
 start
-:Consume business event
-Maintenance plan request rejected or agreement signed;
+:Consume event
+Maintenance plan request rejected or agreement signed; <<acceptEvent>>
 
 if (resolution outcome valid?) then ([Yes])
   :Load pending maintenance plan;
@@ -14,31 +14,33 @@ if (resolution outcome valid?) then ([Yes])
           :Attach customer-signed agreement;
           :Mark maintenance plan as active;
           :Produce business event
-Maintenance plan activated;
-          :Return success;
+Maintenance plan activated; <<sendSignal>>
           stop
         else ([No])
-          :Return missing-signature-evidence failure;
+          :Nack event to DLQ <<sendSignal>>
+missing-signature-evidence failure;
           stop
         endif
       else ([No, rejection])
         :Store rejection reason if provided;
         :Mark maintenance plan as rejected;
         :Produce business event
-Maintenance plan rejected;
-        :Return success;
+Maintenance plan rejected; <<sendSignal>>
         stop
       endif
     else ([No])
-      :Return already-resolved failure;
+      :Nack event to DLQ <<sendSignal>>
+already-resolved failure;
       stop
     endif
   else ([No])
-    :Return plan-not-found failure;
+    :Nack event to DLQ <<sendSignal>>
+plan-not-found failure;
     stop
   endif
 else ([No])
-  :Return invalid-outcome failure;
+  :Nack event to DLQ <<sendSignal>>
+invalid-outcome failure;
   stop
 endif
 
