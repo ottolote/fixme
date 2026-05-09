@@ -43,5 +43,5 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| Should approval before eSigning be represented as a separate status from active, such as `approved_pending_signature`? | Open. The diagram only resolves rejection or activation after agreement signature. |
-| Should activation notify the user explicitly, or is returning the active maintenance plan enough? | Open. The BPMN returns the active maintenance plan but does not show a separate activation notification. |
+| Should approval before eSigning be represented as a separate status from active, such as `approved_pending_signature`? | Answered. Yes. Use an approved-pending-signature state after backoffice approval and before customer signature so the plan is not treated as active until signed evidence is attached. |
+| Should activation notify the user explicitly, or is returning the active maintenance plan enough? | Answered. Returning the active maintenance plan is enough for the synchronous signing flow. Add a notification later only if activation can happen asynchronously without the customer already being present. |

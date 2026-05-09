@@ -36,4 +36,4 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| Should this stay as a dedicated `SI2.3`, or should it be merged into generic `SI2.1 Notify user` with a specific template and event type? | Open. The BPMN models this as a distinct interaction, while its steps resemble the generic notification interaction. |
+| Should this stay as a dedicated `SI2.3`, or should it be merged into generic `SI2.1 Notify user` with a specific template and event type? | Answered. Keep `SI2.3` as a dedicated business-facing interaction because it validates proposal state and reserved slot availability before notifying. It can reuse the same notification delivery capability as `SI2.1`. |

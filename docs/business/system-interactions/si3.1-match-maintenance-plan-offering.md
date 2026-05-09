@@ -36,5 +36,5 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| The BPMN only shows the `Match? yes` path. What should the system return when no maintenance plan offering matches? | Open. The PlantUML adds a no-match return path, but the BPMN does not show the downstream behavior. |
+| The BPMN only shows the `Match? yes` path. What should the system return when no maintenance plan offering matches? | Answered. Return a successful no-match result with no options, not a system failure. The customer cannot continue to plan selection until at least one matching offering exists. |
 | Which equipment attributes drive matching and pricing? | Open. The diagram loads equipment details but does not list matching or pricing inputs. |

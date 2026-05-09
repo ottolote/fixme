@@ -43,4 +43,4 @@ Produced:
 | Question | Answer |
 |---|---|
 | When accepting, should the system create a new equipment record every time, or can it link the registration to an existing equipment record? | Open. The diagram intentionally says create or activate registered equipment. |
-| What should happen if the backoffice worker resolves a registration that was already accepted or rejected? | Open. The diagram validates the resolution request but does not define idempotency or conflict handling. |
+| What should happen if the backoffice worker resolves a registration that was already accepted or rejected? | Answered. Return `already-resolved` as a conflict failure, because the steps already require checking that the registration is still pending before applying a decision. |

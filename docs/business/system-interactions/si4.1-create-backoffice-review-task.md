@@ -38,4 +38,4 @@ Produced:
 | Question | Answer |
 |---|---|
 | What assignment rules decide which backoffice worker receives the task? | Open. The diagram assigns or queues the task but does not specify routing rules. |
-| Should task type names be standardized as explicit enum values in the system interaction contract? | Open. The BPMNs imply task types but do not define a canonical enum. |
+| Should task type names be standardized as explicit enum values in the system interaction contract? | Answered. Yes. Standardize task type enum values in the interaction contract, starting with `maintenance_plan_review` and `maintenance_slots_proposal_confirmation`. |

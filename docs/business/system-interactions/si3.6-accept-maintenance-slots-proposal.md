@@ -36,5 +36,5 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| Does “removes reserved job slots in proposal” mean releasing all non-selected slots or deleting the proposal entirely? | Open. The BPMN annotation confirms reserved slots are removed, but not whether the proposal record remains. |
-| How should the system handle a slot that expired or was accepted concurrently? | Open. The diagram validates the proposal and selected slot but does not define concurrency behavior. |
+| Does “removes reserved job slots in proposal” mean releasing all non-selected slots or deleting the proposal entirely? | Answered. Keep the proposal record for audit/history, schedule the selected slot, and release all non-selected reserved slots. |
+| How should the system handle a slot that expired or was accepted concurrently? | Answered. Treat acceptance as an atomic operation. If the selected slot is expired or no longer available at commit time, return `selected-slot-unavailable` and do not schedule the job. |

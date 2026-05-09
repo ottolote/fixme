@@ -33,5 +33,5 @@ Produced:
 | Question | Answer |
 |---|---|
 | Which business process should invoke `SI1.6 Load registration`? | Open. No direct call activity for this interaction was found in the BPMN files. |
-| Is this intended for the customer, the backoffice worker, or both? | Open. The diagram only models requester authorization, not requester roles. |
-| Should it return pending, accepted, and rejected registrations, or only pending registrations? | Open. The diagram returns registration details but does not restrict registration states. |
+| Is this intended for the customer, the backoffice worker, or both? | Answered. Both roles should be supported through authorization: customers can load their own registrations, and backoffice workers can load registrations assigned to or visible from their review queue. |
+| Should it return pending, accepted, and rejected registrations, or only pending registrations? | Answered. Return pending, accepted, and rejected registrations when the caller is authorized, because this is a lookup interaction rather than a pending-only review command. |

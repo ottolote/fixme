@@ -37,4 +37,4 @@ Produced:
 | Question | Answer |
 |---|---|
 | Should confirming an already-confirmed email be treated as success for idempotency? | Open. The current flow only distinguishes valid and invalid tokens. |
-| What user-facing result is expected when the confirmation token is expired? | Open. The diagram returns failure for invalid tokens but does not distinguish expiry. |
+| What user-facing result is expected when the confirmation token is expired? | Answered. Return an expired-token failure, because the interaction already performs a separate expiry check. The UI should guide the user to request a new confirmation email. |

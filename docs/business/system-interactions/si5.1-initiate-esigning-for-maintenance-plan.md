@@ -35,5 +35,5 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| Does the eSigning reference model map directly to `../references/use-cases/uc2.1-request-signatures.pu`? | Open. The system interaction references the eSigning capability, but the exact mapping is not confirmed in this diagram. |
-| Is the signed agreement document stored by this interaction, or only later by `SI3.3 Resolve pending maintenance plan` after the customer signs? | Open. This interaction stores the signature order reference; `SI3.3 Resolve pending maintenance plan` attaches the customer-signed agreement. |
+| Does the eSigning reference model map directly to `../references/use-cases/uc2.1-request-signatures.pu`? | Answered. Yes. This interaction is the maintenance-plan-specific use of that generic eSigning capability: generate agreement, request the customer signature, and store the signature order reference. |
+| Is the signed agreement document stored by this interaction, or only later by `SI3.3 Resolve pending maintenance plan` after the customer signs? | Answered. Store only the signature order reference here. Store or link the signed agreement later in `SI3.3 Resolve pending maintenance plan` when signed evidence is received. |

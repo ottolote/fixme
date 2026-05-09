@@ -34,5 +34,5 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| Should pricing be locked when the pending plan is created? | Open. The diagram creates the pending plan but does not define price-locking behavior. |
-| Can a customer have more than one pending maintenance plan for the same equipment? | Open. The selection validation step does not specify duplicate pending-plan rules. |
+| Should pricing be locked when the pending plan is created? | Answered. Lock the selected offering price when the pending plan is created so backoffice review, agreement generation, and eSigning use the same commercial terms the customer selected. |
+| Can a customer have more than one pending maintenance plan for the same equipment? | Answered. No. Reject a second pending or active maintenance plan for the same equipment to avoid duplicate review tasks, duplicate agreements, and ambiguous coverage. |

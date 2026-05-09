@@ -43,5 +43,5 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| Should failed notification delivery fail the registration flow or be retried asynchronously? | Open. The diagram nacks synchronously failed event processing to the DLQ but does not define retry behavior before DLQ. |
-| Are all notifications email-only for now, or should the request already support a channel field for future SMS or in-app messages? | Open. The diagram resolves a channel but does not define supported channel types. |
+| Should failed notification delivery fail the registration flow or be retried asynchronously? | Answered. Do not fail the originating registration or business flow; notifications are event-driven. Retry delivery asynchronously according to queue policy, then send unrecoverable failures to the DLQ. |
+| Are all notifications email-only for now, or should the request already support a channel field for future SMS or in-app messages? | Answered. Email is the only supported channel for now. Keep the interaction's channel resolution step so SMS or in-app delivery can be added later without splitting the interaction. |

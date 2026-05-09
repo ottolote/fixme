@@ -40,4 +40,4 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| Should the 24-hour reservation timeout be configurable per equipment type, provider, or market? | Open. The diagram uses a 24-hour reservation period as the documented default. |
+| Should the 24-hour reservation timeout be configurable per equipment type, provider, or market? | Answered. Keep 24 hours as the global default. Do not add per-equipment, provider, or market configuration until a concrete business rule requires it. |
