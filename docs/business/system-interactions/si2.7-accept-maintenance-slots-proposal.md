@@ -1,4 +1,4 @@
-# SI3.6 Accept maintenance slots proposal
+# SI2.7 Accept maintenance slots proposal
 
 ## Flow
 

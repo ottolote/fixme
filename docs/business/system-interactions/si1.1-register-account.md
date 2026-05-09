@@ -4,7 +4,7 @@
 
 Source: `BP1.1-onboard.bpmn`.
 
-The user enters an email address and clicks **Register**. The system receives the registration request from the client browser, validates the email format, and checks whether a user already exists for that email. If the user is already confirmed, the system returns `user-exists`. If the user is unconfirmed, the system refreshes the confirmation token and accepts the registration request. Otherwise, it creates an unconfirmed user account, creates a 24-hour email confirmation token, and returns that registration was accepted. The BPMN then continues with `SI2.1 Notify user` to send the activation email.
+The user enters an email address and clicks **Register**. The system receives the registration request from the client browser, validates the email format, and checks whether a user already exists for that email. If the user is already confirmed, the system returns `user-exists`. If the user is unconfirmed, the system refreshes the confirmation token and accepts the registration request. Otherwise, it creates an unconfirmed user account, creates a 24-hour email confirmation token, and returns that registration was accepted. The BPMN then continues with `SI3.1 Notify user` to send the activation email.
 
 ## Steps
 

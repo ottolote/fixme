@@ -1,5 +1,5 @@
-@startuml si3.1-match-maintenance-plan-offering
-title SI3.1 Match maintenance plan offering
+@startuml si2.1-match-maintenance-plan-offering
+title SI2.1 Match maintenance plan offering
 
 start
 :Receive maintenance plan enrollment request;

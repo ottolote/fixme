@@ -1,5 +1,5 @@
-@startuml si3.3-resolve-pending-maintenance-plan
-title SI3.3 Resolve pending maintenance plan
+@startuml si2.3-resolve-pending-maintenance-plan
+title SI2.3 Resolve pending maintenance plan
 
 start
 :Consume event

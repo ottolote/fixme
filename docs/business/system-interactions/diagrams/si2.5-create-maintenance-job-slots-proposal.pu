@@ -1,5 +1,5 @@
-@startuml si3.7-create-maintenance-job-slots-proposal
-title SI3.7 Create maintenance job slots proposal
+@startuml si2.5-create-maintenance-job-slots-proposal
+title SI2.5 Create maintenance job slots proposal
 
 start
 :Receive maintenance-slot request;

@@ -137,14 +137,14 @@
       <bpmn:incoming>Flow_0phq3sr</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_0phq3sr" sourceRef="Activity_0wj1we7" targetRef="Event_0k1sule" />
-    <bpmn:callActivity id="Activity_0f5lxm8" name="SI3.1 Match maintenance plan offering">
+    <bpmn:callActivity id="Activity_0f5lxm8" name="SI2.1 Match maintenance plan offering">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_18drn1t</bpmn:incoming>
       <bpmn:outgoing>Flow_1fd5dsj</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="Activity_1jubxnh" name="SI3.2 Create pending maintenance plan">
+    <bpmn:callActivity id="Activity_1jubxnh" name="SI2.2 Create pending maintenance plan">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>
@@ -158,28 +158,28 @@
       <bpmn:incoming>Flow_02xxgk0</bpmn:incoming>
       <bpmn:outgoing>Flow_0gqmfwz</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="Activity_0t4lsyi" name="SI3.3 Resolve pending maintenance plan">
+    <bpmn:callActivity id="Activity_0t4lsyi" name="SI2.3 Resolve pending maintenance plan">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_14zr9e9</bpmn:incoming>
       <bpmn:outgoing>Flow_0k0f2ka</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="Activity_1tpcl1v" name="SI2.1 Notify user">
+    <bpmn:callActivity id="Activity_1tpcl1v" name="SI3.1 Notify user">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0k0f2ka</bpmn:incoming>
       <bpmn:outgoing>Flow_0ekjwqe</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="Activity_0ujzf10" name="SI5.1 Initiate eSigning for maintenance plan">
+    <bpmn:callActivity id="Activity_0ujzf10" name="SI2.4 Initiate eSigning for maintenance plan">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_03rhtn6</bpmn:incoming>
       <bpmn:outgoing>Flow_0c3kvkm</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="Activity_1m79quw" name="SI3.3 Resolve pending maintenance plan">
+    <bpmn:callActivity id="Activity_1m79quw" name="SI2.3 Resolve pending maintenance plan">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>

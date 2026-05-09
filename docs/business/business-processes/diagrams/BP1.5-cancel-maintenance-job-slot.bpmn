@@ -9,7 +9,6 @@
     <bpmn:textAnnotation id="TextAnnotation_0xnlxdm">
       <bpmn:text>Creates a backoffice task</bpmn:text>
     </bpmn:textAnnotation>
-    <bpmn:association id="Association_028eo8m" associationDirection="None" sourceRef="Activity_0f5lxm8" targetRef="TextAnnotation_0xnlxdm" />
   </bpmn:collaboration>
   <bpmn:process id="Process_1onttlf" isExecutable="true">
     <bpmn:startEvent id="StartEvent_1">
@@ -31,17 +30,26 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_1m8tnt7" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_18drn1t" sourceRef="Event_0kfsi86" targetRef="Activity_0f5lxm8" />
-    <bpmn:endEvent id="Event_0fncd3l">
-      <bpmn:incoming>Flow_0q920v8</bpmn:incoming>
-    </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_0q920v8" sourceRef="Activity_0f5lxm8" targetRef="Event_0fncd3l" />
-    <bpmn:callActivity id="Activity_0f5lxm8" name="SI3.5 Cancel maintenance job">
+    <bpmn:sequenceFlow id="Flow_0q920v8" sourceRef="Activity_0f5lxm8" targetRef="Activity_0cancelnotify" />
+    <bpmn:sequenceFlow id="Flow_0cancelend" sourceRef="Activity_0cancelnotify" targetRef="Event_0fncd3l" />
+    <bpmn:callActivity id="Activity_0f5lxm8" name="SI2.8 Cancel maintenance job">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_18drn1t</bpmn:incoming>
       <bpmn:outgoing>Flow_0q920v8</bpmn:outgoing>
     </bpmn:callActivity>
+    <bpmn:callActivity id="Activity_0cancelnotify" name="SI4.1 Create backoffice task">
+      <bpmn:extensionElements>
+        <zeebe:calledElement propagateAllChildVariables="false" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0q920v8</bpmn:incoming>
+      <bpmn:outgoing>Flow_0cancelend</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:endEvent id="Event_0fncd3l">
+      <bpmn:incoming>Flow_0cancelend</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:association id="Association_028eo8m" associationDirection="None" sourceRef="Activity_0cancelnotify" targetRef="TextAnnotation_0xnlxdm" />
   </bpmn:process>
   <bpmn:process id="Process_16iadro" isExecutable="false">
     <bpmn:task id="Activity_12kopo0" name="Notify maintenance provider of cancellation">
@@ -89,19 +97,30 @@
       <bpmndi:BPMNShape id="Event_04v6824_di" bpmnElement="Event_0kfsi86">
         <dc:Bounds x="362" y="472" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0fncd3l_di" bpmnElement="Event_0fncd3l">
-        <dc:Bounds x="602" y="472" width="36" height="36" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1jyk03h_di" bpmnElement="Activity_0f5lxm8">
         <dc:Bounds x="450" y="450" width="100" height="80" />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0cancelnotify_di" bpmnElement="Activity_0cancelnotify">
+        <dc:Bounds x="640" y="450" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0fncd3l_di" bpmnElement="Event_0fncd3l">
+        <dc:Bounds x="832" y="472" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_028eo8m_di" bpmnElement="Association_028eo8m">
+        <di:waypoint x="530" y="490" />
+        <di:waypoint x="583" y="411" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_18drn1t_di" bpmnElement="Flow_18drn1t">
         <di:waypoint x="398" y="490" />
         <di:waypoint x="450" y="490" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0q920v8_di" bpmnElement="Flow_0q920v8">
         <di:waypoint x="550" y="490" />
-        <di:waypoint x="602" y="490" />
+        <di:waypoint x="640" y="490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0cancelend_di" bpmnElement="Flow_0cancelend">
+        <di:waypoint x="740" y="490" />
+        <di:waypoint x="832" y="490" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="BPMNShape_150z6vb" bpmnElement="Participant_0h3ddn7" isHorizontal="true">
         <dc:Bounds x="132" y="640" width="1418" height="262" />
@@ -125,10 +144,10 @@
         <di:waypoint x="670" y="772" />
         <di:waypoint x="722" y="772" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_028eo8m_di" bpmnElement="Association_028eo8m">
-        <di:waypoint x="538" y="450" />
-        <di:waypoint x="575" y="411" />
-      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0xnlxdm_di" bpmnElement="TextAnnotation_0xnlxdm">
+        <dc:Bounds x="550" y="370" width="100" height="41" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_04g6jp0_di" bpmnElement="Flow_04g6jp0">
         <di:waypoint x="380" y="248" />
         <di:waypoint x="380" y="472" />
@@ -137,10 +156,6 @@
         <di:waypoint x="500" y="530" />
         <di:waypoint x="500" y="754" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_0xnlxdm_di" bpmnElement="TextAnnotation_0xnlxdm">
-        <dc:Bounds x="550" y="370" width="100" height="41" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>

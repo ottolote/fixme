@@ -1,4 +1,4 @@
-# SI2.1 Notify user
+# SI3.1 Notify user
 
 ## Flow
 
@@ -6,7 +6,7 @@ Sources: `BP1.1-onboard.bpmn`, `BP1.2-register-equipment.bpmn`, `BP1.3-enroll-in
 
 The BPMNs use this as a generic user notification interaction. In onboarding, it sends the activation link after `SI1.1 Register account`. In equipment registration, it notifies the customer after an accepted equipment registration. In maintenance-plan enrollment, it notifies the customer after a rejected plan request. In maintenance-job scheduling, it notifies the customer after a maintenance slots proposal is confirmed.
 
-The system consumes a notification-triggering business event, validates the notification request data in separate checks, resolves the recipient and channel, renders the message content using the supplied template name or template ID, and sends it. For maintenance slots proposal notifications, the event payload must identify a confirmed proposal with active reserved slots so the template can render selectable options. Successful processing emits the appropriate notification-sent event. Invalid or synchronously failed event processing is nacked to the DLQ. Email is the primary modeled channel; other channels can be added as delivery details without splitting this into separate system interactions.
+The system consumes a notification-triggering business event, validates the notification request data in separate checks, resolves the recipient and channel, renders the message content using the supplied template name or template ID, and sends it. For maintenance slots proposal notifications, the event payload must identify a confirmed proposal with active reserved slots so the template can render selectable options. Successful processing emits a generic notification-sent event with a notification type in the event payload. Invalid or synchronously failed event processing is nacked to the DLQ. Email is the primary modeled channel; other channels can be added as delivery details without splitting this into separate system interactions.
 
 ## Steps
 
@@ -36,10 +36,7 @@ Consumed:
 - `Maintenance slots proposal confirmed` to send the maintenance-slots-proposal notification.
 
 Produced:
-- `Activation notification sent`.
-- `Accepted equipment registration notification sent`.
-- `Rejected maintenance plan notification sent`.
-- `Maintenance slots proposal notification sent`.
+- `User notification sent`, with a notification type such as `activation`, `accepted_equipment_registration`, `rejected_maintenance_plan`, or `maintenance_slots_proposal`.
 
 ## Questions / Answers
 

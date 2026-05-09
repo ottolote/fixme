@@ -70,7 +70,7 @@
       <bpmn:incoming>Flow_18drn1t</bpmn:incoming>
       <bpmn:outgoing>Flow_05y400j</bpmn:outgoing>
     </bpmn:callActivity>
-    <bpmn:callActivity id="Activity_1dx9p8g" name="SI2.1 Notify user">
+    <bpmn:callActivity id="Activity_1dx9p8g" name="SI3.1 Notify user">
       <bpmn:extensionElements>
         <zeebe:calledElement propagateAllChildVariables="false" />
       </bpmn:extensionElements>

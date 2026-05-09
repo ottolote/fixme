@@ -1,5 +1,5 @@
-@startuml si2.1-notify-user
-title SI2.1 Notify user
+@startuml si3.1-notify-user
+title SI3.1 Notify user
 
 start
 :Consume event

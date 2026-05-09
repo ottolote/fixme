@@ -2,11 +2,11 @@
 
 ## Flow
 
-Sources: `BP1.3-enroll-in-maintenance-plan.bpmn` and `BP1.4-schedule-maintenance-job.bpmn`.
+Sources: `BP1.2-register-equipment.bpmn`, `BP1.3-enroll-in-maintenance-plan.bpmn`, `BP1.4-schedule-maintenance-job.bpmn`, and `BP1.5-cancel-maintenance-job-slot.bpmn`.
 
 This interaction formalizes creation of backoffice work across BPMNs. The system consumes a business event that requires backoffice work, validates the referenced subject and task type in separate checks, creates the task, and queues it in the relevant maintenance provider's work pile. Successful processing emits a task-created event. Invalid event processing is nacked to the DLQ.
 
-Known task types from the BPMNs are maintenance plan review and maintenance slots proposal confirmation. Equipment registration review is started directly by `SI1.5 Create pending registration`, and maintenance provider cancellation notification is created directly by `SI3.5 Cancel maintenance job`. For maintenance slots, the backoffice worker confirms with the maintenance provider that the proposed slots are acceptable before the customer is notified.
+Known task types from the BPMNs are equipment registration review, maintenance plan review, maintenance slots proposal confirmation, and maintenance provider cancellation notification. Task creation is formalized through this TaskingManager interaction rather than being created directly by the domain interactions. For maintenance slots, the backoffice worker confirms with the maintenance provider that the proposed slots are acceptable before the customer is notified.
 
 ## Steps
 
@@ -26,16 +26,20 @@ Known task types from the BPMNs are maintenance plan review and maintenance slot
 ## Business Events
 
 Consumed:
+- `Pending equipment registration created` to create an equipment registration review task.
 - `Pending maintenance plan created` to create a maintenance plan review task.
 - `Maintenance slots proposal created` to create a maintenance slots proposal confirmation task.
+- `Maintenance job cancelled` to create a maintenance provider cancellation notification task.
 
 Produced:
+- `Equipment registration review task created`.
 - `Maintenance plan review task created`.
 - `Maintenance slots proposal confirmation task created`.
+- `Maintenance provider cancellation task created`.
 
 ## Questions / Answers
 
 | Question | Answer |
 |---|---|
 | What assignment rules decide which backoffice worker receives the task? | Answered. Do not assign tasks to individual workers initially. Route work to the relevant maintenance provider's shared pile and let provider/backoffice staff pick it up. |
-| Should task type names be standardized as explicit enum values in the system interaction contract? | Answered. Yes. Standardize task type enum values in the interaction contract, starting with `maintenance_plan_review` and `maintenance_slots_proposal_confirmation`. |
+| Should task type names be standardized as explicit enum values in the system interaction contract? | Answered. Yes. Standardize task type enum values in the interaction contract, starting with `equipment_registration_review`, `maintenance_plan_review`, `maintenance_slots_proposal_confirmation`, and `maintenance_provider_cancellation_notification`. |

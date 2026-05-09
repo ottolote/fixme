@@ -1,5 +1,5 @@
-@startuml si5.1-initiate-esigning-for-maintenance-plan
-title SI5.1 Initiate eSigning for maintenance plan
+@startuml si2.4-initiate-esigning-for-maintenance-plan
+title SI2.4 Initiate eSigning for maintenance plan
 
 start
 :Consume event

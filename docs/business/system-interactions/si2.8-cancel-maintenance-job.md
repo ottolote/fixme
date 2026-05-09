@@ -1,10 +1,10 @@
-# SI3.5 Cancel maintenance job
+# SI2.8 Cancel maintenance job
 
 ## Flow
 
 Source: `BP1.5-cancel-maintenance-job-slot.bpmn`.
 
-The customer cancels a selected maintenance job slot. The system receives the cancellation request from the client browser, validates the job and the 24-hour cancellation cutoff in separate checks, marks it as cancelled, creates a provider-pile backoffice task, and returns success. The BPMN then shows a backoffice worker notifying the maintenance provider of the cancellation.
+The customer cancels a selected maintenance job slot. The system receives the cancellation request from the client browser, validates the job and the 24-hour cancellation cutoff in separate checks, marks it as cancelled, emits a cancellation event, and returns success. The BPMN then calls `SI4.1 Create backoffice task` so a backoffice worker can notify the maintenance provider of the cancellation.
 
 ## Steps
 
@@ -18,10 +18,8 @@ The customer cancels a selected maintenance job slot. The system receives the ca
 | 4 | Check whether cancellation is more than 24 hours before start | Validates the customer self-service cancellation cutoff. |
 | 4a | Return cancellation-not-allowed failure | Returns an error when the job starts within 24 hours and customer self-service cancellation is not allowed. |
 | 5 | Mark job as cancelled | Updates the job status to cancelled. |
-| 6 | Create provider-pile backoffice task to notify provider | Creates manual provider-notification work in the relevant maintenance provider's shared pile. |
-| 7 | Produce business event: `Maintenance job cancelled` | Publishes that the job was cancelled. |
-| 8 | Produce business event: `Maintenance provider cancellation task created` | Publishes that provider-notification work was created. |
-| 9 | Return success | Returns a successful cancellation response. |
+| 6 | Produce business event: `Maintenance job cancelled` | Publishes that the job was cancelled and provider-notification work is required. |
+| 7 | Return success | Returns a successful cancellation response. |
 
 ## Business Events
 
@@ -29,12 +27,11 @@ Consumed:
 - Maintenance job cancellation request from the client browser after the customer cancels the selected scheduled slot.
 
 Produced:
-- `Maintenance job cancelled` after the scheduled job is marked cancelled.
-- `Maintenance provider cancellation task created`, which starts the backoffice provider-notification flow in `BP1.5-cancel-maintenance-job-slot.bpmn`.
+- `Maintenance job cancelled` after the scheduled job is marked cancelled, followed by `SI4.1 Create backoffice task` for provider-notification work.
 
 ## Questions / Answers
 
 | Question | Answer |
 |---|---|
 | What cancellation rules apply, such as cut-off times or cancellation fees? | Answered. Allow free cancellation until 24 hours before the scheduled start. Within 24 hours, reject customer self-service cancellation and route the customer to support/backoffice handling. No cancellation fees are modeled initially. |
-| Should the maintenance provider notification be manual only, or should the system also notify the provider directly? | Answered. Keep provider notification manual initially. Create a backoffice task routed to the relevant maintenance provider's pile, and let backoffice/provider staff handle the notification outside the system. |
+| Should the maintenance provider notification be manual only, or should the system also notify the provider directly? | Answered. Keep provider notification manual initially. Emit a cancellation event, create a backoffice task through `SI4.1 Create backoffice task`, and let backoffice/provider staff handle the notification outside the system. |

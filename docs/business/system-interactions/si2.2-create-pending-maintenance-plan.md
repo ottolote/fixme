@@ -1,4 +1,4 @@
-# SI3.2 Create pending maintenance plan
+# SI2.2 Create pending maintenance plan
 
 ## Flow
 
@@ -31,7 +31,7 @@ Consumed:
 - Selected-plan request from the client browser after the user picks one of the returned plan options.
 
 Produced:
-- `Pending maintenance plan created`, which is followed by `SI4.1 Create backoffice task` for review.
+- `Pending maintenance plan created`, followed by `SI4.1 Create backoffice task` for review.
 
 ## Questions / Answers
 

@@ -28,6 +28,36 @@ StaticAspect {
   MessageBusUtility
 }
 
+UseCase "Register Account" {
+    CustomerWebClient - RegisterAccountResponse RegisterAccount(RegisterAccountRequest) > MembershipManager
+    MembershipManager - Customer Filter(CustomerCriteria) > CustomerAccess
+    CustomerAccess -> CustomerResource
+    MembershipManager - Customer Store(Customer) > CustomerAccess
+    CustomerAccess -> CustomerResource
+    MembershipManager - NotifyUserResponse NotifyUser(NotifyUserRequest) :q> NotificationManager
+}
+UseCase "Confirm User Email" {
+    CustomerWebClient - ConfirmUserEmailResponse ConfirmUserEmail(ConfirmUserEmailRequest) > MembershipManager
+    MembershipManager - Customer Filter(CustomerCriteria) > CustomerAccess
+    CustomerAccess -> CustomerResource
+    MembershipManager - Customer Store(Customer) > CustomerAccess
+    CustomerAccess -> CustomerResource
+}
+UseCase "Update User Password" {
+    CustomerWebClient - UpdateUserPasswordResponse UpdateUserPassword(UpdateUserPasswordRequest) > MembershipManager
+    MembershipManager - Customer Filter(CustomerCriteria) > CustomerAccess
+    CustomerAccess -> CustomerResource
+    MembershipManager - Customer Store(Customer) > CustomerAccess
+    CustomerAccess -> CustomerResource
+    MembershipManager - HashResponse HashPassword(HashPasswordRequest) > SecurityUtility
+}
+UseCase "Set User Preferences" {
+    CustomerWebClient - SetUserPreferencesResponse SetUserPreferences(SetUserPreferencesRequest) > MembershipManager
+    MembershipManager - Customer Filter(CustomerCriteria) > CustomerAccess
+    CustomerAccess -> CustomerResource
+    MembershipManager - Customer Store(Customer) > CustomerAccess
+    CustomerAccess -> CustomerResource
+}
 UseCase "Create Pending Registration" {
     CustomerWebClient - PendingRegistration CreatePendingRegistration(CreatePendingRegistrationRequest) > MembershipManager
     MembershipManager - Customer Filter(CustomerCriteria) > CustomerAccess
@@ -74,9 +104,11 @@ UseCase "Create Backoffice Task" {
     TaskAccess -> TaskResource
 }
 UseCase "Resolve Pending Maintenance Plan" {
-    BackofficeClient - ResolvePendingMaintenancePlanResponse ResolvePendingMaintenancePlan(ResolvePendingMaintenancePlanRequest) > MaintenanceManager
+    MessageBusUtility - ResolvePendingMaintenancePlanResponse ResolvePendingMaintenancePlan(ResolvePendingMaintenancePlanRequest) > MaintenanceManager
     MaintenanceManager - MaintenancePlan MaintenancePlanFilter(MaintenancePlanCriteria) > MaintenanceAccess
     MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - Agreement Filter(AgreementCriteria) > AgreementAccess
+    AgreementAccess -> AgreementResource
     MaintenanceManager - MaintenancePlan MaintenancePlanStore(MaintenancePlan) > MaintenanceAccess
     MaintenanceAccess -> MaintenanceResource
     MaintenanceManager - NotifyUserResponse NotifyUser(NotifyUserRequest) :q> NotificationManager
@@ -89,17 +121,6 @@ UseCase "Initiate ESigning For Maintenance Plan" {
     AgreementAccess -> AgreementResource
     MaintenanceManager - SignatureRequest SignatureRequestStore(SignatureRequest) > ESigningAccess
     ESigningAccess -> ExternalESigningResource
-    MaintenanceManager - MaintenancePlan MaintenancePlanStore(MaintenancePlan) > MaintenanceAccess
-    MaintenanceAccess -> MaintenanceResource
-}
-UseCase "Activate Signed Maintenance Plan" {
-    CustomerWebClient - ResolvePendingMaintenancePlanResponse ResolvePendingMaintenancePlan(ResolvePendingMaintenancePlanRequest) > MaintenanceManager
-    MaintenanceManager - MaintenancePlan MaintenancePlanFilter(MaintenancePlanCriteria) > MaintenanceAccess
-    MaintenanceAccess -> MaintenanceResource
-    MaintenanceManager - Agreement Filter(AgreementCriteria) > AgreementAccess
-    AgreementAccess -> AgreementResource
-    MaintenanceManager - Agreement Store(Agreement) > AgreementAccess
-    AgreementAccess -> AgreementResource
     MaintenanceManager - MaintenancePlan MaintenancePlanStore(MaintenancePlan) > MaintenanceAccess
     MaintenanceAccess -> MaintenanceResource
 }
@@ -118,15 +139,12 @@ UseCase "Create Maintenance Job Slots Proposal" {
     MaintenanceAccess -> MaintenanceResource
     MaintenanceManager - CreateBackofficeTaskResponse CreateBackofficeTask(CreateBackofficeTaskRequest) :q> TaskingManager
 }
-UseCase "Confirm Maintenance Provider Slots" {
-    BackofficeClient - ConfirmMaintenanceProviderSlotsResponse ConfirmMaintenanceProviderSlots(ConfirmMaintenanceProviderSlotsRequest) > TaskingManager
-    TaskingManager - Task Filter(TaskCriteria) > TaskAccess
-    TaskAccess -> TaskResource
-    TaskingManager - Task Store(Task) > TaskAccess
-    TaskAccess -> TaskResource
-}
 UseCase "Confirm Maintenance Slots Proposal" {
     BackofficeClient - ConfirmMaintenanceSlotsProposalResponse ConfirmMaintenanceSlotsProposal(ConfirmMaintenanceSlotsProposalRequest) > MaintenanceManager
+    MaintenanceManager - Task Filter(TaskCriteria) > TaskAccess
+    TaskAccess -> TaskResource
+    MaintenanceManager - Task Store(Task) > TaskAccess
+    TaskAccess -> TaskResource
     MaintenanceManager - MaintenanceJobSlotsProposal MaintenanceJobSlotsProposalFilter(MaintenanceJobSlotsProposalCriteria) > MaintenanceAccess
     MaintenanceAccess -> MaintenanceResource
     MaintenanceManager - MaintenanceJobSlotsProposal MaintenanceJobSlotsProposalStore(MaintenanceJobSlotsProposal) > MaintenanceAccess
@@ -144,6 +162,14 @@ UseCase "Accept Maintenance Slots Proposal" {
     MaintenanceAccess -> MaintenanceResource
     MaintenanceManager - MaintenanceJobSlot MaintenanceJobSlotStore(MaintenanceJobSlot) > MaintenanceAccess
     MaintenanceAccess -> MaintenanceResource
+}
+UseCase "Cancel Maintenance Job" {
+    CustomerWebClient - CancelMaintenanceJobResponse CancelMaintenanceJob(CancelMaintenanceJobRequest) > MaintenanceManager
+    MaintenanceManager - MaintenanceJob MaintenanceJobFilter(MaintenanceJobCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - MaintenanceJob MaintenanceJobStore(MaintenanceJob) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - CreateBackofficeTaskResponse CreateBackofficeTask(CreateBackofficeTaskRequest) :q> TaskingManager
 }
 UseCase "Notify User" {
     MessageBusUtility - NotifyUserResponse NotifyUser(NotifyUserRequest) > NotificationManager

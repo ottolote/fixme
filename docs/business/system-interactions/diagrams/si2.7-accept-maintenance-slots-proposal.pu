@@ -1,5 +1,5 @@
-@startuml si3.6-accept-maintenance-slots-proposal
-title SI3.6 Accept maintenance slots proposal
+@startuml si2.7-accept-maintenance-slots-proposal
+title SI2.7 Accept maintenance slots proposal
 
 start
 :Receive selected maintenance slot request;

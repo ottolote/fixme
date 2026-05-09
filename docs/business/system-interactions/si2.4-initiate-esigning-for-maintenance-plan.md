@@ -1,4 +1,4 @@
-# SI5.1 Initiate eSigning for maintenance plan
+# SI2.4 Initiate eSigning for maintenance plan
 
 ## Flow
 
@@ -37,4 +37,4 @@ Produced:
 | Question | Answer |
 |---|---|
 | Does the eSigning reference model map directly to `../references/use-cases/uc2.1-request-signatures.pu`? | Answered. Yes. This interaction is the maintenance-plan-specific use of that generic eSigning capability: generate agreement, request the customer signature, and store the signature order reference. |
-| Is the signed agreement document stored by this interaction, or only later by `SI3.3 Resolve pending maintenance plan` after the customer signs? | Answered. Store only the signature order reference here. Store or link the signed agreement later in `SI3.3 Resolve pending maintenance plan` when signed evidence is received. |
+| Is the signed agreement document stored by this interaction, or only later by `SI2.3 Resolve pending maintenance plan` after the customer signs? | Answered. Store only the signature order reference here. Store or link the signed agreement later in `SI2.3 Resolve pending maintenance plan` when signed evidence is received. |

@@ -4,7 +4,7 @@
 
 Source: `BP1.2-register-equipment.bpmn`.
 
-The customer chooses an equipment type and submits the registration form. The system receives the equipment registration request from the client browser, validates the customer and equipment data in separate checks, creates a pending registration, and returns that registration to the customer. The BPMN then routes the pending registration to a backoffice worker for an accept or reject decision.
+The customer chooses an equipment type and submits the registration form. The system receives the equipment registration request from the client browser, validates the customer and equipment data in separate checks, creates a pending registration, and returns that registration to the customer. The BPMN then calls `SI4.1 Create backoffice task` to route the pending registration to a backoffice worker for an accept or reject decision.
 
 ## Steps
 
@@ -27,7 +27,7 @@ Consumed:
 - Equipment registration request from the client browser after the customer submits the equipment registration form.
 
 Produced:
-- `Pending equipment registration created`, which starts the backoffice decision flow in `BP1.2-register-equipment.bpmn`.
+- `Pending equipment registration created`, followed by `SI4.1 Create backoffice task` for equipment registration review.
 
 ## Questions / Answers
 

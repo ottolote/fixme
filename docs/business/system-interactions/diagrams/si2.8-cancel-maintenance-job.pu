@@ -1,5 +1,5 @@
-@startuml si3.5-cancel-maintenance-job
-title SI3.5 Cancel maintenance job
+@startuml si2.8-cancel-maintenance-job
+title SI2.8 Cancel maintenance job
 
 start
 :Receive maintenance job cancellation request;
@@ -9,11 +9,8 @@ if (scheduled maintenance job found?) then ([Yes])
   if (job scheduled?) then ([Yes])
     if (more than 24 hours before start?) then ([Yes])
       :Mark job as cancelled;
-      :Create provider-pile backoffice task to notify provider;
       :Produce business event
-Maintenance job cancelled; <<sendSignal>>
-      :Produce business event
-Maintenance provider cancellation task created; <<sendSignal>>
+      Maintenance job cancelled; <<sendSignal>>
       :Return success;
       stop
     else ([No])
