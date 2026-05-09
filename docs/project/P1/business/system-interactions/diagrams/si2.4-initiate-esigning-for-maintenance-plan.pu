@@ -1,0 +1,41 @@
+@startuml si2.4-initiate-esigning-for-maintenance-plan
+title SI2.4 Initiate eSigning for maintenance plan
+
+start
+:Consume event
+Maintenance plan request approved; <<acceptEvent>>
+
+:Load pending maintenance plan;
+if (pending maintenance plan found?) then ([Yes])
+  if (plan approved?) then ([Yes])
+    if (customer signable?) then ([Yes])
+      :Mark plan approved pending signature;
+      :Generate maintenance plan agreement;
+      :Request customer signature; <<sendCommand>>
+      if (eSigning request accepted?) then ([Yes])
+        :Store signature order reference;
+        :Produce business event
+Maintenance plan signature requested; <<sendSignal>>
+        stop
+      else ([No])
+        :Nack event to DLQ <<sendSignal>>
+esigning-request-failed failure;
+        stop
+      endif
+    else ([No])
+      :Nack event to DLQ <<sendSignal>>
+customer-not-signable failure;
+      stop
+    endif
+  else ([No])
+    :Nack event to DLQ <<sendSignal>>
+plan-not-approved failure;
+    stop
+  endif
+else ([No])
+  :Nack event to DLQ <<sendSignal>>
+plan-not-found failure;
+  stop
+endif
+
+@enduml

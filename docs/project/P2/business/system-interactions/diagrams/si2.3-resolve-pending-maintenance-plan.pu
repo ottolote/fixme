@@ -1,0 +1,47 @@
+@startuml si2.3-resolve-pending-maintenance-plan
+title SI2.3 Resolve pending maintenance plan
+
+start
+:Consume event
+Maintenance plan request rejected or agreement signed; <<acceptEvent>>
+
+if (resolution outcome valid?) then ([Yes])
+  :Load pending maintenance plan;
+  if (pending maintenance plan found?) then ([Yes])
+    if (maintenance plan resolvable?) then ([Yes])
+      if (is activation?) then ([Yes])
+        if (signed agreement evidence present?) then ([Yes])
+          :Attach customer-signed agreement;
+          :Mark maintenance plan as active;
+          :Produce business event
+Maintenance plan activated; <<sendSignal>>
+          stop
+        else ([No])
+          :Nack event to DLQ <<sendSignal>>
+missing-signature-evidence failure;
+          stop
+        endif
+      else ([No, rejection])
+        :Store rejection reason if provided;
+        :Mark maintenance plan as rejected;
+        :Produce business event
+Maintenance plan rejected; <<sendSignal>>
+        stop
+      endif
+    else ([No])
+      :Nack event to DLQ <<sendSignal>>
+already-resolved failure;
+      stop
+    endif
+  else ([No])
+    :Nack event to DLQ <<sendSignal>>
+plan-not-found failure;
+    stop
+  endif
+else ([No])
+  :Nack event to DLQ <<sendSignal>>
+invalid-outcome failure;
+  stop
+endif
+
+@enduml

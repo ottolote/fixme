@@ -1,0 +1,33 @@
+@startuml si1.1-register-account
+title SI1.1 Register account
+
+start
+:Receive registration request;
+
+if (email valid?) then ([Yes])
+  if (user exists?) then ([Yes])
+    if (user unconfirmed?) then ([Yes])
+      :Invalidate previous unused confirmation token;
+      :Create new 24-hour email confirmation token;
+      :Produce business event
+preliminaryUserCreated; <<sendSignal>>
+      :Return registration accepted;
+      stop
+    else ([No])
+      :Return user-exists failure;
+      stop
+    endif
+  else ([No])
+    :Create user account in unconfirmed state;
+    :Create 24-hour email confirmation token;
+    :Produce business event
+preliminaryUserCreated; <<sendSignal>>
+    :Return registration accepted;
+    stop
+  endif
+else ([No])
+  :Return invalid-email failure;
+  stop
+endif
+
+@enduml

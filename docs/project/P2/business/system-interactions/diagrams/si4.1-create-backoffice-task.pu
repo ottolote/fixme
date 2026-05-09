@@ -1,0 +1,32 @@
+@startuml si4.1-create-backoffice-task
+title SI4.1 Create backoffice task
+
+start
+:Consume event
+backoffice-work business event; <<acceptEvent>>
+
+if (task type supported?) then ([Yes])
+  if (task subject exists?) then ([Yes])
+    if (task not already open?) then ([Yes])
+      :Create backoffice task;
+      :Queue task in provider work pile;
+      :Produce business event
+Backoffice task created; <<sendSignal>>
+      stop
+    else ([No])
+      :Nack event to DLQ <<sendSignal>>
+duplicate-task failure;
+      stop
+    endif
+  else ([No])
+    :Nack event to DLQ <<sendSignal>>
+subject-not-found failure;
+    stop
+  endif
+else ([No])
+  :Nack event to DLQ <<sendSignal>>
+unsupported-task-type failure;
+  stop
+endif
+
+@enduml

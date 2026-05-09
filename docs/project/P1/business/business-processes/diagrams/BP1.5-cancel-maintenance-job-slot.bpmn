@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0t8yvm5" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
+  <bpmn:collaboration id="Collaboration_0t60qok">
+    <bpmn:participant id="Participant_0q448c6" name="Customer" processRef="Process_1onttlf" />
+    <bpmn:participant id="Participant_1oeh87c" name="System" processRef="Process_075iri2" />
+    <bpmn:participant id="Participant_0h3ddn7" name="Backoffice worker" processRef="Process_16iadro" />
+    <bpmn:messageFlow id="Flow_04g6jp0" sourceRef="Activity_0xhdiup" targetRef="Event_0kfsi86" />
+    <bpmn:messageFlow id="Flow_0r1tzn6" sourceRef="Activity_0f5lxm8" targetRef="Event_1p2w5zt" />
+    <bpmn:textAnnotation id="TextAnnotation_0xnlxdm">
+      <bpmn:text>Creates a backoffice task</bpmn:text>
+    </bpmn:textAnnotation>
+  </bpmn:collaboration>
+  <bpmn:process id="Process_1onttlf" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_013v0dy</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_0xhdiup" name="Cancel selected maintenance job slot">
+      <bpmn:incoming>Flow_013v0dy</bpmn:incoming>
+      <bpmn:outgoing>Flow_1wxizwd</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_013v0dy" sourceRef="StartEvent_1" targetRef="Activity_0xhdiup" />
+    <bpmn:endEvent id="Event_1d2p1dq">
+      <bpmn:incoming>Flow_1wxizwd</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1wxizwd" sourceRef="Activity_0xhdiup" targetRef="Event_1d2p1dq" />
+  </bpmn:process>
+  <bpmn:process id="Process_075iri2" isExecutable="false">
+    <bpmn:startEvent id="Event_0kfsi86">
+      <bpmn:outgoing>Flow_18drn1t</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1m8tnt7" />
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_18drn1t" sourceRef="Event_0kfsi86" targetRef="Activity_0f5lxm8" />
+    <bpmn:sequenceFlow id="Flow_0q920v8" sourceRef="Activity_0f5lxm8" targetRef="Activity_0cancelnotify" />
+    <bpmn:sequenceFlow id="Flow_0cancelend" sourceRef="Activity_0cancelnotify" targetRef="Event_0fncd3l" />
+    <bpmn:callActivity id="Activity_0f5lxm8" name="SI2.8 Cancel maintenance job">
+      <bpmn:extensionElements>
+        <zeebe:calledElement propagateAllChildVariables="false" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_18drn1t</bpmn:incoming>
+      <bpmn:outgoing>Flow_0q920v8</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="Activity_0cancelnotify" name="SI4.1 Create backoffice task">
+      <bpmn:extensionElements>
+        <zeebe:calledElement propagateAllChildVariables="false" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0q920v8</bpmn:incoming>
+      <bpmn:outgoing>Flow_0cancelend</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:endEvent id="Event_0fncd3l">
+      <bpmn:incoming>Flow_0cancelend</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:association id="Association_028eo8m" associationDirection="None" sourceRef="Activity_0cancelnotify" targetRef="TextAnnotation_0xnlxdm" />
+  </bpmn:process>
+  <bpmn:process id="Process_16iadro" isExecutable="false">
+    <bpmn:task id="Activity_12kopo0" name="Notify maintenance provider of cancellation">
+      <bpmn:incoming>Flow_10tcnt8</bpmn:incoming>
+      <bpmn:outgoing>Flow_0op5xhf</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:startEvent id="Event_1p2w5zt">
+      <bpmn:outgoing>Flow_10tcnt8</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1it3l22" />
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_1fyo5dj">
+      <bpmn:incoming>Flow_0op5xhf</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_10tcnt8" sourceRef="Event_1p2w5zt" targetRef="Activity_12kopo0" />
+    <bpmn:sequenceFlow id="Flow_0op5xhf" sourceRef="Activity_12kopo0" targetRef="Event_1fyo5dj" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0t60qok">
+      <bpmndi:BPMNShape id="Participant_0q448c6_di" bpmnElement="Participant_0q448c6" isHorizontal="true">
+        <dc:Bounds x="132" y="80" width="1418" height="260" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="242" y="190" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xhdiup_di" bpmnElement="Activity_0xhdiup">
+        <dc:Bounds x="330" y="168" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1d2p1dq_di" bpmnElement="Event_1d2p1dq">
+        <dc:Bounds x="482" y="190" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_013v0dy_di" bpmnElement="Flow_013v0dy">
+        <di:waypoint x="278" y="208" />
+        <di:waypoint x="330" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wxizwd_di" bpmnElement="Flow_1wxizwd">
+        <di:waypoint x="430" y="208" />
+        <di:waypoint x="482" y="208" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_1oeh87c_di" bpmnElement="Participant_1oeh87c" isHorizontal="true">
+        <dc:Bounds x="132" y="358" width="1418" height="262" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_04v6824_di" bpmnElement="Event_0kfsi86">
+        <dc:Bounds x="362" y="472" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1jyk03h_di" bpmnElement="Activity_0f5lxm8">
+        <dc:Bounds x="450" y="450" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0cancelnotify_di" bpmnElement="Activity_0cancelnotify">
+        <dc:Bounds x="640" y="450" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0fncd3l_di" bpmnElement="Event_0fncd3l">
+        <dc:Bounds x="832" y="472" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_028eo8m_di" bpmnElement="Association_028eo8m">
+        <di:waypoint x="530" y="490" />
+        <di:waypoint x="583" y="411" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18drn1t_di" bpmnElement="Flow_18drn1t">
+        <di:waypoint x="398" y="490" />
+        <di:waypoint x="450" y="490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0q920v8_di" bpmnElement="Flow_0q920v8">
+        <di:waypoint x="550" y="490" />
+        <di:waypoint x="640" y="490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0cancelend_di" bpmnElement="Flow_0cancelend">
+        <di:waypoint x="740" y="490" />
+        <di:waypoint x="832" y="490" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_150z6vb" bpmnElement="Participant_0h3ddn7" isHorizontal="true">
+        <dc:Bounds x="132" y="640" width="1418" height="262" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0uucezi" bpmnElement="Activity_12kopo0">
+        <dc:Bounds x="570" y="732" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0dwp2vu" bpmnElement="Event_1p2w5zt">
+        <dc:Bounds x="482" y="754" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1n9yfmy" bpmnElement="Event_1fyo5dj">
+        <dc:Bounds x="722" y="754" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_0sv1h6f" bpmnElement="Flow_10tcnt8">
+        <di:waypoint x="518" y="772" />
+        <di:waypoint x="570" y="772" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_16ziirr" bpmnElement="Flow_0op5xhf">
+        <di:waypoint x="670" y="772" />
+        <di:waypoint x="722" y="772" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0xnlxdm_di" bpmnElement="TextAnnotation_0xnlxdm">
+        <dc:Bounds x="550" y="370" width="100" height="41" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_04g6jp0_di" bpmnElement="Flow_04g6jp0">
+        <di:waypoint x="380" y="248" />
+        <di:waypoint x="380" y="472" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0r1tzn6_di" bpmnElement="Flow_0r1tzn6">
+        <di:waypoint x="500" y="530" />
+        <di:waypoint x="500" y="754" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

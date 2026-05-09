@@ -1,0 +1,31 @@
+@startuml si2.5-create-maintenance-job-slots-proposal
+title SI2.5 Create maintenance job slots proposal
+
+start
+:Receive maintenance-slot request;
+
+if (equipment exists?) then ([Yes])
+  if (equipment has active maintenance plan?) then ([Yes])
+    :Load equipment and maintenance plan;
+    :Find system-owned available maintenance job slots;
+    if (at least 3 slots available?) then ([Yes])
+      :Reserve 3 proposed job slots for 24 hours;
+      :Create maintenance slots proposal;
+      :Produce business event
+Maintenance slots proposal created; <<sendSignal>>
+      :Return success;
+      stop
+    else ([No])
+      :Return insufficient-slots failure;
+      stop
+    endif
+  else ([No])
+    :Return no-active-plan failure;
+    stop
+  endif
+else ([No])
+  :Return equipment-not-found failure;
+  stop
+endif
+
+@enduml

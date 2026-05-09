@@ -1,0 +1,35 @@
+@startuml si2.1-match-maintenance-plan-offering
+title SI2.1 Match maintenance plan offering
+
+start
+:Receive maintenance plan enrollment request;
+
+if (equipment exists?) then ([Yes])
+  if (equipment registered?) then ([Yes])
+    if (equipment eligible for maintenance plan?) then ([Yes])
+      :Load equipment details;
+      :Find matching maintenance plan offerings;
+
+      if (matches found?) then ([Yes])
+        :Produce business event
+Maintenance plan options matched; <<sendSignal>>
+        :Return options with pricing;
+        stop
+      else ([No])
+        :Return no match;
+        stop
+      endif
+    else ([No])
+      :Return equipment-ineligible failure;
+      stop
+    endif
+  else ([No])
+    :Return equipment-not-registered failure;
+    stop
+  endif
+else ([No])
+  :Return equipment-not-found failure;
+  stop
+endif
+
+@enduml
