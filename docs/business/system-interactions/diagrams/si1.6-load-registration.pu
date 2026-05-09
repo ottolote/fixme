@@ -4,18 +4,23 @@ title SI1.6 Load registration
 start
 :Receive load registration request;
 
-if (requester may access registration?) then ([Yes])
-  :Load registration by identifier;
+if (request contains registration identifier?) then ([Yes])
+  if (requester may access registration?) then ([Yes])
+    :Load registration by identifier;
 
-  if (registration exists?) then ([Yes])
-    :Return registration details;
-    stop
+    if (registration exists?) then ([Yes])
+      :Return registration details;
+      stop
+    else ([No])
+      :Return not found;
+      stop
+    endif
   else ([No])
-    :Return not found;
+    :Return unauthorized failure;
     stop
   endif
 else ([No])
-  :Return failure;
+  :Return invalid-request failure;
   stop
 endif
 

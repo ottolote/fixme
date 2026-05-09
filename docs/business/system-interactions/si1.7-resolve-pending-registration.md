@@ -4,7 +4,7 @@
 
 Source: `BP1.2-register-equipment.bpmn`.
 
-This interaction is used after a backoffice worker decides whether to accept or reject a pending equipment registration. The system receives the resolution command, validates that the referenced registration is still pending, loads the pending registration, and applies the decision.
+This interaction is used after a backoffice worker decides whether to accept or reject a pending equipment registration. The system receives the resolution request from the backoffice client, validates the decision, loads the referenced registration, checks that it is still pending, and applies the decision.
 
 For acceptance, the system creates or activates the registered equipment and marks the pending registration as accepted. The BPMN then calls `SI2.1 Notify user` and returns the accepted registration to the customer. For rejection, the system stores the rejection reason when provided and marks the pending registration as rejected. The modeled rejection path ends after resolution and does not notify the customer.
 
@@ -12,24 +12,27 @@ For acceptance, the system creates or activates the registered equipment and mar
 
 | Step | PlantUML step | Actions performed |
 |---|---|---|
-| 1 | Consume business event: `Pending equipment registration accepted or rejected` | Receives the backoffice resolution decision. |
-| 2 | Decide whether the resolution request is valid | Validates that the pending registration can still be resolved and that the decision is allowed. |
-| 3 | Load pending registration | Loads the pending registration to resolve. |
-| 4 | Decide whether the resolution is acceptance | Routes the interaction to the acceptance or rejection path. |
-| 5 | Create or activate registered equipment | Creates a new equipment record or activates the equipment associated with the registration. |
-| 6 | Mark registration as accepted | Updates the pending registration to accepted. |
-| 7 | Produce business event: `Equipment registration accepted` | Publishes the accepted registration outcome. |
-| 8 | Store rejection reason if provided | Records the backoffice rejection reason when supplied. |
-| 9 | Mark registration as rejected | Updates the pending registration to rejected. |
-| 10 | Produce business event: `Equipment registration rejected` | Publishes the rejected registration outcome. |
-| 11 | Return success | Returns a successful resolution response. |
-| 12 | Return failure | Returns an error when the resolution request is invalid. |
+| 1 | Receive pending registration resolution request | Receives the accept or reject decision from the backoffice client. |
+| 2 | Check whether decision is valid | Validates that the requested decision is acceptance or rejection. |
+| 2a | Return invalid-decision failure | Returns an error when the decision is unsupported. |
+| 3 | Load pending registration | Loads the registration to resolve. |
+| 3a | Return registration-not-found failure | Returns an error when the referenced registration does not exist. |
+| 4 | Check whether registration is still pending | Validates that the registration has not already been accepted or rejected. |
+| 4a | Return already-resolved failure | Returns an error when the registration is no longer pending. |
+| 5 | Decide whether the resolution is acceptance | Routes the interaction to the acceptance or rejection path. |
+| 6 | Create or activate registered equipment | Creates a new equipment record or activates the equipment associated with the registration. |
+| 7 | Mark registration as accepted | Updates the pending registration to accepted. |
+| 8 | Produce business event: `Equipment registration accepted` | Publishes the accepted registration outcome. |
+| 9 | Store rejection reason if provided | Records the backoffice rejection reason when supplied. |
+| 10 | Mark registration as rejected | Updates the pending registration to rejected. |
+| 11 | Produce business event: `Equipment registration rejected` | Publishes the rejected registration outcome. |
+| 12 | Return success | Returns a successful resolution response. |
 
 ## Business Events
 
 Consumed:
-- `Pending equipment registration accepted` from the backoffice worker accepting the pending registration.
-- `Pending equipment registration rejected` from the backoffice worker rejecting the pending registration.
+- Pending registration resolution request from the backoffice client when a worker accepts the pending registration.
+- Pending registration resolution request from the backoffice client when a worker rejects the pending registration.
 
 Produced:
 - `Equipment registration accepted` when equipment is created or activated.

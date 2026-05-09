@@ -3,17 +3,27 @@ title SI4.1 Create backoffice task
 
 start
 :Consume business event
-Backoffice work requested;
+backoffice-work business event;
 
-if (task subject and type valid?) then ([Yes])
-  :Create backoffice task;
-  :Assign or queue task for backoffice worker;
-  :Produce business event
+if (task type supported?) then ([Yes])
+  if (task subject exists?) then ([Yes])
+    if (task not already open?) then ([Yes])
+      :Create backoffice task;
+      :Assign or queue task for backoffice worker;
+      :Produce business event
 Backoffice task created;
-  :Return success;
-  stop
+      :Return success;
+      stop
+    else ([No])
+      :Return duplicate-task failure;
+      stop
+    endif
+  else ([No])
+    :Return subject-not-found failure;
+    stop
+  endif
 else ([No])
-  :Return failure;
+  :Return unsupported-task-type failure;
   stop
 endif
 

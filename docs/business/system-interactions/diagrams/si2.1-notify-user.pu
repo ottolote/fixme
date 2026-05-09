@@ -3,18 +3,38 @@ title SI2.1 Notify user
 
 start
 :Consume business event
-User notification requested;
+notification-triggering business event;
 
-if (notification request valid?) then ([Yes])
-  :Resolve recipient and channel;
-  :Render notification content from template name or ID;
-  :Send notification;
-  :Produce business event
+if (recipient can be resolved?) then ([Yes])
+  if (notification template exists?) then ([Yes])
+    if (payload valid for template?) then ([Yes])
+      :Resolve recipient and channel;
+      if (channel supported and reachable?) then ([Yes])
+        :Render notification content from template name or ID;
+        :Send notification;
+        if (delivery accepted?) then ([Yes])
+          :Produce business event
 User notification sent;
-  :Return success;
-  stop
+          :Return success;
+          stop
+        else ([No])
+          :Return delivery-failed failure;
+          stop
+        endif
+      else ([No])
+        :Return channel-unavailable failure;
+        stop
+      endif
+    else ([No])
+      :Return invalid-payload failure;
+      stop
+    endif
+  else ([No])
+    :Return template-not-found failure;
+    stop
+  endif
 else ([No])
-  :Return failure;
+  :Return recipient-resolution failure;
   stop
 endif
 

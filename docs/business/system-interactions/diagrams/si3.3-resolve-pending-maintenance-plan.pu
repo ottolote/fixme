@@ -5,23 +5,40 @@ start
 :Consume business event
 Maintenance plan request rejected or agreement signed;
 
-if (resolution request valid?) then ([Yes])
+if (resolution outcome valid?) then ([Yes])
   :Load pending maintenance plan;
-  if (is activation?) then ([Yes])
-    :Attach customer-signed agreement;
-    :Mark maintenance plan as active;
-    :Produce business event
+  if (pending maintenance plan found?) then ([Yes])
+    if (maintenance plan still pending?) then ([Yes])
+      if (is activation?) then ([Yes])
+        if (signed agreement evidence present?) then ([Yes])
+          :Attach customer-signed agreement;
+          :Mark maintenance plan as active;
+          :Produce business event
 Maintenance plan activated;
-  else ([No, rejection])
-    :Store rejection reason if provided;
-    :Mark maintenance plan as rejected;
-    :Produce business event
+          :Return success;
+          stop
+        else ([No])
+          :Return missing-signature-evidence failure;
+          stop
+        endif
+      else ([No, rejection])
+        :Store rejection reason if provided;
+        :Mark maintenance plan as rejected;
+        :Produce business event
 Maintenance plan rejected;
+        :Return success;
+        stop
+      endif
+    else ([No])
+      :Return already-resolved failure;
+      stop
+    endif
+  else ([No])
+    :Return plan-not-found failure;
+    stop
   endif
-  :Return success;
-  stop
 else ([No])
-  :Return failure;
+  :Return invalid-outcome failure;
   stop
 endif
 

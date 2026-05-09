@@ -4,25 +4,28 @@
 
 Source: `BP1.1-onboard.bpmn`.
 
-After confirming the email, the user enters a password. The system validates the request and password policy, loads the account, hashes and stores the password credential, and returns success.
+After confirming the email, the user enters a password. The system receives the password update request from the client browser, validates the request context, validates the password policy, loads the account, hashes and stores the password credential, and returns success.
 
 ## Steps
 
 | Step | PlantUML step | Actions performed |
 |---|---|---|
-| 1 | Consume business event: `User password submitted` | Receives the password submission. |
-| 2 | Decide whether the request and password are valid | Validates the request context and password policy. |
-| 3 | Load user account | Loads the user account that will receive the credential update. |
-| 4 | Hash password | Converts the submitted password into a secure password hash. |
-| 5 | Store password credential | Persists the hashed credential for the account. |
-| 6 | Produce business event: `User password updated` | Publishes that the account password was updated. |
-| 7 | Return success | Returns a successful password update response. |
-| 8 | Return failure | Returns an error when the request or password fails validation. |
+| 1 | Receive password update request | Receives the password submission from the client browser. |
+| 2 | Check whether request context is valid | Validates that the password request is authorized for the target account. |
+| 2a | Return invalid-request failure | Returns an error when the request context is invalid. |
+| 3 | Check whether password satisfies policy | Validates the submitted password against the password policy. |
+| 3a | Return password-policy failure | Returns an error when the password does not satisfy policy. |
+| 4 | Load user account | Loads the user account that will receive the credential update. |
+| 4a | Return account-not-found failure | Returns an error when the target account cannot be loaded. |
+| 5 | Hash password | Converts the submitted password into a secure password hash. |
+| 6 | Store password credential | Persists the hashed credential for the account. |
+| 7 | Produce business event: `User password updated` | Publishes that the account password was updated. |
+| 8 | Return success | Returns a successful password update response. |
 
 ## Business Events
 
 Consumed:
-- `User password submitted` from the user entering the password.
+- Password update request from the client browser after the user enters the password.
 
 Produced:
 - `User password updated` after the credential is stored.

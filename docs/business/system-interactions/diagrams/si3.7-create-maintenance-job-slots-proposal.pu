@@ -2,20 +2,29 @@
 title SI3.7 Create maintenance job slots proposal
 
 start
-:Consume business event
-Maintenance slot requested;
+:Receive maintenance-slot request;
 
-if (equipment has active maintenance plan?) then ([Yes])
-  :Load equipment and maintenance plan;
-  :Find system-owned available maintenance job slots;
-  :Reserve 3 proposed job slots for 24 hours;
-  :Create maintenance slots proposal;
-  :Produce business event
+if (equipment exists?) then ([Yes])
+  if (equipment has active maintenance plan?) then ([Yes])
+    :Load equipment and maintenance plan;
+    :Find system-owned available maintenance job slots;
+    if (at least 3 slots available?) then ([Yes])
+      :Reserve 3 proposed job slots for 24 hours;
+      :Create maintenance slots proposal;
+      :Produce business event
 Maintenance slots proposal created;
-  :Return success;
-  stop
+      :Return success;
+      stop
+    else ([No])
+      :Return insufficient-slots failure;
+      stop
+    endif
+  else ([No])
+    :Return no-active-plan failure;
+    stop
+  endif
 else ([No])
-  :Return failure;
+  :Return equipment-not-found failure;
   stop
 endif
 

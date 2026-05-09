@@ -2,18 +2,32 @@
 title SI1.4 Set user preferences
 
 start
-:Consume business event
-User preferences submitted;
+:Receive preferences update request;
 
-if (preferences valid?) then ([Yes])
-  :Load user profile;
-  :Store name and address preferences;
-  :Produce business event
+if (name valid?) then ([Yes])
+  if (address valid?) then ([Yes])
+    if (preference values valid?) then ([Yes])
+      :Load user profile;
+      if (user profile found?) then ([Yes])
+        :Store name and address preferences;
+        :Produce business event
 User preferences set;
-  :Return success;
-  stop
+        :Return success;
+        stop
+      else ([No])
+        :Return profile-not-found failure;
+        stop
+      endif
+    else ([No])
+      :Return invalid-preferences failure;
+      stop
+    endif
+  else ([No])
+    :Return invalid-address failure;
+    stop
+  endif
 else ([No])
-  :Return failure;
+  :Return invalid-name failure;
   stop
 endif
 

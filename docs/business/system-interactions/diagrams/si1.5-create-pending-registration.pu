@@ -2,17 +2,26 @@
 title SI1.5 Create pending registration
 
 start
-:Consume business event
-Equipment registration submitted;
+:Receive equipment registration request;
 
-if (customer and equipment data valid?) then ([Yes])
-  :Create pending equipment registration;
-  :Produce business event
+if (customer may register equipment?) then ([Yes])
+  if (equipment type supported?) then ([Yes])
+    if (equipment data valid for type?) then ([Yes])
+      :Create pending equipment registration;
+      :Produce business event
 Pending equipment registration created;
-  :Return pending registration;
-  stop
+      :Return pending registration;
+      stop
+    else ([No])
+      :Return invalid-equipment-data failure;
+      stop
+    endif
+  else ([No])
+    :Return unsupported-equipment-type failure;
+    stop
+  endif
 else ([No])
-  :Return failure;
+  :Return invalid-customer failure;
   stop
 endif
 

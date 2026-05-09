@@ -2,18 +2,22 @@
 title SI1.1 Register account
 
 start
-:Consume business event
-Register account requested;
+:Receive registration request;
 
-if (valid email and account not already registered?) then ([Yes])
-  :Create user account in unconfirmed state;
-  :Create email confirmation token;
-  :Produce business event
-User account registered pending email confirmation;
-  :Return registration accepted;
-  stop
+if (email valid?) then ([Yes])
+  if (user exists?) then ([Yes])
+    :Return user-exists failure;
+    stop
+  else ([No])
+    :Create user account in unconfirmed state;
+    :Create email confirmation token;
+    :Produce business event
+preliminaryUserCreated;
+    :Return registration accepted;
+    stop
+  endif
 else ([No])
-  :Return failure;
+  :Return invalid-email failure;
   stop
 endif
 

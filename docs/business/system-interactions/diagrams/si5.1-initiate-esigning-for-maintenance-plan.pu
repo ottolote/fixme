@@ -5,17 +5,32 @@ start
 :Consume business event
 Maintenance plan request approved;
 
-if (maintenance plan can be signed?) then ([Yes])
-  :Load pending maintenance plan;
-  :Generate maintenance plan agreement;
-  :Request customer signature; <<sendCommand>>
-  :Store signature order reference;
-  :Produce business event
+:Load pending maintenance plan;
+if (pending maintenance plan found?) then ([Yes])
+  if (plan approved?) then ([Yes])
+    if (customer signable?) then ([Yes])
+      :Generate maintenance plan agreement;
+      :Request customer signature; <<sendCommand>>
+      if (eSigning request accepted?) then ([Yes])
+        :Store signature order reference;
+        :Produce business event
 Maintenance plan signature requested;
-  :Return signature request;
-  stop
+        :Return signature request;
+        stop
+      else ([No])
+        :Return esigning-request-failed failure;
+        stop
+      endif
+    else ([No])
+      :Return customer-not-signable failure;
+      stop
+    endif
+  else ([No])
+    :Return plan-not-approved failure;
+    stop
+  endif
 else ([No])
-  :Return failure;
+  :Return plan-not-found failure;
   stop
 endif
 

@@ -5,17 +5,37 @@ start
 :Consume business event
 Maintenance slots proposal confirmed;
 
-if (proposal notification can be sent?) then ([Yes])
-  :Load maintenance slots proposal;
-  :Resolve customer notification channel;
-  :Render maintenance slots proposal notification;
-  :Send notification to customer;
-  :Produce business event
+:Load maintenance slots proposal;
+if (proposal found?) then ([Yes])
+  if (proposal confirmed?) then ([Yes])
+    if (proposal has active reserved slots?) then ([Yes])
+      :Resolve customer notification channel;
+      if (channel available?) then ([Yes])
+        :Render maintenance slots proposal notification;
+        :Send notification to customer;
+        if (delivery accepted?) then ([Yes])
+          :Produce business event
 Maintenance slots proposal notification sent;
-  :Return success;
-  stop
+          :Return success;
+          stop
+        else ([No])
+          :Return delivery-failed failure;
+          stop
+        endif
+      else ([No])
+        :Return channel-unavailable failure;
+        stop
+      endif
+    else ([No])
+      :Return slots-unavailable failure;
+      stop
+    endif
+  else ([No])
+    :Return proposal-not-confirmed failure;
+    stop
+  endif
 else ([No])
-  :Return failure;
+  :Return proposal-not-found failure;
   stop
 endif
 
