@@ -1,0 +1,155 @@
+StaticAspect {
+  CustomerWebClient
+  BackofficeClient
+  MembershipManager
+  MaintenanceManager
+  NotificationManager
+  TaskingManager
+  MatchingEngine
+  SchedulingEngine
+  PolicyEngine
+  CustomerAccess
+  EquipmentAccess
+  MaintenanceAccess
+  TaskAccess
+  NotificationAccess
+  AgreementAccess
+  ESigningAccess
+  CustomerResource:r
+  EquipmentResource:r
+  MaintenanceResource:r
+  TaskResource:r
+  NotificationResource:r
+  AgreementResource:r
+  ExternalESigningResource:a
+  CommunicationUtility
+  SecurityUtility
+  LoggingUtility
+  MessageBusUtility
+}
+
+UseCase "Create Pending Registration" {
+    CustomerWebClient - PendingRegistration CreatePendingRegistration(CreatePendingRegistrationRequest) > MembershipManager
+    MembershipManager - Customer Filter(CustomerCriteria) > CustomerAccess
+    CustomerAccess -> CustomerResource
+    MembershipManager - EquipmentType Filter(EquipmentTypeCriteria) > EquipmentAccess
+    EquipmentAccess -> EquipmentResource
+    MembershipManager - PendingRegistration Store(PendingRegistration) > EquipmentAccess
+    EquipmentAccess -> EquipmentResource
+    MembershipManager - CreateBackofficeTaskResponse CreateBackofficeTask(CreateBackofficeTaskRequest) :q> TaskingManager
+}
+UseCase "Resolve Pending Registration" {
+    BackofficeClient - ResolvePendingRegistrationResponse ResolvePendingRegistration(ResolvePendingRegistrationRequest) > MembershipManager
+    MembershipManager - PendingRegistration Filter(PendingRegistrationCriteria) > EquipmentAccess
+    EquipmentAccess -> EquipmentResource
+    MembershipManager - Equipment Store(Equipment) > EquipmentAccess
+    EquipmentAccess -> EquipmentResource
+    MembershipManager - NotifyUserResponse NotifyUser(NotifyUserRequest) :q> NotificationManager
+}
+UseCase "Match Maintenance Plan Offering" {
+    CustomerWebClient - MatchMaintenancePlanOfferingResponse MatchMaintenancePlanOffering(MatchMaintenancePlanOfferingRequest) > MaintenanceManager
+    MaintenanceManager - Equipment Filter(EquipmentCriteria) > EquipmentAccess
+    EquipmentAccess -> EquipmentResource
+    MaintenanceManager - MaintenancePlanOffering MaintenancePlanOfferingFilter(MaintenancePlanOfferingCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - MatchMaintenancePlanOfferingResponse MatchMaintenancePlanOffering(MatchMaintenancePlanOfferingRequest) > MatchingEngine
+}
+UseCase "Create Pending Maintenance Plan" {
+    CustomerWebClient - CreatePendingMaintenancePlanResponse CreatePendingMaintenancePlan(CreatePendingMaintenancePlanRequest) > MaintenanceManager
+    MaintenanceManager - Equipment Filter(EquipmentCriteria) > EquipmentAccess
+    EquipmentAccess -> EquipmentResource
+    MaintenanceManager - MaintenancePlanOffering MaintenancePlanOfferingFilter(MaintenancePlanOfferingCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - MaintenancePlan MaintenancePlanFilter(MaintenancePlanCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - MaintenancePlan MaintenancePlanStore(MaintenancePlan) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - CreateBackofficeTaskResponse CreateBackofficeTask(CreateBackofficeTaskRequest) :q> TaskingManager
+}
+UseCase "Create Backoffice Task" {
+    MessageBusUtility - CreateBackofficeTaskResponse CreateBackofficeTask(CreateBackofficeTaskRequest) > TaskingManager
+    TaskingManager - Task Filter(TaskCriteria) > TaskAccess
+    TaskAccess -> TaskResource
+    TaskingManager - Task Store(Task) > TaskAccess
+    TaskAccess -> TaskResource
+}
+UseCase "Resolve Pending Maintenance Plan" {
+    BackofficeClient - ResolvePendingMaintenancePlanResponse ResolvePendingMaintenancePlan(ResolvePendingMaintenancePlanRequest) > MaintenanceManager
+    MaintenanceManager - MaintenancePlan MaintenancePlanFilter(MaintenancePlanCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - MaintenancePlan MaintenancePlanStore(MaintenancePlan) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - NotifyUserResponse NotifyUser(NotifyUserRequest) :q> NotificationManager
+}
+UseCase "Initiate ESigning For Maintenance Plan" {
+    MessageBusUtility - InitiateESigningForMaintenancePlanResponse InitiateESigningForMaintenancePlan(InitiateESigningForMaintenancePlanRequest) > MaintenanceManager
+    MaintenanceManager - MaintenancePlan MaintenancePlanFilter(MaintenancePlanCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - Agreement Store(Agreement) > AgreementAccess
+    AgreementAccess -> AgreementResource
+    MaintenanceManager - SignatureRequest SignatureRequestStore(SignatureRequest) > ESigningAccess
+    ESigningAccess -> ExternalESigningResource
+    MaintenanceManager - MaintenancePlan MaintenancePlanStore(MaintenancePlan) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+}
+UseCase "Activate Signed Maintenance Plan" {
+    CustomerWebClient - ResolvePendingMaintenancePlanResponse ResolvePendingMaintenancePlan(ResolvePendingMaintenancePlanRequest) > MaintenanceManager
+    MaintenanceManager - MaintenancePlan MaintenancePlanFilter(MaintenancePlanCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - Agreement Filter(AgreementCriteria) > AgreementAccess
+    AgreementAccess -> AgreementResource
+    MaintenanceManager - Agreement Store(Agreement) > AgreementAccess
+    AgreementAccess -> AgreementResource
+    MaintenanceManager - MaintenancePlan MaintenancePlanStore(MaintenancePlan) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+}
+UseCase "Create Maintenance Job Slots Proposal" {
+    CustomerWebClient - CreateMaintenanceJobSlotsProposalResponse CreateMaintenanceJobSlotsProposal(CreateMaintenanceJobSlotsProposalRequest) > MaintenanceManager
+    MaintenanceManager - Equipment Filter(EquipmentCriteria) > EquipmentAccess
+    EquipmentAccess -> EquipmentResource
+    MaintenanceManager - MaintenancePlan MaintenancePlanFilter(MaintenancePlanCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - MaintenanceJobSlot MaintenanceJobSlotFilter(MaintenanceJobSlotCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - CreateMaintenanceJobSlotsProposalResponse CreateMaintenanceJobSlotsProposal(CreateMaintenanceJobSlotsProposalRequest) > SchedulingEngine
+    MaintenanceManager - MaintenanceJobSlot MaintenanceJobSlotStore(MaintenanceJobSlot) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - MaintenanceJobSlotsProposal MaintenanceJobSlotsProposalStore(MaintenanceJobSlotsProposal) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - CreateBackofficeTaskResponse CreateBackofficeTask(CreateBackofficeTaskRequest) :q> TaskingManager
+}
+UseCase "Confirm Maintenance Provider Slots" {
+    BackofficeClient - ConfirmMaintenanceProviderSlotsResponse ConfirmMaintenanceProviderSlots(ConfirmMaintenanceProviderSlotsRequest) > TaskingManager
+    TaskingManager - Task Filter(TaskCriteria) > TaskAccess
+    TaskAccess -> TaskResource
+    TaskingManager - Task Store(Task) > TaskAccess
+    TaskAccess -> TaskResource
+}
+UseCase "Confirm Maintenance Slots Proposal" {
+    BackofficeClient - ConfirmMaintenanceSlotsProposalResponse ConfirmMaintenanceSlotsProposal(ConfirmMaintenanceSlotsProposalRequest) > MaintenanceManager
+    MaintenanceManager - MaintenanceJobSlotsProposal MaintenanceJobSlotsProposalFilter(MaintenanceJobSlotsProposalCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - MaintenanceJobSlotsProposal MaintenanceJobSlotsProposalStore(MaintenanceJobSlotsProposal) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - NotifyUserResponse NotifyUser(NotifyUserRequest) :q> NotificationManager
+}
+UseCase "Accept Maintenance Slots Proposal" {
+    CustomerWebClient - AcceptMaintenanceSlotsProposalResponse AcceptMaintenanceSlotsProposal(AcceptMaintenanceSlotsProposalRequest) > MaintenanceManager
+    MaintenanceManager - MaintenanceJobSlotsProposal MaintenanceJobSlotsProposalFilter(MaintenanceJobSlotsProposalCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - MaintenanceJobSlot MaintenanceJobSlotFilter(MaintenanceJobSlotCriteria) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - AcceptMaintenanceSlotsProposalResponse AcceptMaintenanceSlotsProposal(AcceptMaintenanceSlotsProposalRequest) > SchedulingEngine
+    MaintenanceManager - MaintenanceJob MaintenanceJobStore(MaintenanceJob) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+    MaintenanceManager - MaintenanceJobSlot MaintenanceJobSlotStore(MaintenanceJobSlot) > MaintenanceAccess
+    MaintenanceAccess -> MaintenanceResource
+}
+UseCase "Notify User" {
+    MessageBusUtility - NotifyUserResponse NotifyUser(NotifyUserRequest) > NotificationManager
+    NotificationManager - NotificationTemplate NotificationTemplateFilter(NotificationTemplateCriteria) > NotificationAccess
+    NotificationAccess -> NotificationResource
+    NotificationManager - Notification Store(Notification) > NotificationAccess
+    NotificationAccess -> NotificationResource
+    NotificationManager - NotifyUserResponse NotifyUser(NotifyUserRequest) > CommunicationUtility
+}
