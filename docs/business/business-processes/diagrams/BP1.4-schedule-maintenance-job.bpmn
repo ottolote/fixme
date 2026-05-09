@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0t8yvm5" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0t8yvm5" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.40.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.8.0">
   <bpmn:collaboration id="Collaboration_0t60qok">
     <bpmn:participant id="Participant_0q448c6" name="Customer" processRef="Process_1onttlf" />
     <bpmn:participant id="Participant_1oeh87c" name="System" processRef="Process_075iri2" />
@@ -73,15 +73,7 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_1m8tnt7" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_18drn1t" sourceRef="Event_0kfsi86" targetRef="Activity_0f5lxm8" />
-    <bpmn:task id="Activity_0f5lxm8" name="SI3.7 Create maintenance job slots proposal">
-      <bpmn:incoming>Flow_18drn1t</bpmn:incoming>
-      <bpmn:outgoing>Flow_1lgybaw</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_1lgybaw" sourceRef="Activity_0f5lxm8" targetRef="Activity_0jg4ump" />
-    <bpmn:task id="Activity_0jg4ump" name="SI4.1 Create backoffice task">
-      <bpmn:incoming>Flow_1lgybaw</bpmn:incoming>
-      <bpmn:outgoing>Flow_0r73izr</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0r73izr" sourceRef="Activity_0jg4ump" targetRef="Event_0y22uxy" />
     <bpmn:endEvent id="Event_0y22uxy">
       <bpmn:incoming>Flow_0r73izr</bpmn:incoming>
@@ -91,10 +83,6 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_0fatj79" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_1925haq" sourceRef="Event_18b2aqh" targetRef="Activity_055bdm8" />
-    <bpmn:task id="Activity_055bdm8" name="SI2.1 Notify user">
-      <bpmn:incoming>Flow_1925haq</bpmn:incoming>
-      <bpmn:outgoing>Flow_1qmac9i</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:endEvent id="Event_1jomkdu">
       <bpmn:incoming>Flow_1qmac9i</bpmn:incoming>
     </bpmn:endEvent>
@@ -104,14 +92,38 @@
       <bpmn:messageEventDefinition id="MessageEventDefinition_1kki5zb" />
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_12r4to2" sourceRef="Event_0vrn68k" targetRef="Activity_0gbva00" />
-    <bpmn:task id="Activity_0gbva00" name="SI3.6 Accept maintenance slots proposal">
-      <bpmn:incoming>Flow_12r4to2</bpmn:incoming>
-      <bpmn:outgoing>Flow_0hgxfrl</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:task id="Activity_0b8is3o" name="Return scheduled maintenance slot">
       <bpmn:incoming>Flow_0hgxfrl</bpmn:incoming>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0hgxfrl" sourceRef="Activity_0gbva00" targetRef="Activity_0b8is3o" />
+    <bpmn:callActivity id="Activity_0f5lxm8" name="SI3.7 Create maintenance job slots proposal">
+      <bpmn:extensionElements>
+        <zeebe:calledElement propagateAllChildVariables="false" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_18drn1t</bpmn:incoming>
+      <bpmn:outgoing>Flow_1lgybaw</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="Activity_0jg4ump" name="SI4.1 Create backoffice task">
+      <bpmn:extensionElements>
+        <zeebe:calledElement propagateAllChildVariables="false" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1lgybaw</bpmn:incoming>
+      <bpmn:outgoing>Flow_0r73izr</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="Activity_055bdm8" name="SI2.1 Notify user">
+      <bpmn:extensionElements>
+        <zeebe:calledElement propagateAllChildVariables="false" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1925haq</bpmn:incoming>
+      <bpmn:outgoing>Flow_1qmac9i</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:callActivity id="Activity_0gbva00" name="SI3.6 Accept maintenance slots proposal">
+      <bpmn:extensionElements>
+        <zeebe:calledElement propagateAllChildVariables="false" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_12r4to2</bpmn:incoming>
+      <bpmn:outgoing>Flow_0hgxfrl</bpmn:outgoing>
+    </bpmn:callActivity>
   </bpmn:process>
   <bpmn:process id="Process_0jlnzji" isExecutable="true">
     <bpmn:sequenceFlow id="Flow_0petgoe" sourceRef="Event_0f78cv1" targetRef="Activity_07e75d7" />
@@ -210,23 +222,11 @@
       <bpmndi:BPMNShape id="Event_04v6824_di" bpmnElement="Event_0kfsi86">
         <dc:Bounds x="362" y="472" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1jbwfry_di" bpmnElement="Activity_0f5lxm8">
-        <dc:Bounds x="470" y="450" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0jg4ump_di" bpmnElement="Activity_0jg4ump">
-        <dc:Bounds x="640" y="450" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0y22uxy_di" bpmnElement="Event_0y22uxy">
         <dc:Bounds x="792" y="472" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_0kdrk9g" bpmnElement="Event_18b2aqh">
         <dc:Bounds x="892" y="472" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_055bdm8_di" bpmnElement="Activity_055bdm8">
-        <dc:Bounds x="990" y="450" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1jomkdu_di" bpmnElement="Event_1jomkdu">
         <dc:Bounds x="1152" y="472" width="36" height="36" />
@@ -234,13 +234,21 @@
       <bpmndi:BPMNShape id="BPMNShape_1a6vtvb" bpmnElement="Event_0vrn68k">
         <dc:Bounds x="1402" y="472" width="36" height="36" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0gbva00_di" bpmnElement="Activity_0gbva00">
-        <dc:Bounds x="1500" y="450" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0b8is3o_di" bpmnElement="Activity_0b8is3o">
         <dc:Bounds x="1670" y="450" width="100" height="80" />
         <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ms3y46_di" bpmnElement="Activity_0f5lxm8">
+        <dc:Bounds x="470" y="450" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0lgmvkr_di" bpmnElement="Activity_0jg4ump">
+        <dc:Bounds x="640" y="450" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_01ak60p_di" bpmnElement="Activity_055bdm8">
+        <dc:Bounds x="990" y="450" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0u9tvm6_di" bpmnElement="Activity_0gbva00">
+        <dc:Bounds x="1500" y="450" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_18drn1t_di" bpmnElement="Flow_18drn1t">
         <di:waypoint x="398" y="490" />
@@ -292,14 +300,14 @@
         <di:waypoint x="960" y="768" />
         <di:waypoint x="1022" y="768" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_0pwsj4r_di" bpmnElement="Association_0pwsj4r">
-        <di:waypoint x="558" y="450" />
-        <di:waypoint x="595" y="411" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Association_168xzab_di" bpmnElement="Association_168xzab">
-        <di:waypoint x="1576" y="450" />
-        <di:waypoint x="1585" y="436" />
-      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1tb5a1z_di" bpmnElement="TextAnnotation_1tb5a1z">
+        <dc:Bounds x="570" y="370" width="100" height="41" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_18a8ly2_di" bpmnElement="TextAnnotation_18a8ly2">
+        <dc:Bounds x="1570" y="366" width="150" height="70" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_04g6jp0_di" bpmnElement="Flow_04g6jp0">
         <di:waypoint x="380" y="248" />
         <di:waypoint x="380" y="472" />
@@ -312,10 +320,6 @@
         <di:waypoint x="910" y="728" />
         <di:waypoint x="910" y="508" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_1tb5a1z_di" bpmnElement="TextAnnotation_1tb5a1z">
-        <dc:Bounds x="570" y="370" width="100" height="41" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1is1vlz_di" bpmnElement="Flow_1is1vlz">
         <di:waypoint x="1040" y="450" />
         <di:waypoint x="1040" y="226" />
@@ -324,13 +328,17 @@
         <di:waypoint x="1420" y="248" />
         <di:waypoint x="1420" y="472" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNShape id="TextAnnotation_18a8ly2_di" bpmnElement="TextAnnotation_18a8ly2">
-        <dc:Bounds x="1570" y="366" width="150" height="70" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1nto4wz_di" bpmnElement="Flow_1nto4wz">
         <di:waypoint x="1720" y="449" />
         <di:waypoint x="1720" y="226" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0pwsj4r_di" bpmnElement="Association_0pwsj4r">
+        <di:waypoint x="558" y="450" />
+        <di:waypoint x="595" y="411" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_168xzab_di" bpmnElement="Association_168xzab">
+        <di:waypoint x="1576" y="450" />
+        <di:waypoint x="1585" y="436" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
