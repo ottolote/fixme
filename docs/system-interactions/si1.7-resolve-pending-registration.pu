@@ -2,16 +2,21 @@
 title SI1.7 Resolve pending registration
 
 start
-:Receive resolve registration command;
+:Consume business event
+Pending equipment registration accepted or rejected;
 
 if (resolution request valid?) then ([Yes])
   :Load pending registration;
   if (is acceptance?) then ([Yes])
     :Create or activate registered equipment;
     :Mark registration as accepted;
+    :Produce business event
+Equipment registration accepted;
   else ([No, rejection])
     :Store rejection reason if provided;
     :Mark registration as rejected;
+    :Produce business event
+Equipment registration rejected;
   endif
   :Return success;
   stop

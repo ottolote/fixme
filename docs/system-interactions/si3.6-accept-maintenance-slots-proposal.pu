@@ -2,12 +2,15 @@
 title SI3.6 Accept maintenance slots proposal
 
 start
-:Receive selected maintenance slot request;
+:Consume business event
+Maintenance slot selected;
 
 if (proposal and selected slot valid?) then ([Yes])
   :Load maintenance slots proposal;
   :Remove reserved slots from proposal;
   :Schedule accepted maintenance slot;
+  :Produce business event
+Maintenance job scheduled;
   :Return scheduled maintenance slot;
   stop
 else ([No])

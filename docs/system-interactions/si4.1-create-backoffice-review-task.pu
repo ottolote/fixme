@@ -2,11 +2,14 @@
 title SI4.1 Create backoffice task
 
 start
-:Receive create backoffice task command;
+:Consume business event
+Backoffice work requested;
 
 if (task subject and type valid?) then ([Yes])
   :Create backoffice task;
   :Assign or queue task for backoffice worker;
+  :Produce business event
+Backoffice task created;
   :Return success;
   stop
 else ([No])

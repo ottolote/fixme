@@ -2,12 +2,15 @@
 title SI1.2 Confirm user email
 
 start
-:Receive email confirmation request;
+:Consume business event
+Email confirmation requested;
 
 if (confirmation token valid?) then ([Yes])
   :Load unconfirmed user account;
   :Mark email as confirmed;
   :Invalidate confirmation token;
+  :Produce business event
+User email confirmed;
   :Return success;
   stop
 else ([No])

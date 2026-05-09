@@ -2,11 +2,14 @@
 title SI3.2 Create pending maintenance plan
 
 start
-:Receive selected maintenance plan option;
+:Consume business event
+Maintenance plan selected;
 
 if (selection valid?) then ([Yes])
   :Load customer, equipment, and offering;
   :Create pending maintenance plan;
+  :Produce business event
+Pending maintenance plan created;
   :Return success;
   stop
 else ([No])

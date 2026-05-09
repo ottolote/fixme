@@ -2,11 +2,14 @@
 title SI1.1 Register account
 
 start
-:Receive register account command;
+:Consume business event
+Register account requested;
 
 if (valid email and account not already registered?) then ([Yes])
   :Create user account in unconfirmed state;
   :Create email confirmation token;
+  :Produce business event
+User account registered pending email confirmation;
   :Return registration accepted;
   stop
 else ([No])

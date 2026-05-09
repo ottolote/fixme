@@ -2,13 +2,16 @@
 title SI5.1 Initiate eSigning for maintenance plan
 
 start
-:Receive approved maintenance plan request;
+:Consume business event
+Maintenance plan request approved;
 
 if (maintenance plan can be signed?) then ([Yes])
   :Load pending maintenance plan;
   :Generate maintenance plan agreement;
   :Request customer signature; <<sendCommand>>
   :Store signature order reference;
+  :Produce business event
+Maintenance plan signature requested;
   :Return signature request;
   stop
 else ([No])

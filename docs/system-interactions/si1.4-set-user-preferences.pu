@@ -2,11 +2,14 @@
 title SI1.4 Set user preferences
 
 start
-:Receive set preferences command;
+:Consume business event
+User preferences submitted;
 
 if (preferences valid?) then ([Yes])
   :Load user profile;
   :Store name and address preferences;
+  :Produce business event
+User preferences set;
   :Return success;
   stop
 else ([No])

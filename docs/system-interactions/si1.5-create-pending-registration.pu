@@ -2,10 +2,13 @@
 title SI1.5 Create pending registration
 
 start
-:Receive equipment registration submission;
+:Consume business event
+Equipment registration submitted;
 
 if (customer and equipment data valid?) then ([Yes])
   :Create pending equipment registration;
+  :Produce business event
+Pending equipment registration created;
   :Return pending registration;
   stop
 else ([No])

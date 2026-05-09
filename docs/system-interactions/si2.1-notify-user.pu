@@ -2,12 +2,15 @@
 title SI2.1 Notify user
 
 start
-:Receive notify user command;
+:Consume business event
+User notification requested;
 
 if (notification request valid?) then ([Yes])
   :Resolve recipient and channel;
   :Render notification content from template name or ID;
   :Send notification;
+  :Produce business event
+User notification sent;
   :Return success;
   stop
 else ([No])

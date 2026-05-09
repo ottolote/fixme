@@ -10,6 +10,7 @@
 | SI1.6 | Load registration |
 | SI1.7 | Resolve pending registration |
 | SI2.1 | Notify user |
+| SI2.3 | Notify customer of maintenance slots proposal |
 | SI3.1 | Match maintenance plan offering |
 | SI3.2 | Create pending maintenance plan |
 | SI3.3 | Resolve pending maintenance plan |

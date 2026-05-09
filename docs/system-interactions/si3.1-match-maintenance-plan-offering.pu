@@ -2,13 +2,16 @@
 title SI3.1 Match maintenance plan offering
 
 start
-:Receive maintenance plan enrollment request;
+:Consume business event
+Maintenance plan enrollment requested;
 
 if (equipment is registered and eligible?) then ([Yes])
   :Load equipment details;
   :Find matching maintenance plan offerings;
 
   if (matches found?) then ([Yes])
+    :Produce business event
+Maintenance plan options matched;
     :Return options with pricing;
     stop
   else ([No])

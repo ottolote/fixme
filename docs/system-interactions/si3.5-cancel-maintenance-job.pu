@@ -2,12 +2,17 @@
 title SI3.5 Cancel maintenance job
 
 start
-:Receive cancel maintenance job request;
+:Consume business event
+Maintenance job cancellation requested;
 
 if (scheduled maintenance job can be cancelled?) then ([Yes])
   :Load scheduled maintenance job;
   :Mark job as cancelled;
   :Create backoffice task to notify provider;
+  :Produce business event
+Maintenance job cancelled;
+  :Produce business event
+Maintenance provider cancellation task created;
   :Return success;
   stop
 else ([No])
