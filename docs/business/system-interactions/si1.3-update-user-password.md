@@ -34,5 +34,5 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| Is this interaction only for first-time password setup, or also for later password changes? | Open. The BPMN context is onboarding, but the interaction name is generic. |
-| Which password policy, credential history, and session rules apply? | Open. The diagram validates the password but does not specify policy details. |
+| Is this interaction only for first-time password setup, or also for later password changes? | Answered. Use the same interaction for both first-time password setup and later password changes. The request context decides whether the caller is authorized through onboarding state or an authenticated session. |
+| Which password policy, credential history, and session rules apply? | Answered. Start with a simple policy: minimum 12 characters and not equal to the user's email. Store only salted password hashes. For later password changes, invalidate other active sessions after success and keep the current session active. |

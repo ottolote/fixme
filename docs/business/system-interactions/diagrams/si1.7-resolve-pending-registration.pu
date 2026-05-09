@@ -9,7 +9,7 @@ if (decision valid?) then ([Yes])
   if (registration found?) then ([Yes])
     if (registration still pending?) then ([Yes])
       if (is acceptance?) then ([Yes])
-        :Create or activate registered equipment;
+      :Create registered equipment;
         :Mark registration as accepted;
         :Produce business event
 Equipment registration accepted; <<sendSignal>>

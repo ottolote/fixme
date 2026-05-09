@@ -33,5 +33,5 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| What exact equipment attributes are required by equipment type? | Open. The diagram validates equipment data but does not define type-specific required fields. |
-| Should duplicate equipment registrations be rejected, merged, or routed for manual review? | Open. The diagram has a generic validation failure path but no duplicate-handling rule. |
+| What exact equipment attributes are required by equipment type? | Deferred. Data models and type-specific equipment fields will be defined separately. |
+| Should duplicate equipment registrations be rejected, merged, or routed for manual review? | Answered. Do not handle duplicates for now. Allow customers to submit duplicate equipment registrations; cleanup or correction is the customer's responsibility. |

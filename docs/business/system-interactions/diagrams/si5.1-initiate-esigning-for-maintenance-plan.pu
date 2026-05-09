@@ -9,6 +9,7 @@ Maintenance plan request approved; <<acceptEvent>>
 if (pending maintenance plan found?) then ([Yes])
   if (plan approved?) then ([Yes])
     if (customer signable?) then ([Yes])
+      :Mark plan approved pending signature;
       :Generate maintenance plan agreement;
       :Request customer signature; <<sendCommand>>
       if (eSigning request accepted?) then ([Yes])

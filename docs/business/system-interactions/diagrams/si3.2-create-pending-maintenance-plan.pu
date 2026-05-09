@@ -7,12 +7,18 @@ start
 if (selected offering exists?) then ([Yes])
   if (selected offering still available?) then ([Yes])
     if (offering applies to equipment?) then ([Yes])
-      :Load customer, equipment, and offering;
-      :Create pending maintenance plan;
-      :Produce business event
+      if (equipment has no pending or active plan?) then ([Yes])
+        :Load customer, equipment, and offering;
+        :Lock selected offering price;
+        :Create pending maintenance plan;
+        :Produce business event
 Pending maintenance plan created; <<sendSignal>>
-      :Return success;
-      stop
+        :Return success;
+        stop
+      else ([No])
+        :Return duplicate-plan failure;
+        stop
+      endif
     else ([No])
       :Return offering-not-applicable failure;
       stop

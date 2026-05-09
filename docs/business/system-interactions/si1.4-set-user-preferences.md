@@ -4,7 +4,7 @@
 
 Source: `BP1.1-onboard.bpmn`.
 
-The user sets preferences after entering a password. The BPMN names address and name specifically. The system receives the preferences update request from the client browser, validates the submitted profile data in separate checks, loads the user profile, stores the preferences, and returns success.
+The user sets initial profile details after entering a password. The initial required fields are name, email, phone number, and location. Location is used later to match customers with nearby maintenance providers. The system receives the profile update request from the client browser, validates the submitted profile data in separate checks, loads the user profile, stores the details, and returns success.
 
 ## Steps
 
@@ -13,20 +13,22 @@ The user sets preferences after entering a password. The BPMN names address and 
 | 1 | Receive preferences update request | Receives the submitted profile/preference data from the client browser. |
 | 2 | Check whether name is valid | Validates the submitted name. |
 | 2a | Return invalid-name failure | Returns an error when the name is missing or invalid. |
-| 3 | Check whether address is valid | Validates the submitted address. |
-| 3a | Return invalid-address failure | Returns an error when the address is missing or invalid. |
-| 4 | Check whether preference values are valid | Validates any additional preference values supplied with the request. |
-| 4a | Return invalid-preferences failure | Returns an error when additional preference values are invalid. |
-| 5 | Load user profile | Loads the profile to be updated. |
-| 5a | Return profile-not-found failure | Returns an error when the user profile cannot be loaded. |
-| 6 | Store name and address preferences | Persists the submitted name and address preferences. |
-| 7 | Produce business event: `User preferences set` | Publishes that the preferences were stored. |
-| 8 | Return success | Returns a successful preference update response. |
+| 3 | Check whether email is valid | Validates the submitted email. |
+| 3a | Return invalid-email failure | Returns an error when the email is missing or invalid. |
+| 4 | Check whether phone number is valid | Validates the submitted phone number. |
+| 4a | Return invalid-phone-number failure | Returns an error when the phone number is missing or invalid. |
+| 5 | Check whether location is valid | Validates the submitted customer location. |
+| 5a | Return invalid-location failure | Returns an error when the location is missing or invalid. |
+| 6 | Load user profile | Loads the profile to be updated. |
+| 6a | Return profile-not-found failure | Returns an error when the user profile cannot be loaded. |
+| 7 | Store name, email, phone number, and location | Persists the submitted profile details. |
+| 8 | Produce business event: `User preferences set` | Publishes that the profile details were stored. |
+| 9 | Return success | Returns a successful profile update response. |
 
 ## Business Events
 
 Consumed:
-- Preferences update request from the client browser after the user sets address and name.
+- Preferences update request from the client browser after the user sets name, email, phone number, and location.
 
 Produced:
 - `User preferences set` after the profile data is stored.
@@ -35,5 +37,5 @@ Produced:
 
 | Question | Answer |
 |---|---|
-| Are name and address the complete preference set, or examples of a broader profile/preferences model? | Open. The BPMN explicitly names address and name, while the interaction uses the broader term preferences. |
-| Should address validation call an external address service? | Open. The diagram validates preferences but does not define validation mechanisms. |
+| Are name, email, phone number, and location the complete initial profile set, or examples of a broader preferences model? | Answered. Keep the initial profile simple: name, email, phone number, and location. Do not add a broader preferences model until a concrete use case needs it. |
+| Should location validation call an external address or geocoding service? | Answered. No external service initially. Validate that location is present and structurally usable for provider matching; provider-distance matching can become more precise later. |

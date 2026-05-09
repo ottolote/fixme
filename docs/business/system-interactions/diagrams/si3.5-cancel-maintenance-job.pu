@@ -7,9 +7,9 @@ start
 :Load scheduled maintenance job;
 if (scheduled maintenance job found?) then ([Yes])
   if (job scheduled?) then ([Yes])
-    if (cancellation rules allow cancellation?) then ([Yes])
+    if (more than 24 hours before start?) then ([Yes])
       :Mark job as cancelled;
-      :Create backoffice task to notify provider;
+      :Create provider-pile backoffice task to notify provider;
       :Produce business event
 Maintenance job cancelled; <<sendSignal>>
       :Produce business event

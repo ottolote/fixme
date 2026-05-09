@@ -7,7 +7,6 @@
 | SI1.3 | Update user password |
 | SI1.4 | Set user preferences |
 | SI1.5 | Create pending registration |
-| SI1.6 | Load registration |
 | SI1.7 | Resolve pending registration |
 | SI2.1 | Notify user |
 | SI2.3 | Notify customer of maintenance slots proposal |

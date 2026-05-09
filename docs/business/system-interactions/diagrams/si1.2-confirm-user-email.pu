@@ -16,12 +16,24 @@ User email confirmed; <<sendSignal>>
         :Return success;
         stop
       else ([No])
-        :Return account-not-found failure;
-        stop
+        :Load already-confirmed account for token;
+        if (already-confirmed account found?) then ([Yes])
+          :Return success;
+          stop
+        else ([No])
+          :Return account-not-found failure;
+          stop
+        endif
       endif
     else ([No])
-      :Return used-token failure;
-      stop
+      :Load already-confirmed account for token;
+      if (already-confirmed account found?) then ([Yes])
+        :Return success;
+        stop
+      else ([No])
+        :Return used-token failure;
+        stop
+      endif
     endif
   else ([Yes])
     :Return expired-token failure;

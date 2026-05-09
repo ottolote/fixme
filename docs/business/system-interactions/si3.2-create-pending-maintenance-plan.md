@@ -4,7 +4,7 @@
 
 Source: `BP1.3-enroll-in-maintenance-plan.bpmn`.
 
-After receiving plan options, the user picks a maintenance plan. The system receives the selected-plan request from the client browser, validates the selected option in separate checks, loads the customer, equipment, and offering, creates a pending maintenance plan, and returns success. The BPMN then creates a backoffice task for maintenance plan review.
+After receiving plan options, the user picks a maintenance plan. The system receives the selected-plan request from the client browser, validates the selected option in separate checks, rejects duplicate pending or active plans for the same equipment, loads the customer, equipment, and offering, locks the selected offering price, creates a pending maintenance plan, and returns success. The BPMN then creates a backoffice task for maintenance plan review.
 
 ## Steps
 
@@ -17,10 +17,13 @@ After receiving plan options, the user picks a maintenance plan. The system rece
 | 3a | Return offering-unavailable failure | Returns an error when the offering is no longer available. |
 | 4 | Check whether offering applies to equipment | Validates that the selected offering applies to the chosen equipment. |
 | 4a | Return offering-not-applicable failure | Returns an error when the offering does not apply to the equipment. |
-| 5 | Load customer, equipment, and offering | Loads the records required to create the pending plan. |
-| 6 | Create pending maintenance plan | Persists a maintenance plan request in pending state. |
-| 7 | Produce business event: `Pending maintenance plan created` | Publishes that the plan request is ready for review. |
-| 8 | Return success | Returns a successful pending-plan creation response. |
+| 5 | Check whether equipment has no pending or active plan | Prevents duplicate maintenance-plan requests for the same equipment. |
+| 5a | Return duplicate-plan failure | Returns an error when the equipment already has a pending or active maintenance plan. |
+| 6 | Load customer, equipment, and offering | Loads the records required to create the pending plan. |
+| 7 | Lock selected offering price | Stores the selected commercial terms on the pending plan. |
+| 8 | Create pending maintenance plan | Persists a maintenance plan request in pending state. |
+| 9 | Produce business event: `Pending maintenance plan created` | Publishes that the plan request is ready for review. |
+| 10 | Return success | Returns a successful pending-plan creation response. |
 
 ## Business Events
 

@@ -6,7 +6,7 @@ Source: `BP1.3-enroll-in-maintenance-plan.bpmn`.
 
 This interaction is used in two different BPMN contexts. After backoffice review rejection, the system resolves the pending maintenance plan as rejected and then calls `SI2.1 Notify user`. After the customer signs the maintenance plan agreement, the system resolves the pending maintenance plan as active and returns the active maintenance plan to the customer.
 
-The system consumes either a backoffice rejection event or a signed-agreement event, validates the requested outcome, loads the pending maintenance plan, checks that it can still be resolved, and applies the requested outcome. For rejection, it stores a rejection reason when provided and marks the plan as rejected. For activation, the trigger is the customer signing the agreement; this is a single-party signature, so no additional counterparty signature is required. The system attaches the signed agreement or signature reference and marks the plan as active. Successful processing emits the resolution outcome event. Invalid event processing is nacked to the DLQ.
+The system consumes either a backoffice rejection event or a signed-agreement event, validates the requested outcome, loads the maintenance plan, checks that it can still be resolved, and applies the requested outcome. For rejection, it stores a rejection reason when provided and marks the plan as rejected. For activation, the trigger is the customer signing the agreement while the plan is approved pending signature; this is a single-party signature, so no additional counterparty signature is required. The system attaches the signed agreement or signature reference and marks the plan as active. Successful processing emits the resolution outcome event. Invalid event processing is nacked to the DLQ.
 
 ## Steps
 
@@ -15,9 +15,9 @@ The system consumes either a backoffice rejection event or a signed-agreement ev
 | 1 | Consume event: maintenance plan resolution trigger | Consumes either a backoffice rejection event or a signed-agreement event. |
 | 2 | Check whether resolution outcome is valid | Validates that the requested outcome is activation or rejection. |
 | 2a | Nack event to DLQ: invalid-outcome failure | Nacks the consumed event when the requested outcome is unsupported. |
-| 3 | Load pending maintenance plan | Loads the pending plan to resolve. |
-| 3a | Nack event to DLQ: plan-not-found failure | Nacks the consumed event when the pending plan cannot be loaded. |
-| 4 | Check whether maintenance plan is still pending | Validates that the plan has not already been rejected or activated. |
+| 3 | Load maintenance plan | Loads the plan to resolve. |
+| 3a | Nack event to DLQ: plan-not-found failure | Nacks the consumed event when the plan cannot be loaded. |
+| 4 | Check whether maintenance plan is resolvable | Validates that the plan has not already been rejected or activated, and that activation is only applied after approval pending signature. |
 | 4a | Nack event to DLQ: already-resolved failure | Nacks the consumed event when the plan is no longer pending. |
 | 5 | Decide whether the resolution is activation | Routes to activation for signed agreements or rejection for rejected requests. |
 | 6 | Check whether signed agreement evidence is present | Validates that activation has signed-agreement evidence. |

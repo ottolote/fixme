@@ -8,7 +8,7 @@ Maintenance plan request rejected or agreement signed; <<acceptEvent>>
 if (resolution outcome valid?) then ([Yes])
   :Load pending maintenance plan;
   if (pending maintenance plan found?) then ([Yes])
-    if (maintenance plan still pending?) then ([Yes])
+    if (maintenance plan resolvable?) then ([Yes])
       if (is activation?) then ([Yes])
         if (signed agreement evidence present?) then ([Yes])
           :Attach customer-signed agreement;

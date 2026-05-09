@@ -5,25 +5,30 @@ start
 :Receive preferences update request;
 
 if (name valid?) then ([Yes])
-  if (address valid?) then ([Yes])
-    if (preference values valid?) then ([Yes])
-      :Load user profile;
-      if (user profile found?) then ([Yes])
-        :Store name and address preferences;
-        :Produce business event
+  if (email valid?) then ([Yes])
+    if (phone number valid?) then ([Yes])
+      if (location valid?) then ([Yes])
+        :Load user profile;
+        if (user profile found?) then ([Yes])
+          :Store name, email, phone number, and location;
+          :Produce business event
 User preferences set; <<sendSignal>>
-        :Return success;
-        stop
+          :Return success;
+          stop
+        else ([No])
+          :Return profile-not-found failure;
+          stop
+        endif
       else ([No])
-        :Return profile-not-found failure;
+        :Return invalid-location failure;
         stop
       endif
     else ([No])
-      :Return invalid-preferences failure;
+      :Return invalid-phone-number failure;
       stop
     endif
   else ([No])
-    :Return invalid-address failure;
+    :Return invalid-email failure;
     stop
   endif
 else ([No])

@@ -41,7 +41,7 @@
       <bpmn:incoming>Flow_1tbkbhd</bpmn:incoming>
       <bpmn:outgoing>Flow_0yxj2ym</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:task id="Activity_13eis6g" name="Set preferences (address, name)">
+    <bpmn:task id="Activity_13eis6g" name="Set profile details (name, email, phone number, location)">
       <bpmn:incoming>Flow_0yxj2ym</bpmn:incoming>
       <bpmn:outgoing>Flow_0q0iojs</bpmn:outgoing>
     </bpmn:task>
