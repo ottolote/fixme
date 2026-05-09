@@ -10,6 +10,20 @@ The BPMN then performs a separate system task named "Schedule backoffice task fo
 
 Slot reservations should expire if they are not confirmed and sent to the customer within a reasonable period. Default behavior: hold the reservation for 24 hours, then release the reserved slots and expire the proposal if it has not been confirmed.
 
+## Steps
+
+| Step | PlantUML step | Actions performed |
+|---|---|---|
+| 1 | Consume business event: `Maintenance slot requested` | Receives the customer's request for maintenance slots for equipment. |
+| 2 | Decide whether equipment has active maintenance plan | Validates that the equipment is covered by an active plan. |
+| 3 | Load equipment and maintenance plan | Loads the equipment and plan data needed to search slots. |
+| 4 | Find system-owned available maintenance job slots | Searches available maintenance slots owned by the system. |
+| 5 | Reserve 3 proposed job slots for 24 hours | Temporarily holds three candidate slots for the customer proposal. |
+| 6 | Create maintenance slots proposal | Persists the proposal containing the reserved candidate slots. |
+| 7 | Produce business event: `Maintenance slots proposal created` | Publishes that a proposal was created and slots are reserved. |
+| 8 | Return success | Returns a successful proposal creation response. |
+| 9 | Return failure | Returns an error when the equipment lacks an active maintenance plan. |
+
 ## Business Events
 
 Consumed:
@@ -18,6 +32,8 @@ Consumed:
 Produced:
 - `Maintenance slots proposal created`, with the proposed job slots reserved.
 
-## Questions
+## Questions / Answers
 
-- Should the 24-hour reservation timeout be configurable per equipment type, provider, or market?
+| Question | Answer |
+|---|---|
+| Should the 24-hour reservation timeout be configurable per equipment type, provider, or market? | Open. The diagram uses a 24-hour reservation period as the documented default. |
