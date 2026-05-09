@@ -3,7 +3,7 @@
   <bpmn:collaboration id="Collaboration_0t60qok">
     <bpmn:participant id="Participant_0q448c6" name="User" processRef="Process_1onttlf" />
     <bpmn:participant id="Participant_1oeh87c" name="System" processRef="Process_075iri2" />
-    <bpmn:participant id="Participant_0zd9ero" name="System" processRef="Process_08zew5i" />
+    <bpmn:participant id="Participant_0zd9ero" name="Backoffice worker" processRef="Process_08zew5i" />
     <bpmn:messageFlow id="Flow_04g6jp0" sourceRef="Activity_0xhdiup" targetRef="Event_0kfsi86" />
     <bpmn:messageFlow id="Flow_0fyxzcc" sourceRef="Event_0oup3mq" targetRef="Event_0ojbvd5" />
     <bpmn:messageFlow id="Flow_0t7g16t" sourceRef="Activity_0c2zv67" targetRef="Event_1ukidl2" />
