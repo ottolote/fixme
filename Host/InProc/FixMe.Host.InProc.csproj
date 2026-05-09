@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SoEx.Container" Version="0.0.0-alpha-2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\Policy\FixMe.Common.Policy.csproj" />
+    <ProjectReference Include="..\..\iFx\Hosting\InProc\FixMe.iFx.Hosting.InProc.csproj" />
+    <ProjectReference Include="..\..\iFx\Proxy\FixMe.iFx.Proxy.csproj" />
+    <ProjectReference Include="..\..\Component\Manager\Membership\Interface\FixMe.Manager.Membership.Interface.csproj" />
+    <ProjectReference Include="..\..\Component\Manager\Membership\Service\FixMe.Manager.Membership.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Manager\Maintenance\Interface\FixMe.Manager.Maintenance.Interface.csproj" />
+    <ProjectReference Include="..\..\Component\Manager\Maintenance\Service\FixMe.Manager.Maintenance.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Manager\Notification\Interface\FixMe.Manager.Notification.Interface.csproj" />
+    <ProjectReference Include="..\..\Component\Manager\Notification\Service\FixMe.Manager.Notification.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Manager\Tasking\Interface\FixMe.Manager.Tasking.Interface.csproj" />
+    <ProjectReference Include="..\..\Component\Manager\Tasking\Service\FixMe.Manager.Tasking.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Engine\Matching\Service\FixMe.Engine.Matching.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Engine\Scheduling\Service\FixMe.Engine.Scheduling.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Engine\Policy\Service\FixMe.Engine.Policy.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Access\Customer\Service\FixMe.Access.Customer.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Access\Equipment\Service\FixMe.Access.Equipment.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Access\Maintenance\Service\FixMe.Access.Maintenance.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Access\Task\Service\FixMe.Access.Task.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Access\Notification\Service\FixMe.Access.Notification.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Access\Agreement\Service\FixMe.Access.Agreement.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Access\ESigning\Service\FixMe.Access.ESigning.Service.csproj" />
+  </ItemGroup>
+</Project>

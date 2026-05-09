@@ -1,0 +1,26 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Common/">
+    <Project Path="Common/Contract/FixMe.Common.Contract.csproj" />
+    <Project Path="Common/Identifier/FixMe.Common.Identifier.csproj" />
+    <Project Path="Common/Policy/FixMe.Common.Policy.csproj" />
+    <Project Path="Common/Value/FixMe.Common.Value.csproj" />
+  </Folder>
+  <Folder Name="/Host/">
+    <Project Path="Host/InProc/FixMe.Host.InProc.csproj" />
+  </Folder>
+  <Folder Name="/iFx/">
+    <Project Path="iFx/Client/FixMe.iFx.Client.csproj" />
+    <Project Path="iFx/Convention/FixMe.iFx.Convention.csproj" />
+    <Project Path="iFx/Hosting/Component/FixMe.iFx.Hosting.Component.csproj" />
+    <Project Path="iFx/Hosting/InProc/FixMe.iFx.Hosting.InProc.csproj" />
+    <Project Path="iFx/Hosting/SubSystem/FixMe.iFx.Hosting.SubSystem.csproj" />
+    <Project Path="iFx/Observability/FixMe.iFx.Observability.csproj" />
+    <Project Path="iFx/Proxy/FixMe.iFx.Proxy.csproj" />
+    <Project Path="iFx/Service/FixMe.iFx.Service.csproj" />
+  </Folder>
+</Solution>

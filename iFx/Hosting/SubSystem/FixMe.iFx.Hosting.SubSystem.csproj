@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SoEx.Hosting" Version="0.0.0-alpha-2.3" />
+    <PackageReference Include="SoEx.Method.Conventions" Version="0.0.0-alpha-2.3" />
+    <PackageReference Include="SoEx.Transport.NamedPipe" Version="0.0.0-alpha-2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Convention\FixMe.iFx.Convention.csproj" />
+    <ProjectReference Include="..\..\Observability\FixMe.iFx.Observability.csproj" />
+  </ItemGroup>
+
+</Project>
