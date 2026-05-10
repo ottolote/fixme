@@ -29,5 +29,6 @@
   <Folder Name="/tests/">
     <Project Path="tests/FixMe.Access.Equipment.Tests/FixMe.Access.Equipment.Tests.csproj" />
     <Project Path="tests/FixMe.Api.Tests/FixMe.Api.Tests.csproj" />
+    <Project Path="tests/FixMe.Manager.Membership.Tests/FixMe.Manager.Membership.Tests.csproj" />
   </Folder>
 </Solution>

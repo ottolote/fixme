@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+      <ProjectReference Include="..\..\..\Access\Customer\Interface\FixMe.Access.Customer.Interface.csproj" />
+      <ProjectReference Include="..\..\..\Access\Equipment\Interface\FixMe.Access.Equipment.Interface.csproj" />
       <ProjectReference Include="$(SolutionDir)\iFx\Proxy\$(SolutionName).iFx.Proxy.csproj" />
       <ProjectReference Include="$(SolutionDir)\iFx\Service\$(SolutionName).iFx.Service.csproj" />
       <ProjectReference Include="..\Interface\FixMe.Manager.Membership.Interface.csproj" />
