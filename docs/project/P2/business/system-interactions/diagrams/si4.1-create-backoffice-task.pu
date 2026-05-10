@@ -9,7 +9,8 @@ if (task type supported?) then ([Yes])
   if (task subject exists?) then ([Yes])
     if (task not already open?) then ([Yes])
       :Create backoffice task;
-      :Queue task in provider work pile;
+      :Queue task in provider or
+backoffice work pile;
       :Produce business event
 Backoffice task created; <<sendSignal>>
       stop
