@@ -34,6 +34,8 @@
     <ProjectReference Include="..\..\Host\Api\FixMe.Api.csproj" />
     <ProjectReference Include="..\..\Component\Access\Maintenance\Interface\FixMe.Access.Maintenance.Interface.csproj" />
     <ProjectReference Include="..\..\Component\Access\Maintenance\Service\FixMe.Access.Maintenance.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Access\Task\Interface\FixMe.Access.Task.Interface.csproj" />
+    <ProjectReference Include="..\..\Component\Access\Task\Service\FixMe.Access.Task.Service.csproj" />
   </ItemGroup>
 
 </Project>
