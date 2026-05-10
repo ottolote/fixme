@@ -25,6 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Component\Access\Customer\Interface\FixMe.Access.Customer.Interface.csproj" />
+    <ProjectReference Include="..\..\Component\Access\Customer\Service\FixMe.Access.Customer.Service.csproj" />
     <ProjectReference Include="..\..\Host\Api\FixMe.Api.csproj" />
   </ItemGroup>
 
