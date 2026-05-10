@@ -1,20 +1,55 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  Product: FixMe, a two-sided repair orchestration platform for customers and maintenance providers.
+  Domain scope: onboarding, customer acquisition, maintenance-provider registration, repair scheduling, legal agreements/e-signing, payments, notifications, and back-office tasking.
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+  Current architecture:
+  - .NET solution using `FixMe.slnx`.
+  - Initial external API host lives in `Host/Api` as `FixMe.Api`.
+  - Existing component seams live under `Component/` and are organized as Manager, Engine, Access, and Utility projects.
+  - Expected future deployable services: roughly 3-4 services, likely grouped around the major manager/service areas rather than every component becoming a separate service.
+  - Existing service areas include Membership, Maintenance, Notification, and Tasking.
+
+  Development environment:
+  - .NET SDK 10.0.x is pinned by `global.json`.
+  - Most existing component projects target `net9.0`; the runnable API and API tests target `net10.0` because the local environment only has the .NET 10 runtime installed.
+  - The API intentionally uses base .NET HTTP primitives for now because this environment does not include the ASP.NET Core reference pack needed to build `Microsoft.NET.Sdk.Web` projects locally.
+  - Local API command: `dotnet run --project Host/Api/FixMe.Api.csproj -- --url=http://127.0.0.1:8080`.
+  - Local stack command: `podman compose up --build`.
+  - Container image command: `podman build --security-opt seccomp=/usr/share/containers/seccomp.json --file Containerfile --tag fixme-api:local .`.
+
+  Build and quality gates:
+  - Restore: `dotnet restore FixMe.slnx`.
+  - Format check: `dotnet format FixMe.slnx --verify-no-changes --no-restore`.
+  - Build: `dotnet build FixMe.slnx --configuration Release --no-restore`.
+  - Test with coverage: `dotnet test FixMe.slnx --configuration Release --no-build --collect:"XPlat Code Coverage"`.
+  - GitHub Actions CI is defined in `.github/workflows/ci.yml` and runs restore, format check, Release build, tests, coverage artifact upload, and container build.
+  - `Directory.Build.props` enables latest analysis, code-style enforcement in build, static graph restore, and warnings-as-errors in CI.
+
+  Container and local infrastructure:
+  - `Containerfile` builds and publishes `Host/Api/FixMe.Api.csproj` into a .NET 10 runtime image.
+  - `compose.yaml` starts the API and Seq for local observability.
+  - Runtime API URL is configured with `FIXME_API_URL`; see `.env.example`.
+
+  Current API baseline:
+  - `GET /health/live` returns liveness status.
+  - `GET /health/ready` returns readiness status.
+  - `GET /api/v1` describes the initial FixMe API capabilities.
+
+  Known dependency risk:
+  - Direct OpenTelemetry vulnerability warnings were resolved by updating direct OpenTelemetry packages in `iFx/Observability` to `1.15.x`.
+  - `Nerdbank.MessagePack 1.0.2` remains a vulnerable transitive dependency through `SoEx.Transport.NamedPipe` in named-pipe hosting projects. This likely requires a newer `SoEx.*` package version or a transport replacement.
+
+rules:
+  proposal:
+    - Account for the existing Manager, Engine, Access, and Utility component boundaries before proposing new services.
+    - Prefer incremental changes that preserve the current solution structure unless the change explicitly requires decomposition.
+    - Include operational impact when a change affects API hosting, containers, CI, observability, or local development commands.
+  design:
+    - Treat `Host/Api` as the external API entry point unless a change explicitly introduces another host.
+    - Keep future service decomposition aligned to stable areas of volatility and the expected 3-4 deployable services.
+    - Record any dependency or runtime assumption that affects local builds, CI, or Podman-based development.
+  tasks:
+    - Include verification tasks for restore, format, build, tests, and container image build when implementation changes code or infrastructure.
+    - Include documentation updates when commands, service boundaries, or operational behavior change.
