@@ -1,8 +1,4 @@
-## Purpose
-
-The customer web client API surface covers customer-facing interactions exposed through the FixMe API.
-
-## Requirements
+## ADDED Requirements
 
 ### Requirement: Customer web client can start draft equipment registration
 The customer web client API surface SHALL provide a versioned operation for starting SI1.5 draft equipment registration. The operation SHALL accept a customer identifier and optional equipment type identifier and SHALL return the draft registration created by membership management.
