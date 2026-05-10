@@ -12,6 +12,11 @@ namespace FixMe.Access.Equipment.Service
         {
         }
 
+        public EquipmentAccess(string resourceConnectionString)
+            : this(new EquipmentResource(resourceConnectionString))
+        {
+        }
+
         internal EquipmentAccess(EquipmentResource resource)
         {
             _resource = resource;
@@ -58,11 +63,15 @@ namespace FixMe.Access.Equipment.Service
         {
             Require(registration.PendingRegistrationId, nameof(registration.PendingRegistrationId));
             Require(registration.CustomerId, nameof(registration.CustomerId));
-            Require(registration.EquipmentTypeId, nameof(registration.EquipmentTypeId));
 
             if (registration.Status is null)
             {
                 throw new ArgumentException("Pending registration status is required.", nameof(registration));
+            }
+
+            if (registration.Status != PendingRegistrationStatus.Draft)
+            {
+                Require(registration.EquipmentTypeId, nameof(registration.EquipmentTypeId));
             }
 
             if (registration.Status == PendingRegistrationStatus.Accepted && registration.Decision != RegistrationDecision.Accepted)
