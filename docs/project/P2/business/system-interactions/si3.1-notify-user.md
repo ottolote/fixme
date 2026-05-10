@@ -8,9 +8,11 @@ The BPMNs use this as a generic user notification interaction. In onboarding, it
 
 The system consumes a notification-triggering business event, validates the notification request data in separate checks, resolves the recipient and channel, renders the message content using the supplied template name or template ID, and sends it. For maintenance slots proposal notifications, the event payload must identify a confirmed proposal with active reserved slots so the template can render selectable options. Successful processing emits a generic notification-sent event with a notification type in the event payload. Invalid or synchronously failed event processing is nacked to the DLQ. Email is the primary modeled channel; other channels can be added as delivery details without splitting this into separate system interactions.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Consume event: notification-triggering business event | Consumes a business event that requires user notification. |
 | 2 | Check whether recipient can be resolved | Validates that the event identifies a notifiable user. |

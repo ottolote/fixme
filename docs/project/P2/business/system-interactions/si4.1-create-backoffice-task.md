@@ -6,11 +6,13 @@ Sources: `BP1.2-register-equipment.bpmn`, `BP1.3-enroll-in-maintenance-plan.bpmn
 
 This interaction formalizes creation of backoffice work across BPMNs. The system consumes a business event that requires backoffice work, validates the referenced subject and task type in separate checks, creates the task, and queues it in the relevant provider or backoffice work pile. Successful processing emits a task-created event. Invalid event processing is nacked to the DLQ.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 Known task types from the BPMNs are equipment registration review, maintenance plan review, maintenance slots proposal confirmation, and maintenance provider cancellation notification. Task creation is formalized through this TaskingManager interaction rather than being created directly by the domain interactions. For equipment registrations needing review, the backoffice worker reviews and later resolves the pending registration through `SI1.7 Resolve pending registration`. For maintenance slots, the backoffice worker confirms with the maintenance provider that the proposed slots are acceptable before the customer is notified.
 
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Consume event: backoffice-work business event | Consumes a business event that requires backoffice work. |
 | 2 | Check whether task type is supported | Validates that the requested task type is known. |

@@ -8,9 +8,11 @@ This interaction is used in two event-driven BPMN contexts. After backoffice rev
 
 The system consumes either a backoffice rejection event or a signed-agreement event, validates the requested outcome, loads the maintenance plan, checks that it can still be resolved, and applies the requested outcome. For rejection, it stores a rejection reason when provided and marks the plan as rejected. For activation, the trigger is the customer signing the agreement while the plan is approved pending signature; this is a single-party signature, so no additional counterparty signature is required. The system attaches the signed agreement or signature reference and marks the plan as active. Successful processing emits the resolution outcome event. Invalid event processing is nacked to the DLQ.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Consume event: maintenance plan resolution trigger | Consumes either a backoffice rejection event or a signed-agreement event. |
 | 2 | Check whether resolution outcome is valid | Validates that the requested outcome is activation or rejection. |

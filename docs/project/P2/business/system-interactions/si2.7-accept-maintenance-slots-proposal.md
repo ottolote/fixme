@@ -6,9 +6,11 @@ Source: `BP1.4-schedule-maintenance-job.bpmn`.
 
 After receiving a maintenance slots proposal, the customer requests one maintenance slot. The system receives the selected-slot request from the client browser, validates the proposal and selected slot in separate checks, loads the proposal, removes reserved slots in the proposal, schedules the accepted maintenance slot, and returns the scheduled slot to the customer.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Receive selected maintenance slot request | Receives the customer's selected slot from the client browser. |
 | 2 | Load maintenance slots proposal | Loads the proposal and its reserved slots. |

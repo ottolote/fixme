@@ -5,28 +5,18 @@ start
 :Consume event
 backoffice-work business event; <<acceptEvent>>
 
-if (task type supported?) then ([Yes])
-  if (task subject exists?) then ([Yes])
-    if (task not already open?) then ([Yes])
-      :Create backoffice task;
-      :Queue task in provider or
+if (backoffice task request valid?) then ([Yes])
+  :Create backoffice task;
+  :Queue task in provider or
 backoffice work pile;
-      :Produce business event
+  :Produce business event
 Backoffice task created; <<sendSignal>>
-      stop
-    else ([No])
-      :Nack event to DLQ <<sendSignal>>
-duplicate-task failure;
-      stop
-    endif
-  else ([No])
-    :Nack event to DLQ <<sendSignal>>
-subject-not-found failure;
-    stop
-  endif
+  stop
 else ([No])
   :Nack event to DLQ <<sendSignal>>
-unsupported-task-type failure;
+task validation failure
+(unsupported-task-type, subject-not-found,
+or duplicate-task);
   stop
 endif
 

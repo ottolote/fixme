@@ -5,40 +5,24 @@ start
 :Consume event
 notification-triggering business event; <<acceptEvent>>
 
-if (recipient can be resolved?) then ([Yes])
-  if (notification template exists?) then ([Yes])
-    if (payload valid for template?) then ([Yes])
-      :Resolve recipient and channel;
-      if (channel supported and reachable?) then ([Yes])
-        :Render notification content from template name or ID;
-        :Send notification;
-        if (delivery accepted?) then ([Yes])
-          :Produce business event
+if (notification request valid?) then ([Yes])
+  :Resolve recipient and channel;
+  :Render notification content from template name or ID;
+  :Send notification;
+  if (delivery accepted?) then ([Yes])
+    :Produce business event
 User notification sent; <<sendSignal>>
-          stop
-        else ([No])
-          :Nack event to DLQ <<sendSignal>>
-delivery-failed failure;
-          stop
-        endif
-      else ([No])
-        :Nack event to DLQ <<sendSignal>>
-channel-unavailable failure;
-        stop
-      endif
-    else ([No])
-      :Nack event to DLQ <<sendSignal>>
-invalid-payload failure;
-      stop
-    endif
+    stop
   else ([No])
     :Nack event to DLQ <<sendSignal>>
-template-not-found failure;
+delivery-failed failure;
     stop
   endif
 else ([No])
   :Nack event to DLQ <<sendSignal>>
-recipient-resolution failure;
+notification validation failure
+(recipient-resolution, template-not-found,
+invalid-payload, or channel-unavailable);
   stop
 endif
 

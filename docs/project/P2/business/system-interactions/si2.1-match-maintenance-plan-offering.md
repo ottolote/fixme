@@ -6,9 +6,11 @@ Source: `BP1.3-enroll-in-maintenance-plan.bpmn`.
 
 The user selects already-registered equipment and chooses to enroll. The system receives the enrollment request from the client browser, validates registration and eligibility in separate checks, loads the equipment details, finds matching maintenance plan offerings, and returns available options with pricing when a match exists.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Receive maintenance plan enrollment request | Receives the enrollment request from the client browser. |
 | 2 | Check whether equipment exists | Validates that the selected equipment can be found. |

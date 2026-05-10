@@ -6,13 +6,15 @@ Source: `BP1.4-schedule-maintenance-job.bpmn`.
 
 The customer requests a maintenance slot for equipment. The system receives the maintenance-slot request from the client browser, validates the equipment and active maintenance plan in separate checks, loads the equipment and plan, finds available maintenance job slots owned by the system, reserves three proposed slots, creates a maintenance slots proposal, and returns success. The BPMN annotation explicitly says this interaction reserves job slots.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 The BPMN then calls `SI4.1 Create backoffice task` before the backoffice worker confirms the proposal with the maintenance provider through `SI2.6 Confirm maintenance slots proposal`. The proposal is only sent to the customer after `SI2.6 Confirm maintenance slots proposal` records the domain confirmation.
 
 Slot reservations should expire if they are not confirmed and sent to the customer within a reasonable period. Default behavior: hold the reservation for 24 hours, then release the reserved slots and expire the proposal if it has not been confirmed.
 
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Receive maintenance-slot request | Receives the customer's request for maintenance slots from the client browser. |
 | 2 | Check whether equipment exists | Validates that the target equipment can be found. |

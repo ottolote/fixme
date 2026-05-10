@@ -6,9 +6,11 @@ Source: `BP1.4-schedule-maintenance-job.bpmn`.
 
 After `SI4.1 Create backoffice task` creates a maintenance slots proposal confirmation task, the backoffice worker confirms with the maintenance provider that the reserved slots are acceptable. The system receives the confirmation request, validates the task, proposal, and confirmed slot set in separate checks, closes the task, marks the proposal as confirmed, and emits the event that triggers `SI3.1 Notify user`.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Receive provider slot confirmation request | Receives the backoffice worker's confirmation result. |
 | 2 | Load confirmation task | Loads the task representing the provider confirmation work. |

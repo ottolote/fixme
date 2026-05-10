@@ -6,9 +6,11 @@ Source: `BP1.3-enroll-in-maintenance-plan.bpmn` and `../references/use-cases/uc2
 
 After a maintenance plan request is approved, the system initiates eSigning. It consumes the approval business event, validates that the pending maintenance plan can be signed in separate checks, loads the plan, marks it approved pending signature, generates the maintenance plan agreement, requests a single customer signature through the eSigning capability, and stores the returned signature order reference. Successful processing emits a signature-requested event. Invalid or synchronously failed event processing is nacked to the DLQ.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Consume event: `Maintenance plan request approved` | Consumes approval of the pending maintenance plan request. |
 | 2 | Load pending maintenance plan | Loads the plan data needed to create the agreement. |

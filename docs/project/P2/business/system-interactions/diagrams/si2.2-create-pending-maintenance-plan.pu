@@ -4,31 +4,18 @@ title SI2.2 Create pending maintenance plan
 start
 :Receive selected-plan request;
 
-if (selected offering exists?) then ([Yes])
-  if (selected offering still available?) then ([Yes])
-    if (offering applies to equipment?) then ([Yes])
-      if (equipment has no pending or active plan?) then ([Yes])
-        :Load customer, equipment, and offering;
-        :Lock selected offering price;
-        :Create pending maintenance plan;
-        :Produce business event
+if (selected plan request valid?) then ([Yes])
+  :Load customer, equipment, and offering;
+  :Lock selected offering price;
+  :Create pending maintenance plan;
+  :Produce business event
 Pending maintenance plan created; <<sendSignal>>
-        :Return success;
-        stop
-      else ([No])
-        :Return duplicate-plan failure;
-        stop
-      endif
-    else ([No])
-      :Return offering-not-applicable failure;
-      stop
-    endif
-  else ([No])
-    :Return offering-unavailable failure;
-    stop
-  endif
+  :Return success;
+  stop
 else ([No])
-  :Return offering-not-found failure;
+  :Return selected-plan validation failure
+(offering-not-found, offering-unavailable,
+offering-not-applicable, or duplicate-plan);
   stop
 endif
 

@@ -6,9 +6,11 @@ Source: `BP1.5-cancel-maintenance-job-slot.bpmn`.
 
 The customer cancels a selected maintenance job slot. The system receives the cancellation request from the client browser, validates the job and the 24-hour cancellation cutoff in separate checks, marks it as cancelled, emits a cancellation event, and returns success. The BPMN then calls `SI4.1 Create backoffice task` so a backoffice worker can notify the maintenance provider of the cancellation.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Receive maintenance job cancellation request | Receives the customer's cancellation request from the client browser. |
 | 2 | Load scheduled maintenance job | Loads the scheduled job to cancel. |

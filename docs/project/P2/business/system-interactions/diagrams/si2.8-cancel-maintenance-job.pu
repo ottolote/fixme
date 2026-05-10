@@ -4,25 +4,17 @@ title SI2.8 Cancel maintenance job
 start
 :Receive maintenance job cancellation request;
 
-:Load scheduled maintenance job;
-if (scheduled maintenance job found?) then ([Yes])
-  if (job scheduled?) then ([Yes])
-    if (more than 24 hours before start?) then ([Yes])
-      :Mark job as cancelled;
-      :Produce business event
-      Maintenance job cancelled; <<sendSignal>>
-      :Return success;
-      stop
-    else ([No])
-      :Return cancellation-not-allowed failure;
-      stop
-    endif
-  else ([No])
-    :Return job-not-scheduled failure;
-    stop
-  endif
+if (scheduled job can be cancelled?) then ([Yes])
+  :Load scheduled maintenance job;
+  :Mark job as cancelled;
+  :Produce business event
+  Maintenance job cancelled; <<sendSignal>>
+  :Return success;
+  stop
 else ([No])
-  :Return job-not-found failure;
+  :Return cancellation validation failure
+(job-not-found, job-not-scheduled,
+or cancellation-not-allowed);
   stop
 endif
 

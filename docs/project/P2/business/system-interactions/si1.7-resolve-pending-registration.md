@@ -6,11 +6,13 @@ Source: `BP1.2-register-equipment.bpmn`.
 
 This interaction is used after a backoffice worker decides whether to accept or reject a pending equipment registration. The system receives the resolution request from the backoffice client, validates the decision, loads the referenced registration, checks that it is still pending, and applies the decision.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 For acceptance, the system creates a registered equipment record and marks the pending registration as accepted. The BPMN then calls `SI3.1 Notify user` and returns the accepted registration to the customer. For rejection, the system stores the rejection reason when provided and marks the pending registration as rejected. The modeled rejection path ends after resolution and does not notify the customer.
 
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Receive pending registration resolution request | Receives the accept or reject decision from the backoffice client. |
 | 2 | Check whether decision is valid | Validates that the requested decision is acceptance or rejection. |

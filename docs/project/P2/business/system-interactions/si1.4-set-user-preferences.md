@@ -6,9 +6,11 @@ Source: `BP1.1-onboard.bpmn`.
 
 The user sets initial profile details after entering a password. The initial required fields are name, email, phone number, and location. Location is used later to match customers with nearby maintenance providers. The system receives the profile update request from the client browser, validates the submitted profile data in separate checks, loads the user profile, stores the details, and returns success.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Receive preferences update request | Receives the submitted profile/preference data from the client browser. |
 | 2 | Check whether name is valid | Validates the submitted name. |
