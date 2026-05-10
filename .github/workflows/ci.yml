@@ -8,6 +8,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   build-test:
@@ -53,6 +54,57 @@ jobs:
 
       - name: Build Image
         run: docker build --file Containerfile --tag fixme-api:${{ github.sha }} .
+
+  deploy:
+    name: Deploy to GKE
+    runs-on: ubuntu-latest
+    needs: build-test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    env:
+      PROJECT_ID: otto-fixme
+      REGION: europe-north1
+      CLUSTER_NAME: fixme
+      CLUSTER_LOCATION: europe-north1-a
+      ARTIFACT_REGISTRY_REPOSITORY: fixme
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/487828633179/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
+          service_account: github-actions-sa@otto-fixme.iam.gserviceaccount.com
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker Auth
+        run: gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+
+      - name: Build and Push Image
+        env:
+          IMAGE: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPOSITORY }}/fixme-api:${{ github.sha }}
+        run: |
+          docker build --file Containerfile --tag "$IMAGE" .
+          docker push "$IMAGE"
+
+      - name: Get GKE Credentials
+        uses: google-github-actions/get-gke-credentials@v2
+        with:
+          cluster_name: ${{ env.CLUSTER_NAME }}
+          location: ${{ env.CLUSTER_LOCATION }}
+          project_id: ${{ env.PROJECT_ID }}
+
+      - name: Deploy Manifests
+        env:
+          IMAGE: ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPOSITORY }}/fixme-api:${{ github.sha }}
+        run: |
+          kubectl apply -f k8s/fixme-api.yaml
+          kubectl set image deployment/fixme-api api="$IMAGE" --namespace fixme
+          kubectl rollout status deployment/fixme-api --namespace fixme --timeout=120s
 
   terraform:
     name: Terraform Validate
