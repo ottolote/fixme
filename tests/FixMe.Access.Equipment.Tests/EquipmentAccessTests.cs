@@ -22,7 +22,11 @@ public sealed class EquipmentAccessTests
         EquipmentModel? result = await access.Filter(new EquipmentCriteria { EquipmentId = "equipment-1", CustomerId = "customer-1" });
 
         Assert.Same(equipment, stored);
-        Assert.Same(equipment, result);
+        Assert.NotNull(result);
+        Assert.Equal(equipment.EquipmentId, result.EquipmentId);
+        Assert.Equal(equipment.CustomerId, result.CustomerId);
+        Assert.Equal(equipment.EquipmentTypeId, result.EquipmentTypeId);
+        Assert.Equal(equipment.RegistrationId, result.RegistrationId);
     }
 
     [Fact]
@@ -77,7 +81,11 @@ public sealed class EquipmentAccessTests
         });
 
         Assert.Same(registration, stored);
-        Assert.Same(registration, result);
+        Assert.NotNull(result);
+        Assert.Equal(registration.PendingRegistrationId, result.PendingRegistrationId);
+        Assert.Equal(registration.CustomerId, result.CustomerId);
+        Assert.Equal(registration.EquipmentTypeId, result.EquipmentTypeId);
+        Assert.Equal(registration.Status, result.Status);
     }
 
     [Fact]
@@ -121,5 +129,72 @@ public sealed class EquipmentAccessTests
         await Assert.ThrowsAsync<ArgumentException>(() => access.Store(equipment));
         EquipmentModel? result = await access.Filter(new EquipmentCriteria { EquipmentId = "equipment-1" });
         Assert.Null(result);
+    }
+
+    [Fact]
+    public async Task StoredEquipmentPersistsAcrossAccessInstancesUsingSameDatabase()
+    {
+        string connectionString = CreateConnectionString();
+        EquipmentAccess writer = new(connectionString);
+        EquipmentModel equipment = new()
+        {
+            EquipmentId = "equipment-1",
+            CustomerId = "customer-1",
+            EquipmentTypeId = "car",
+            RegistrationId = "registration-1",
+            Attributes = new Dictionary<string, string> { ["vin"] = "abc" }
+        };
+
+        await writer.Store(equipment);
+
+        EquipmentAccess reader = new(connectionString);
+        EquipmentModel? result = await reader.Filter(new EquipmentCriteria { EquipmentId = "equipment-1" });
+
+        Assert.NotNull(result);
+        Assert.Equal("customer-1", result.CustomerId);
+        Assert.Equal("abc", result.Attributes["vin"]);
+    }
+
+    [Fact]
+    public async Task DraftPendingRegistrationStoresWithoutEquipmentType()
+    {
+        EquipmentAccess access = new();
+        PendingRegistration registration = new()
+        {
+            PendingRegistrationId = "registration-1",
+            CustomerId = "customer-1",
+            Status = PendingRegistrationStatus.Draft
+        };
+
+        await access.Store(registration);
+
+        PendingRegistration? result = await access.Filter(new PendingRegistrationCriteria { PendingRegistrationId = "registration-1" });
+        Assert.NotNull(result);
+        Assert.Equal("customer-1", result.CustomerId);
+        Assert.Null(result.EquipmentTypeId);
+        Assert.Equal(PendingRegistrationStatus.Draft, result.Status);
+    }
+
+    [Fact]
+    public async Task SubmittedPendingRegistrationRejectsMissingEquipmentType()
+    {
+        EquipmentAccess access = new();
+        PendingRegistration registration = new()
+        {
+            PendingRegistrationId = "registration-1",
+            CustomerId = "customer-1",
+            Status = PendingRegistrationStatus.Submitted
+        };
+
+        await Assert.ThrowsAsync<ArgumentException>(() => access.Store(registration));
+        PendingRegistration? result = await access.Filter(new PendingRegistrationCriteria { PendingRegistrationId = "registration-1" });
+        Assert.Null(result);
+    }
+
+    private static string CreateConnectionString()
+    {
+        string path = Path.Combine(Path.GetTempPath(), "fixme-equipment-tests", $"{Guid.NewGuid():N}.db");
+        Directory.CreateDirectory(Path.GetDirectoryName(path)!);
+        return $"Data Source={path}";
     }
 }
