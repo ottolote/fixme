@@ -13,7 +13,10 @@ resource "google_container_cluster" "primary" {
     channel = "REGULAR"
   }
 
-  depends_on = [google_project_service.container]
+  depends_on = [
+    google_project_service.compute,
+    google_project_service.container,
+  ]
 }
 
 resource "google_container_node_pool" "primary_spot" {

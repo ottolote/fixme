@@ -27,3 +27,9 @@ variable "github_repository" {
   description = "The GitHub repository in the format owner/repo (e.g., 'octocat/Hello-World')"
   default     = "ottolote/fixme"
 }
+
+variable "artifact_registry_repository" {
+  type        = string
+  description = "The Artifact Registry Docker repository name"
+  default     = "fixme"
+}
