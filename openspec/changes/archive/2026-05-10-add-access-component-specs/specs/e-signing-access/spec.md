@@ -1,8 +1,4 @@
-## Purpose
-
-The `ESigningAccess` component owns access to the external eSigning boundary and delegates signature requests to `ExternalESigningResource`.
-
-## Requirements
+## ADDED Requirements
 
 ### Requirement: Signature request storage
 `ESigningAccess` SHALL expose `SignatureRequestStore(SignatureRequest): SignatureRequest` for initiating external customer signature requests. The access component SHALL delegate the request to `ExternalESigningResource` and SHALL return the accepted provider-backed `SignatureRequest` state, including the external signature order reference when one is issued.

@@ -1,8 +1,4 @@
-## Purpose
-
-The `MaintenanceAccess` component owns maintenance offering, plan, slot, proposal, and job persistence access and delegates reads and writes to `MaintenanceResource`.
-
-## Requirements
+## ADDED Requirements
 
 ### Requirement: Maintenance plan offering filtering
 `MaintenanceAccess` SHALL expose `MaintenancePlanOfferingFilter(MaintenancePlanOfferingCriteria): MaintenancePlanOffering` for retrieving offerings used by matching and pending plan creation. The access component SHALL delegate reads to `MaintenanceResource` and SHALL return offerings matching the supplied `MaintenancePlanOfferingCriteria`.

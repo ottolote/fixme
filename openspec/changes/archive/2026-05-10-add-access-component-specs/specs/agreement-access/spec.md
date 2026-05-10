@@ -1,8 +1,4 @@
-## Purpose
-
-The `AgreementAccess` component owns maintenance plan agreement persistence access and delegates agreement reads and writes to `AgreementResource`.
-
-## Requirements
+## ADDED Requirements
 
 ### Requirement: Agreement filtering
 `AgreementAccess` SHALL expose `Filter(AgreementCriteria): Agreement` for retrieving agreement evidence used by pending maintenance plan resolution. The access component SHALL delegate reads to `AgreementResource` and SHALL return agreements matching the supplied `AgreementCriteria`.

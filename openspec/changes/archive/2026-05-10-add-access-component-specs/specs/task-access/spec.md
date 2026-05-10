@@ -1,8 +1,4 @@
-## Purpose
-
-The `TaskAccess` component owns backoffice task persistence access and delegates task reads and writes to `TaskResource`.
-
-## Requirements
+## ADDED Requirements
 
 ### Requirement: Task filtering
 `TaskAccess` SHALL expose `Filter(TaskCriteria): Task` for retrieving backoffice tasks and detecting duplicate open tasks. The access component SHALL delegate reads to `TaskResource` and SHALL return tasks matching the supplied `TaskCriteria`.

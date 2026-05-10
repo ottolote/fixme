@@ -1,8 +1,4 @@
-## Purpose
-
-The `EquipmentAccess` component owns equipment, equipment type, and pending registration persistence access and delegates reads and writes to `EquipmentResource`.
-
-## Requirements
+## ADDED Requirements
 
 ### Requirement: Equipment filtering
 `EquipmentAccess` SHALL expose `Filter(EquipmentCriteria): Equipment` for registered equipment lookup operations. The access component SHALL delegate reads to `EquipmentResource` and SHALL return equipment records matching the supplied `EquipmentCriteria`.

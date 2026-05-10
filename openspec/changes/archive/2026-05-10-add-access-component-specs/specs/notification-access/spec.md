@@ -1,8 +1,4 @@
-## Purpose
-
-The `NotificationAccess` component owns notification template and notification record persistence access and delegates reads and writes to `NotificationResource`.
-
-## Requirements
+## ADDED Requirements
 
 ### Requirement: Notification template filtering
 `NotificationAccess` SHALL expose `NotificationTemplateFilter(NotificationTemplateCriteria): NotificationTemplate` for resolving templates used by `NotifyUser(NotifyUserRequest)`. The access component SHALL delegate reads to `NotificationResource` and SHALL return templates matching the supplied `NotificationTemplateCriteria`.

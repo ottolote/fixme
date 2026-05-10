@@ -1,8 +1,4 @@
-## Purpose
-
-The `CustomerAccess` component owns customer persistence access for membership workflows and delegates customer reads and writes to `CustomerResource`.
-
-## Requirements
+## ADDED Requirements
 
 ### Requirement: Customer filtering
 `CustomerAccess` SHALL expose `Filter(CustomerCriteria): Customer` for customer lookup operations used by membership workflows. The access component SHALL delegate reads to `CustomerResource` and SHALL return only customer records matching the supplied `CustomerCriteria`.
