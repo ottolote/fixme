@@ -10,6 +10,18 @@ variable "region" {
   default     = "us-central1"
 }
 
+variable "zone" {
+  type        = string
+  description = "The GCP zone for the low-cost GKE cluster"
+  default     = "us-central1-a"
+}
+
+variable "cluster_name" {
+  type        = string
+  description = "The GKE cluster name"
+  default     = "fixme"
+}
+
 variable "github_repository" {
   type        = string
   description = "The GitHub repository in the format owner/repo (e.g., 'octocat/Hello-World')"
