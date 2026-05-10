@@ -116,6 +116,32 @@ public sealed class CustomerAccessTests
         Assert.Equal("one@example.com", existing?.Email);
     }
 
+    [Fact]
+    public async Task StoreRejectsSameEmailWithDifferentCustomerId()
+    {
+        CustomerAccess access = new(new CustomerResource());
+        await access.Store(NewCustomer(customerId: "customer-1", email: "one@example.com"));
+        Customer conflicting = NewCustomer(customerId: "customer-2", email: "ONE@example.com", token: "token-2", profile: "profile-2");
+
+        await Assert.ThrowsAsync<InvalidOperationException>(() => access.Store(conflicting));
+
+        Customer? existing = await access.Filter(new CustomerCriteria { Email = "one@example.com" });
+        Assert.Equal("customer-1", existing?.CustomerId);
+    }
+
+    [Fact]
+    public async Task StoreRejectsSameCustomerIdWithDifferentEmail()
+    {
+        CustomerAccess access = new(new CustomerResource());
+        await access.Store(NewCustomer(customerId: "customer-1", email: "one@example.com"));
+        Customer conflicting = NewCustomer(customerId: "customer-1", email: "two@example.com", token: "token-2", profile: "profile-2");
+
+        await Assert.ThrowsAsync<InvalidOperationException>(() => access.Store(conflicting));
+
+        Customer? existing = await access.Filter(new CustomerCriteria { CustomerId = "customer-1" });
+        Assert.Equal("one@example.com", existing?.Email);
+    }
+
     private static Customer NewCustomer(
         string customerId = "customer-1",
         string email = "user@example.com",

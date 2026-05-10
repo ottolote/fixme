@@ -31,7 +31,7 @@ internal sealed class CustomerResource : ICustomerResource
             if (existingIndex >= 0)
             {
                 CustomerModel existing = _customers[existingIndex];
-                if (HasUniqueIdentityConflict(existing, customer))
+                if (HasEstablishedIdentityConflict(existing, customer) || HasUniqueIdentityConflict(existing, customer))
                 {
                     throw new InvalidOperationException("Customer conflicts with an existing unique identity.");
                 }
@@ -66,21 +66,39 @@ internal sealed class CustomerResource : ICustomerResource
 
     private int FindExistingCustomerIndex(CustomerModel customer)
     {
-        if (!string.IsNullOrWhiteSpace(customer.CustomerId))
+        List<int> matchingIndexes = [];
+        for (int index = 0; index < _customers.Count; index++)
         {
-            int idIndex = _customers.FindIndex(existing => EqualsOrdinal(existing.CustomerId, customer.CustomerId));
-            if (idIndex >= 0)
+            if (SharesAnyIdentity(_customers[index], customer))
             {
-                return idIndex;
+                matchingIndexes.Add(index);
             }
         }
 
-        if (!string.IsNullOrWhiteSpace(customer.Email))
+        return matchingIndexes.Distinct().ToArray() switch
         {
-            return _customers.FindIndex(existing => EqualsOrdinalIgnoreCase(existing.Email, customer.Email));
-        }
+            [] => -1,
+            [int existingIndex] => existingIndex,
+            _ => throw new InvalidOperationException("Customer conflicts with an existing unique identity."),
+        };
+    }
 
-        return -1;
+    private static bool SharesAnyIdentity(CustomerModel existing, CustomerModel customer)
+    {
+        return (!string.IsNullOrWhiteSpace(customer.CustomerId) && EqualsOrdinal(existing.CustomerId, customer.CustomerId))
+            || (!string.IsNullOrWhiteSpace(customer.Email) && EqualsOrdinalIgnoreCase(existing.Email, customer.Email))
+            || (!string.IsNullOrWhiteSpace(customer.ConfirmationToken) && EqualsOrdinal(existing.ConfirmationToken, customer.ConfirmationToken))
+            || (!string.IsNullOrWhiteSpace(customer.ProfileReference) && EqualsOrdinal(existing.ProfileReference, customer.ProfileReference));
+    }
+
+    private static bool HasEstablishedIdentityConflict(CustomerModel existing, CustomerModel customer)
+    {
+        return (!string.IsNullOrWhiteSpace(existing.CustomerId)
+                && !string.IsNullOrWhiteSpace(customer.CustomerId)
+                && !EqualsOrdinal(existing.CustomerId, customer.CustomerId))
+            || (!string.IsNullOrWhiteSpace(existing.Email)
+                && !string.IsNullOrWhiteSpace(customer.Email)
+                && !EqualsOrdinalIgnoreCase(existing.Email, customer.Email));
     }
 
     private bool HasUniqueIdentityConflict(CustomerModel? replacementTarget, CustomerModel customer)
