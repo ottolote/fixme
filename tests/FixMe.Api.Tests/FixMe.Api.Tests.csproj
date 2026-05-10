@@ -28,6 +28,7 @@
     <ProjectReference Include="..\..\Component\Access\Agreement\Service\FixMe.Access.Agreement.Service.csproj" />
     <ProjectReference Include="..\..\Component\Access\Customer\Interface\FixMe.Access.Customer.Interface.csproj" />
     <ProjectReference Include="..\..\Component\Access\Customer\Service\FixMe.Access.Customer.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Access\ESigning\Service\FixMe.Access.ESigning.Service.csproj" />
     <ProjectReference Include="..\..\Host\Api\FixMe.Api.csproj" />
     <ProjectReference Include="..\..\Component\Access\Maintenance\Interface\FixMe.Access.Maintenance.Interface.csproj" />
     <ProjectReference Include="..\..\Component\Access\Maintenance\Service\FixMe.Access.Maintenance.Service.csproj" />
