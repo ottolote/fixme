@@ -1,11 +1,13 @@
 using System.Threading.Tasks;
-using FixMe.Access.Equipment.Interface.Common;
 
 namespace FixMe.Access.Equipment.Interface
 {
     public interface IEquipmentAccess
     {
-        Task<FilterResponseBase> Filter(FilterRequestBase request);
-        Task<StoreResponseBase> Store(StoreRequestBase request);
+        Task<Equipment?> Filter(EquipmentCriteria request);
+        Task<EquipmentType?> Filter(EquipmentTypeCriteria request);
+        Task<PendingRegistration?> Filter(PendingRegistrationCriteria request);
+        Task<PendingRegistration> Store(PendingRegistration request);
+        Task<Equipment> Store(Equipment request);
     }
 }

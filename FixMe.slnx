@@ -27,6 +27,7 @@
     <Project Path="iFx/Service/FixMe.iFx.Service.csproj" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/FixMe.Access.Equipment.Tests/FixMe.Access.Equipment.Tests.csproj" />
     <Project Path="tests/FixMe.Api.Tests/FixMe.Api.Tests.csproj" />
   </Folder>
 </Solution>
