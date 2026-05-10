@@ -1,0 +1,3007 @@
+{
+  "Version": "v0.2.1",
+  "Signature": "ABO6uTeOS/A5opOR2F/LyWYW1rnVha6/i1mu50WQqQCfEAFaAABttqkq6dA4f9WtpkrS7q0tM4C+cTHfkUY/Mp7OALDutxJDIm48js+xOS1ygyfpoiUUnOqVQA3W1gol7I1cguFRhsOSDdyGxI0ArWFB+JJrBmAbWpaPGeUfE5mElyej",
+  "Design": {
+    "Structure": {
+      "Directories": [
+        {
+          "Id": "78aead25-8173-6bd5-4e77-167a08ae9f72",
+          "Path": "Component/Manager/Membership/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "2fa79be3-94a9-e91b-03a9-765743096bfa",
+          "Path": "Component/Manager/Membership/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "3dce5f9c-e9dd-7878-104f-f4537bc843ef",
+          "Path": "Component/Manager/Maintenance/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "157808b2-7488-3ca7-6852-5d193159873e",
+          "Path": "Component/Manager/Maintenance/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "5c184873-706b-3d07-68b2-4d06a3b7ed69",
+          "Path": "Component/Manager/Notification/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "b29e4768-a58d-a8c8-bf57-524ec064b2ad",
+          "Path": "Component/Manager/Notification/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "1c3d4e41-a3fc-271d-c1e1-aa2967a2c924",
+          "Path": "Component/Manager/Tasking/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "776d7ab2-6dfc-b1ce-141e-fcf4747e9569",
+          "Path": "Component/Manager/Tasking/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "c09de783-d35d-971c-0b79-7cf8c442776c",
+          "Path": "Component/Engine/Matching/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "abf86819-9522-c452-84a4-8b5e84f7dac4",
+          "Path": "Component/Engine/Matching/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "6bcf3f41-117b-ced5-eae4-22308bc9cf49",
+          "Path": "Component/Engine/Scheduling/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "5d8d43bb-962e-b2ec-88a0-5c40b139616c",
+          "Path": "Component/Engine/Scheduling/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "99393f2e-1b5c-dd96-a372-eee6c5768639",
+          "Path": "Component/Engine/Policy/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "9cf16c5e-fd2e-11a0-9865-a4ede5766d9f",
+          "Path": "Component/Engine/Policy/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "7e7417af-4ece-6773-c659-58b1672e3def",
+          "Path": "Component/Access/Customer/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "49b28467-25c8-c9c3-04c0-e6ceb45ea389",
+          "Path": "Component/Access/Customer/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "687db47a-843d-bddd-62bf-5df8e3b70da6",
+          "Path": "Component/Access/Equipment/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "3593b5a0-b576-df88-f53f-674c59b473f3",
+          "Path": "Component/Access/Equipment/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "f8636181-8813-3d3e-1bd5-129255751cb6",
+          "Path": "Component/Access/Maintenance/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "9d8d0805-5ff5-2d66-2646-e2e711f35b4a",
+          "Path": "Component/Access/Maintenance/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "b1af3a9d-a5f5-f5e1-933f-802d76459477",
+          "Path": "Component/Access/Task/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "ffd103e1-4056-6db9-8b11-a82336fb525b",
+          "Path": "Component/Access/Task/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "6ea923b6-79e8-ad1c-1b0a-d8daa89c8d91",
+          "Path": "Component/Access/Notification/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "86c93e41-8790-880c-46cd-87289cbc1bf7",
+          "Path": "Component/Access/Notification/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "aa4c07b2-8e4e-ef26-d258-4cff43fc6924",
+          "Path": "Component/Access/Agreement/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "0e484fda-306a-7b19-c488-9903194877b7",
+          "Path": "Component/Access/Agreement/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "65218cc3-6f71-c532-9740-d8aae9eecacc",
+          "Path": "Component/Access/ESigning/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "816c28cd-8fdd-d78f-224b-7a6980d9a12a",
+          "Path": "Component/Access/ESigning/Service",
+          "PathType": 1
+        },
+        {
+          "Id": "208be596-d713-9f71-02d9-86d8be1fae72",
+          "Path": "Component/Utility/Security/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "e4a1a238-d99f-9657-cd60-fc0238238e76",
+          "Path": "Component/Utility/Communication/Interface",
+          "PathType": 1
+        },
+        {
+          "Id": "a1521de7-b987-2b27-b367-81f1780f0a15",
+          "Path": "Common/Identifier",
+          "PathType": 1
+        },
+        {
+          "Id": "11b65454-dfd2-3c5e-3ba4-402cba29eda4",
+          "Path": "Common/Value",
+          "PathType": 1
+        },
+        {
+          "Id": "a9fe779b-c6c5-582d-555a-86733198a294",
+          "Path": "Component/Access/Equipment/Interface/Common",
+          "PathType": 1
+        }
+      ],
+      "Files": [
+        {
+          "Id": "bc2407cd-4c66-df78-363d-d6be0897b5ba",
+          "Name": "FixMe.sln",
+          "DirectoryId": "00000000-0000-0000-0000-000000000000"
+        },
+        {
+          "Id": "0fd985ef-81ea-ce61-bad0-33092bdd8260",
+          "Name": "FixMe.Manager.Membership.Interface.csproj",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "5a9bfd29-7c5f-dde1-01d0-93c15a4a10a2",
+          "Name": "FixMe.Manager.Membership.Service.csproj",
+          "DirectoryId": "2fa79be3-94a9-e91b-03a9-765743096bfa"
+        },
+        {
+          "Id": "c9a52478-2238-abd8-8315-41bc756dd4aa",
+          "Name": "FixMe.Manager.Maintenance.Interface.csproj",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "dcb916c9-ca51-1f9d-b48d-b6a997f5b7cc",
+          "Name": "FixMe.Manager.Maintenance.Service.csproj",
+          "DirectoryId": "157808b2-7488-3ca7-6852-5d193159873e"
+        },
+        {
+          "Id": "6f3ade42-3595-b25a-f392-ac1e34967f5b",
+          "Name": "FixMe.Manager.Notification.Interface.csproj",
+          "DirectoryId": "5c184873-706b-3d07-68b2-4d06a3b7ed69"
+        },
+        {
+          "Id": "84bea935-3662-d56e-ddf0-7b77b65a2701",
+          "Name": "FixMe.Manager.Notification.Service.csproj",
+          "DirectoryId": "b29e4768-a58d-a8c8-bf57-524ec064b2ad"
+        },
+        {
+          "Id": "88a0b929-3730-dd83-3c2e-35b22a10c41b",
+          "Name": "FixMe.Manager.Tasking.Interface.csproj",
+          "DirectoryId": "1c3d4e41-a3fc-271d-c1e1-aa2967a2c924"
+        },
+        {
+          "Id": "786ee4ef-1285-4eb4-2684-1ff21dbf37a7",
+          "Name": "FixMe.Manager.Tasking.Service.csproj",
+          "DirectoryId": "776d7ab2-6dfc-b1ce-141e-fcf4747e9569"
+        },
+        {
+          "Id": "5913f6a8-408b-40fa-16df-d57eb26b0f64",
+          "Name": "FixMe.Engine.Matching.Interface.csproj",
+          "DirectoryId": "c09de783-d35d-971c-0b79-7cf8c442776c"
+        },
+        {
+          "Id": "34d6a559-4d1d-db04-61e5-cd29a6e7d798",
+          "Name": "FixMe.Engine.Matching.Service.csproj",
+          "DirectoryId": "abf86819-9522-c452-84a4-8b5e84f7dac4"
+        },
+        {
+          "Id": "ff212e26-2dac-b4f7-268f-7f6cc5a0c0c5",
+          "Name": "FixMe.Engine.Scheduling.Interface.csproj",
+          "DirectoryId": "6bcf3f41-117b-ced5-eae4-22308bc9cf49"
+        },
+        {
+          "Id": "eeb0e9a2-a089-3dda-cc30-3ae35e302e9c",
+          "Name": "FixMe.Engine.Scheduling.Service.csproj",
+          "DirectoryId": "5d8d43bb-962e-b2ec-88a0-5c40b139616c"
+        },
+        {
+          "Id": "c3f2df4f-0be2-d7d7-fb69-7f1ea46354c4",
+          "Name": "FixMe.Engine.Policy.Interface.csproj",
+          "DirectoryId": "99393f2e-1b5c-dd96-a372-eee6c5768639"
+        },
+        {
+          "Id": "b703ba53-168f-3ccf-3355-44a4e5037682",
+          "Name": "FixMe.Engine.Policy.Service.csproj",
+          "DirectoryId": "9cf16c5e-fd2e-11a0-9865-a4ede5766d9f"
+        },
+        {
+          "Id": "2a7b6b5f-cdec-9cdd-2d30-2b16a85b0b5c",
+          "Name": "FixMe.Access.Customer.Interface.csproj",
+          "DirectoryId": "7e7417af-4ece-6773-c659-58b1672e3def"
+        },
+        {
+          "Id": "05ff78e2-fd56-3242-a2d0-73c21fc0f3d3",
+          "Name": "FixMe.Access.Customer.Service.csproj",
+          "DirectoryId": "49b28467-25c8-c9c3-04c0-e6ceb45ea389"
+        },
+        {
+          "Id": "7ac8e5bb-74e6-cd4b-1baa-b3b1a88544c7",
+          "Name": "FixMe.Access.Equipment.Interface.csproj",
+          "DirectoryId": "687db47a-843d-bddd-62bf-5df8e3b70da6"
+        },
+        {
+          "Id": "d3d3812c-8a80-7f96-bed1-45855e613d21",
+          "Name": "FixMe.Access.Equipment.Service.csproj",
+          "DirectoryId": "3593b5a0-b576-df88-f53f-674c59b473f3"
+        },
+        {
+          "Id": "cf1efc6f-8dfb-efe9-6f4b-3c87233fb1d6",
+          "Name": "FixMe.Access.Maintenance.Interface.csproj",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "6b8e894b-ad17-9d52-7c1a-650a63115a3f",
+          "Name": "FixMe.Access.Maintenance.Service.csproj",
+          "DirectoryId": "9d8d0805-5ff5-2d66-2646-e2e711f35b4a"
+        },
+        {
+          "Id": "110d7748-2883-37c7-1473-f1f16b47a891",
+          "Name": "FixMe.Access.Task.Interface.csproj",
+          "DirectoryId": "b1af3a9d-a5f5-f5e1-933f-802d76459477"
+        },
+        {
+          "Id": "e05b7159-4f3f-dc4e-2ad2-0cbc014de5a0",
+          "Name": "FixMe.Access.Task.Service.csproj",
+          "DirectoryId": "ffd103e1-4056-6db9-8b11-a82336fb525b"
+        },
+        {
+          "Id": "a54c480a-920e-f14c-7f8a-f5bc30ff0f39",
+          "Name": "FixMe.Access.Notification.Interface.csproj",
+          "DirectoryId": "6ea923b6-79e8-ad1c-1b0a-d8daa89c8d91"
+        },
+        {
+          "Id": "2ec6b52b-55c9-4fa7-f439-8cae6f009167",
+          "Name": "FixMe.Access.Notification.Service.csproj",
+          "DirectoryId": "86c93e41-8790-880c-46cd-87289cbc1bf7"
+        },
+        {
+          "Id": "528d174d-fd89-3093-ce31-f6f5bd241f54",
+          "Name": "FixMe.Access.Agreement.Interface.csproj",
+          "DirectoryId": "aa4c07b2-8e4e-ef26-d258-4cff43fc6924"
+        },
+        {
+          "Id": "03ca7dbb-53d4-1485-0130-69a989dc759b",
+          "Name": "FixMe.Access.Agreement.Service.csproj",
+          "DirectoryId": "0e484fda-306a-7b19-c488-9903194877b7"
+        },
+        {
+          "Id": "332a8f66-ef6f-1d4d-c2de-8a71dc135671",
+          "Name": "FixMe.Access.ESigning.Interface.csproj",
+          "DirectoryId": "65218cc3-6f71-c532-9740-d8aae9eecacc"
+        },
+        {
+          "Id": "80065ac2-01d6-ed4d-1297-857023664f6c",
+          "Name": "FixMe.Access.ESigning.Service.csproj",
+          "DirectoryId": "816c28cd-8fdd-d78f-224b-7a6980d9a12a"
+        },
+        {
+          "Id": "25f05b0d-aa07-e070-2791-9ffbe3fb19af",
+          "Name": "FixMe.Utility.Security.Interface.csproj",
+          "DirectoryId": "208be596-d713-9f71-02d9-86d8be1fae72"
+        },
+        {
+          "Id": "acb865ca-576d-3b3b-75a4-f0d7b9e9bbfd",
+          "Name": "FixMe.Utility.Communication.Interface.csproj",
+          "DirectoryId": "e4a1a238-d99f-9657-cd60-fc0238238e76"
+        },
+        {
+          "Id": "0948ad9d-8d69-d060-d7b1-af7de5bbd212",
+          "Name": "FixMe.Common.Identifier.csproj",
+          "DirectoryId": "a1521de7-b987-2b27-b367-81f1780f0a15"
+        },
+        {
+          "Id": "38243c3c-7819-48a4-8bd0-2e5fffff69cd",
+          "Name": "FixMe.Common.Value.csproj",
+          "DirectoryId": "11b65454-dfd2-3c5e-3ba4-402cba29eda4"
+        },
+        {
+          "Id": "bb42fa22-affa-6176-af5d-50c5099d8eb9",
+          "Name": "IMembershipManager.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "953f6adf-9d39-3c50-57aa-9202b96d57e6",
+          "Name": "ICustomerAccess.cs",
+          "DirectoryId": "7e7417af-4ece-6773-c659-58b1672e3def"
+        },
+        {
+          "Id": "db65dbc3-f85d-0f8c-80ee-d36d81d996e8",
+          "Name": "INotificationManager.cs",
+          "DirectoryId": "5c184873-706b-3d07-68b2-4d06a3b7ed69"
+        },
+        {
+          "Id": "b3e55c60-5f02-9d2d-8861-8bdde02dde42",
+          "Name": "ISecurityUtility.cs",
+          "DirectoryId": "208be596-d713-9f71-02d9-86d8be1fae72"
+        },
+        {
+          "Id": "3d15d529-d2e3-e90d-12a9-710f35c3f099",
+          "Name": "IEquipmentAccess.cs",
+          "DirectoryId": "687db47a-843d-bddd-62bf-5df8e3b70da6"
+        },
+        {
+          "Id": "d1519d4d-ae96-eb7b-5684-f062ffea6db6",
+          "Name": "ITaskingManager.cs",
+          "DirectoryId": "1c3d4e41-a3fc-271d-c1e1-aa2967a2c924"
+        },
+        {
+          "Id": "e8c5a835-e96a-f8ad-e066-0eae198b830c",
+          "Name": "IMaintenanceManager.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "ec563b4d-6778-efc0-7eba-fdbf4d4f6cbd",
+          "Name": "IMaintenanceAccess.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "18b7058b-b542-e09e-2fda-1eb32c4e1a96",
+          "Name": "IMatchingEngine.cs",
+          "DirectoryId": "c09de783-d35d-971c-0b79-7cf8c442776c"
+        },
+        {
+          "Id": "d192f9ca-6582-b374-783d-5662011450c4",
+          "Name": "ITaskAccess.cs",
+          "DirectoryId": "b1af3a9d-a5f5-f5e1-933f-802d76459477"
+        },
+        {
+          "Id": "5770bf5d-c4b8-c6fe-0bb1-e85c4ec6e33d",
+          "Name": "IAgreementAccess.cs",
+          "DirectoryId": "aa4c07b2-8e4e-ef26-d258-4cff43fc6924"
+        },
+        {
+          "Id": "93fbe354-bbbe-8969-a78a-95f79edfd103",
+          "Name": "IESigningAccess.cs",
+          "DirectoryId": "65218cc3-6f71-c532-9740-d8aae9eecacc"
+        },
+        {
+          "Id": "bba1463e-7bbb-cdcb-a6bc-1935d4f4df78",
+          "Name": "ISchedulingEngine.cs",
+          "DirectoryId": "6bcf3f41-117b-ced5-eae4-22308bc9cf49"
+        },
+        {
+          "Id": "1536d1d9-aa97-06f4-9322-d2484c1395e3",
+          "Name": "INotificationAccess.cs",
+          "DirectoryId": "6ea923b6-79e8-ad1c-1b0a-d8daa89c8d91"
+        },
+        {
+          "Id": "f1ea242d-8d8c-3202-939c-0a3be83cddc3",
+          "Name": "ICommunicationUtility.cs",
+          "DirectoryId": "e4a1a238-d99f-9657-cd60-fc0238238e76"
+        },
+        {
+          "Id": "e3bdc510-6762-a449-0256-5542d0026f0e",
+          "Name": "RegisterAccountRequest.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "ffee5d5b-28fe-e36a-4e26-989ab22173b7",
+          "Name": "RegisterAccountResponse.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "5ebc3760-d6fc-9d23-8ef7-d4109ffe4af4",
+          "Name": "ConfirmUserEmailRequest.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "066bee3f-6c4b-9a34-5a87-d819805406a3",
+          "Name": "ConfirmUserEmailResponse.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "770c6ecc-cb32-7d75-8d92-44ffbf0f6033",
+          "Name": "UpdateUserPasswordRequest.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "5c4e159a-1b58-a4a5-37f6-9b88bd6ffe3f",
+          "Name": "UpdateUserPasswordResponse.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "ff35840b-164b-fb93-a190-ddf519b6135e",
+          "Name": "SetUserPreferencesRequest.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "0b70f137-d457-2bf0-b99f-dd355b9a113d",
+          "Name": "SetUserPreferencesResponse.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "18179891-2bdb-7a4f-52a5-55a997b7abab",
+          "Name": "CreatePendingRegistrationRequest.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "d2cbbd05-9385-a8d9-a115-91f22af9ffa0",
+          "Name": "PendingRegistration.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "0ffe42dc-9eed-c95a-81dd-a310f42e949f",
+          "Name": "ResolvePendingRegistrationRequest.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "b2e2b6ce-c254-27b5-66d4-04b9bb7d625e",
+          "Name": "ResolvePendingRegistrationResponse.cs",
+          "DirectoryId": "78aead25-8173-6bd5-4e77-167a08ae9f72"
+        },
+        {
+          "Id": "8f10a863-210a-b175-5f1a-cfee46c3cea8",
+          "Name": "CustomerCriteria.cs",
+          "DirectoryId": "7e7417af-4ece-6773-c659-58b1672e3def"
+        },
+        {
+          "Id": "101bfcf3-5494-e691-11c5-5348546f3d4d",
+          "Name": "Customer.cs",
+          "DirectoryId": "7e7417af-4ece-6773-c659-58b1672e3def"
+        },
+        {
+          "Id": "61de92fe-40aa-0e3e-cdb2-66c9366ec019",
+          "Name": "NotifyUserRequest.cs",
+          "DirectoryId": "5c184873-706b-3d07-68b2-4d06a3b7ed69"
+        },
+        {
+          "Id": "0a227a54-7d1f-8dff-3726-fd20d44fe943",
+          "Name": "NotifyUserResponse.cs",
+          "DirectoryId": "5c184873-706b-3d07-68b2-4d06a3b7ed69"
+        },
+        {
+          "Id": "5be9adfd-7462-7529-3bd8-f0b80970dc37",
+          "Name": "HashPasswordRequest.cs",
+          "DirectoryId": "208be596-d713-9f71-02d9-86d8be1fae72"
+        },
+        {
+          "Id": "fa02fb77-3752-4eaa-7c4b-60019ae37563",
+          "Name": "HashResponse.cs",
+          "DirectoryId": "208be596-d713-9f71-02d9-86d8be1fae72"
+        },
+        {
+          "Id": "bfe8f7b2-f108-f490-1cbf-b548f8e6cc70",
+          "Name": "FilterRequestBase.cs",
+          "DirectoryId": "a9fe779b-c6c5-582d-555a-86733198a294"
+        },
+        {
+          "Id": "56106cf2-814a-2b15-1efc-cf46e9a4ca81",
+          "Name": "CreateBackofficeTaskResponse.cs",
+          "DirectoryId": "1c3d4e41-a3fc-271d-c1e1-aa2967a2c924"
+        },
+        {
+          "Id": "2ab2dfcf-ed75-c576-3ac5-478aa91c8b30",
+          "Name": "StoreRequestBase.cs",
+          "DirectoryId": "a9fe779b-c6c5-582d-555a-86733198a294"
+        },
+        {
+          "Id": "4875dc34-cc2f-7af2-4d11-64b49812c6b0",
+          "Name": "CreateBackofficeTaskRequest.cs",
+          "DirectoryId": "1c3d4e41-a3fc-271d-c1e1-aa2967a2c924"
+        },
+        {
+          "Id": "70b4a144-ce18-cb79-eb8d-574490f2283c",
+          "Name": "EquipmentTypeCriteria.cs",
+          "DirectoryId": "687db47a-843d-bddd-62bf-5df8e3b70da6"
+        },
+        {
+          "Id": "9377f778-b44b-5760-e0a1-150ae56cefa3",
+          "Name": "EquipmentType.cs",
+          "DirectoryId": "687db47a-843d-bddd-62bf-5df8e3b70da6"
+        },
+        {
+          "Id": "58723b18-06d3-8a8a-b85c-97b71ac0a9ba",
+          "Name": "PendingRegistration.cs",
+          "DirectoryId": "687db47a-843d-bddd-62bf-5df8e3b70da6"
+        },
+        {
+          "Id": "91d0ef57-78b2-d1f0-8588-75d2c4118ffe",
+          "Name": "PendingRegistrationCriteria.cs",
+          "DirectoryId": "687db47a-843d-bddd-62bf-5df8e3b70da6"
+        },
+        {
+          "Id": "7095fd46-e762-9880-3488-e53aa9db6158",
+          "Name": "Equipment.cs",
+          "DirectoryId": "687db47a-843d-bddd-62bf-5df8e3b70da6"
+        },
+        {
+          "Id": "e504480d-9bb7-3954-1b7e-1510ae4b39c3",
+          "Name": "EquipmentCriteria.cs",
+          "DirectoryId": "687db47a-843d-bddd-62bf-5df8e3b70da6"
+        },
+        {
+          "Id": "bf696eee-0544-f3f1-211d-a3cc0f1dd712",
+          "Name": "ConfirmMaintenanceProviderSlotsRequest.cs",
+          "DirectoryId": "1c3d4e41-a3fc-271d-c1e1-aa2967a2c924"
+        },
+        {
+          "Id": "33b8ca6c-7775-66e2-89b9-0d6774caa70b",
+          "Name": "ConfirmMaintenanceProviderSlotsResponse.cs",
+          "DirectoryId": "1c3d4e41-a3fc-271d-c1e1-aa2967a2c924"
+        },
+        {
+          "Id": "305f38f9-c9c3-b493-875d-f064d98b07d5",
+          "Name": "MatchMaintenancePlanOfferingRequest.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "9b4c96ae-67bf-eb37-e424-48257350f696",
+          "Name": "MatchMaintenancePlanOfferingResponse.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "f1977c55-8971-c1b5-5424-7b0bbc4afea8",
+          "Name": "CreatePendingMaintenancePlanRequest.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "742a3f3d-759c-36ae-04ec-3d8179ca0825",
+          "Name": "CreatePendingMaintenancePlanResponse.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "08c18bd7-11ac-ef42-e2e4-36aa0394155d",
+          "Name": "ResolvePendingMaintenancePlanRequest.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "6b54f03f-c40d-84b7-79d4-1e6396279c65",
+          "Name": "ResolvePendingMaintenancePlanResponse.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "271c5606-1bf4-475c-2348-9f78fd8cbfde",
+          "Name": "InitiateESigningForMaintenancePlanRequest.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "17dfcd31-dbae-89bc-f401-7b74b8d77054",
+          "Name": "InitiateESigningForMaintenancePlanResponse.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "0e348723-2daa-28a5-e35c-b568092a9c8d",
+          "Name": "CreateMaintenanceJobSlotsProposalRequest.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "b07dcff5-2d19-637a-d15c-ab57966ff8ff",
+          "Name": "CreateMaintenanceJobSlotsProposalResponse.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "960c2e89-810a-1154-a1f2-5efaa29d23d7",
+          "Name": "ConfirmMaintenanceProviderSlotsRequest.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "d208ffb6-c193-1456-2a76-ee1972b77752",
+          "Name": "ConfirmMaintenanceProviderSlotsResponse.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "1ba32ef4-49c6-07f1-3cd4-0e1c6537f378",
+          "Name": "ConfirmMaintenanceSlotsProposalRequest.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "5de32bcd-0a8a-13ca-682c-3c7a0c2c23ba",
+          "Name": "ConfirmMaintenanceSlotsProposalResponse.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "07e65112-ea1a-ac84-aaec-3d1f455032d6",
+          "Name": "AcceptMaintenanceSlotsProposalRequest.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "5e86bfab-1f1b-a444-487e-eac13a7341af",
+          "Name": "AcceptMaintenanceSlotsProposalResponse.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "8eb81bfa-1b26-84b2-44c5-f6553f248879",
+          "Name": "CancelMaintenanceJobRequest.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "2c9cbb46-7b1a-4e91-1c5d-44ba9c3e4768",
+          "Name": "CancelMaintenanceJobResponse.cs",
+          "DirectoryId": "3dce5f9c-e9dd-7878-104f-f4537bc843ef"
+        },
+        {
+          "Id": "8d6d2219-482d-e389-1969-09bde76dbcef",
+          "Name": "MaintenancePlanOfferingCriteria.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "9b9bf4fb-4803-0710-09ee-d0f72713c4fb",
+          "Name": "MaintenancePlanOffering.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "b5410ade-f44c-47cd-fc4d-db62b54dcfdf",
+          "Name": "MaintenancePlanCriteria.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "da25d527-1390-4271-0fb8-3376732f0e76",
+          "Name": "MaintenancePlan.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "d7c7feb9-1ab8-528a-cfae-dc1046b89206",
+          "Name": "MaintenanceJobSlotCriteria.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "6315e916-fa72-4d05-eba7-2b1a88e294c0",
+          "Name": "MaintenanceJobSlot.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "d0c1b5be-2230-4234-388d-245cdc9a58cc",
+          "Name": "MaintenanceJobSlotsProposal.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "311627ec-fa6f-49b5-42a5-23be5b1e7ab6",
+          "Name": "MaintenanceJobSlotsProposalCriteria.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "57c7dc66-42e6-d95b-187d-fd3a9891d623",
+          "Name": "MaintenanceJob.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "a9226546-2aac-9850-05f9-b89b38aa65bb",
+          "Name": "MaintenanceJobCriteria.cs",
+          "DirectoryId": "f8636181-8813-3d3e-1bd5-129255751cb6"
+        },
+        {
+          "Id": "b91996b9-dcab-6702-a61b-08df38c827fd",
+          "Name": "MatchMaintenancePlanOfferingRequest.cs",
+          "DirectoryId": "c09de783-d35d-971c-0b79-7cf8c442776c"
+        },
+        {
+          "Id": "7fe356d5-465e-6653-4019-a9ef33a4851f",
+          "Name": "MatchMaintenancePlanOfferingResponse.cs",
+          "DirectoryId": "c09de783-d35d-971c-0b79-7cf8c442776c"
+        },
+        {
+          "Id": "3e4d0070-37d9-2117-7415-db4497d621c7",
+          "Name": "TaskCriteria.cs",
+          "DirectoryId": "b1af3a9d-a5f5-f5e1-933f-802d76459477"
+        },
+        {
+          "Id": "68794c74-7608-0489-2cd6-2c417dd0b6c9",
+          "Name": "Task.cs",
+          "DirectoryId": "b1af3a9d-a5f5-f5e1-933f-802d76459477"
+        },
+        {
+          "Id": "60667704-904c-df15-1cbb-41923dd6313a",
+          "Name": "AgreementCriteria.cs",
+          "DirectoryId": "aa4c07b2-8e4e-ef26-d258-4cff43fc6924"
+        },
+        {
+          "Id": "e142df9b-b8bf-c888-a154-bda3acf1e7b2",
+          "Name": "Agreement.cs",
+          "DirectoryId": "aa4c07b2-8e4e-ef26-d258-4cff43fc6924"
+        },
+        {
+          "Id": "8f130eeb-580a-8f12-57fd-b87bb3d4fdc8",
+          "Name": "SignatureRequest.cs",
+          "DirectoryId": "65218cc3-6f71-c532-9740-d8aae9eecacc"
+        },
+        {
+          "Id": "ff62359a-387d-3dd3-c5eb-8e85a60391ce",
+          "Name": "CreateMaintenanceJobSlotsProposalRequest.cs",
+          "DirectoryId": "6bcf3f41-117b-ced5-eae4-22308bc9cf49"
+        },
+        {
+          "Id": "fcd97d15-031c-87e4-2594-e9971acc9e49",
+          "Name": "CreateMaintenanceJobSlotsProposalResponse.cs",
+          "DirectoryId": "6bcf3f41-117b-ced5-eae4-22308bc9cf49"
+        },
+        {
+          "Id": "4f06ea33-c4e2-4825-a131-ca767c687870",
+          "Name": "AcceptMaintenanceSlotsProposalRequest.cs",
+          "DirectoryId": "6bcf3f41-117b-ced5-eae4-22308bc9cf49"
+        },
+        {
+          "Id": "c3683500-22fd-ac8e-fc57-9d9768e43ab3",
+          "Name": "AcceptMaintenanceSlotsProposalResponse.cs",
+          "DirectoryId": "6bcf3f41-117b-ced5-eae4-22308bc9cf49"
+        },
+        {
+          "Id": "0e399a2d-af32-146f-ef17-aa763f89e4fd",
+          "Name": "NotificationTemplateCriteria.cs",
+          "DirectoryId": "6ea923b6-79e8-ad1c-1b0a-d8daa89c8d91"
+        },
+        {
+          "Id": "4771c9cb-3081-a34f-d8b1-10f2d71c04fc",
+          "Name": "NotificationTemplate.cs",
+          "DirectoryId": "6ea923b6-79e8-ad1c-1b0a-d8daa89c8d91"
+        },
+        {
+          "Id": "6910ac43-8bec-87ba-bcf6-f51988205942",
+          "Name": "Notification.cs",
+          "DirectoryId": "6ea923b6-79e8-ad1c-1b0a-d8daa89c8d91"
+        },
+        {
+          "Id": "1014522f-ecee-e420-aaaa-257ed420737b",
+          "Name": "NotifyUserRequest.cs",
+          "DirectoryId": "e4a1a238-d99f-9657-cd60-fc0238238e76"
+        },
+        {
+          "Id": "41eadea8-ba1f-6660-7676-a12c047a48c7",
+          "Name": "NotifyUserResponse.cs",
+          "DirectoryId": "e4a1a238-d99f-9657-cd60-fc0238238e76"
+        }
+      ]
+    },
+    "Syntax": {
+      "Name": "FixMe",
+      "Projects": [
+        {
+          "Id": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "FileId": "0fd985ef-81ea-ce61-bad0-33092bdd8260",
+          "Name": "FixMe.Manager.Membership.Interface",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Manager",
+          "ComponentName": "Membership",
+          "ProjectType": 0
+        },
+        {
+          "Id": "62230569-3fcb-09af-139b-75524822171e",
+          "FileId": "5a9bfd29-7c5f-dde1-01d0-93c15a4a10a2",
+          "Name": "FixMe.Manager.Membership.Service",
+          "NamespaceId": "6ff92ee7-049f-0120-f084-59b4bd7f730b",
+          "ProjectReferenceIds": [
+            "d8d46e0d-3d6d-644e-9e7d-6906ab544428"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Manager",
+          "ComponentName": "Membership",
+          "ProjectType": 0
+        },
+        {
+          "Id": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "FileId": "c9a52478-2238-abd8-8315-41bc756dd4aa",
+          "Name": "FixMe.Manager.Maintenance.Interface",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Manager",
+          "ComponentName": "Maintenance",
+          "ProjectType": 0
+        },
+        {
+          "Id": "4ad7b0f2-1beb-fa27-f97b-3d1939759e24",
+          "FileId": "dcb916c9-ca51-1f9d-b48d-b6a997f5b7cc",
+          "Name": "FixMe.Manager.Maintenance.Service",
+          "NamespaceId": "84651f6a-6e42-4d5e-2b95-2b07bc3c460a",
+          "ProjectReferenceIds": [
+            "857561e2-e3ba-f36c-7c60-852239c8ad21"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Manager",
+          "ComponentName": "Maintenance",
+          "ProjectType": 0
+        },
+        {
+          "Id": "8bc9cce9-4f79-cf39-698a-cd8de7b3812d",
+          "FileId": "6f3ade42-3595-b25a-f392-ac1e34967f5b",
+          "Name": "FixMe.Manager.Notification.Interface",
+          "NamespaceId": "80b9dc56-5142-10a9-5c42-8ce7fca4e095",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Manager",
+          "ComponentName": "Notification",
+          "ProjectType": 0
+        },
+        {
+          "Id": "57ddfffa-ca2a-2acd-8197-4e85c8481391",
+          "FileId": "84bea935-3662-d56e-ddf0-7b77b65a2701",
+          "Name": "FixMe.Manager.Notification.Service",
+          "NamespaceId": "98a7470c-5dfa-a1a8-546b-dcebeaa054b7",
+          "ProjectReferenceIds": [
+            "8bc9cce9-4f79-cf39-698a-cd8de7b3812d"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Manager",
+          "ComponentName": "Notification",
+          "ProjectType": 0
+        },
+        {
+          "Id": "5e739d52-0efa-4afb-d5f9-1ce0d0b42ce0",
+          "FileId": "88a0b929-3730-dd83-3c2e-35b22a10c41b",
+          "Name": "FixMe.Manager.Tasking.Interface",
+          "NamespaceId": "353b39ef-73fd-8586-4306-f25523de2b4c",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Manager",
+          "ComponentName": "Tasking",
+          "ProjectType": 0
+        },
+        {
+          "Id": "5246b207-d077-8b22-1867-fff16e5452a8",
+          "FileId": "786ee4ef-1285-4eb4-2684-1ff21dbf37a7",
+          "Name": "FixMe.Manager.Tasking.Service",
+          "NamespaceId": "1fab33cb-b803-1cdc-7ab7-945ab97cde5b",
+          "ProjectReferenceIds": [
+            "5e739d52-0efa-4afb-d5f9-1ce0d0b42ce0"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Manager",
+          "ComponentName": "Tasking",
+          "ProjectType": 0
+        },
+        {
+          "Id": "da8b66a0-5e4d-9521-517a-a9fea18ddbee",
+          "FileId": "5913f6a8-408b-40fa-16df-d57eb26b0f64",
+          "Name": "FixMe.Engine.Matching.Interface",
+          "NamespaceId": "0b69f479-8803-faae-7547-86f0d33dee62",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Engine",
+          "ComponentName": "Matching",
+          "ProjectType": 0
+        },
+        {
+          "Id": "ee2268c6-8ed6-e89e-9c7a-ff0bd7d6f056",
+          "FileId": "34d6a559-4d1d-db04-61e5-cd29a6e7d798",
+          "Name": "FixMe.Engine.Matching.Service",
+          "NamespaceId": "3ea13f2e-99c6-471c-a5de-8655332d9307",
+          "ProjectReferenceIds": [
+            "da8b66a0-5e4d-9521-517a-a9fea18ddbee"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Engine",
+          "ComponentName": "Matching",
+          "ProjectType": 0
+        },
+        {
+          "Id": "a55a9849-b049-bdb0-55fd-36e10b90e7c8",
+          "FileId": "ff212e26-2dac-b4f7-268f-7f6cc5a0c0c5",
+          "Name": "FixMe.Engine.Scheduling.Interface",
+          "NamespaceId": "c03562ce-760f-480f-c78f-34a8bdd72913",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Engine",
+          "ComponentName": "Scheduling",
+          "ProjectType": 0
+        },
+        {
+          "Id": "b718861f-3172-231b-f8cd-3e47d8df7b81",
+          "FileId": "eeb0e9a2-a089-3dda-cc30-3ae35e302e9c",
+          "Name": "FixMe.Engine.Scheduling.Service",
+          "NamespaceId": "9444dca5-e14b-9d0b-4aa1-8003ddca8e9a",
+          "ProjectReferenceIds": [
+            "a55a9849-b049-bdb0-55fd-36e10b90e7c8"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Engine",
+          "ComponentName": "Scheduling",
+          "ProjectType": 0
+        },
+        {
+          "Id": "c0844e12-0856-546f-d224-4097b45a164b",
+          "FileId": "c3f2df4f-0be2-d7d7-fb69-7f1ea46354c4",
+          "Name": "FixMe.Engine.Policy.Interface",
+          "NamespaceId": "a7f5897e-c061-04bf-3ca9-491d8c76a7ba",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Engine",
+          "ComponentName": "Policy",
+          "ProjectType": 0
+        },
+        {
+          "Id": "63e415b1-b321-71d8-5e50-d9c7652fd41d",
+          "FileId": "b703ba53-168f-3ccf-3355-44a4e5037682",
+          "Name": "FixMe.Engine.Policy.Service",
+          "NamespaceId": "5a90bda5-d775-693c-db39-f87e8c6b3057",
+          "ProjectReferenceIds": [
+            "c0844e12-0856-546f-d224-4097b45a164b"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Engine",
+          "ComponentName": "Policy",
+          "ProjectType": 0
+        },
+        {
+          "Id": "726ba80e-10b2-9967-a9e9-24ec3e59c5bb",
+          "FileId": "2a7b6b5f-cdec-9cdd-2d30-2b16a85b0b5c",
+          "Name": "FixMe.Access.Customer.Interface",
+          "NamespaceId": "d0af1eaa-1072-0e87-0022-f2e5332d8915",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Access",
+          "ComponentName": "Customer",
+          "ProjectType": 0
+        },
+        {
+          "Id": "62aa8f52-1bf6-9332-b2e8-5fbd5131e0d0",
+          "FileId": "05ff78e2-fd56-3242-a2d0-73c21fc0f3d3",
+          "Name": "FixMe.Access.Customer.Service",
+          "NamespaceId": "c40fd299-1050-8c58-7919-f0d7bd739a82",
+          "ProjectReferenceIds": [
+            "726ba80e-10b2-9967-a9e9-24ec3e59c5bb"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Access",
+          "ComponentName": "Customer",
+          "ProjectType": 0
+        },
+        {
+          "Id": "560edd3a-f594-5cb2-b79c-3ac433c7e908",
+          "FileId": "7ac8e5bb-74e6-cd4b-1baa-b3b1a88544c7",
+          "Name": "FixMe.Access.Equipment.Interface",
+          "NamespaceId": "2a6daa9a-3f6a-9b7b-e24b-cf131e1a2fde",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Access",
+          "ComponentName": "Equipment",
+          "ProjectType": 0
+        },
+        {
+          "Id": "3f4865e8-99d6-71bc-3318-0943e7b22f09",
+          "FileId": "d3d3812c-8a80-7f96-bed1-45855e613d21",
+          "Name": "FixMe.Access.Equipment.Service",
+          "NamespaceId": "ea8d06ee-7045-6204-1798-df914fe68af4",
+          "ProjectReferenceIds": [
+            "560edd3a-f594-5cb2-b79c-3ac433c7e908"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Access",
+          "ComponentName": "Equipment",
+          "ProjectType": 0
+        },
+        {
+          "Id": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "FileId": "cf1efc6f-8dfb-efe9-6f4b-3c87233fb1d6",
+          "Name": "FixMe.Access.Maintenance.Interface",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Access",
+          "ComponentName": "Maintenance",
+          "ProjectType": 0
+        },
+        {
+          "Id": "c1e6aee0-f86d-94a2-567a-51d3c5d63948",
+          "FileId": "6b8e894b-ad17-9d52-7c1a-650a63115a3f",
+          "Name": "FixMe.Access.Maintenance.Service",
+          "NamespaceId": "32cc7cef-86b9-514c-bc19-590cb8d49025",
+          "ProjectReferenceIds": [
+            "4773db02-2740-8c68-6e74-46fccc1a9726"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Access",
+          "ComponentName": "Maintenance",
+          "ProjectType": 0
+        },
+        {
+          "Id": "16e667f2-dfe2-f073-8c4e-358fbc7dda80",
+          "FileId": "110d7748-2883-37c7-1473-f1f16b47a891",
+          "Name": "FixMe.Access.Task.Interface",
+          "NamespaceId": "03a8e48f-d26e-7880-aef1-ddc817f20bae",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Access",
+          "ComponentName": "Task",
+          "ProjectType": 0
+        },
+        {
+          "Id": "e32ce2e1-d029-2b9e-e277-d6a3d4d61762",
+          "FileId": "e05b7159-4f3f-dc4e-2ad2-0cbc014de5a0",
+          "Name": "FixMe.Access.Task.Service",
+          "NamespaceId": "81a7b148-f509-06c7-4293-1e1dbdac4120",
+          "ProjectReferenceIds": [
+            "16e667f2-dfe2-f073-8c4e-358fbc7dda80"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Access",
+          "ComponentName": "Task",
+          "ProjectType": 0
+        },
+        {
+          "Id": "bc75f7ec-7bda-df16-6932-602649973c80",
+          "FileId": "a54c480a-920e-f14c-7f8a-f5bc30ff0f39",
+          "Name": "FixMe.Access.Notification.Interface",
+          "NamespaceId": "1837c258-f807-048f-4e78-a90d60a60e6a",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Access",
+          "ComponentName": "Notification",
+          "ProjectType": 0
+        },
+        {
+          "Id": "76c0076b-34fc-9317-5d2c-9a9adcdeef8d",
+          "FileId": "2ec6b52b-55c9-4fa7-f439-8cae6f009167",
+          "Name": "FixMe.Access.Notification.Service",
+          "NamespaceId": "f31df3c0-3546-bd56-ad55-1f93e8ac7b90",
+          "ProjectReferenceIds": [
+            "bc75f7ec-7bda-df16-6932-602649973c80"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Access",
+          "ComponentName": "Notification",
+          "ProjectType": 0
+        },
+        {
+          "Id": "76d2a7cb-75ce-d9b2-2bc2-884816c28f60",
+          "FileId": "528d174d-fd89-3093-ce31-f6f5bd241f54",
+          "Name": "FixMe.Access.Agreement.Interface",
+          "NamespaceId": "989e8b39-1f9b-6b42-3f90-0dd09269c3ea",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Access",
+          "ComponentName": "Agreement",
+          "ProjectType": 0
+        },
+        {
+          "Id": "c1a4d821-8674-c81b-9ab3-0feb794da475",
+          "FileId": "03ca7dbb-53d4-1485-0130-69a989dc759b",
+          "Name": "FixMe.Access.Agreement.Service",
+          "NamespaceId": "a26b04e7-585b-c8a1-e40d-77daf8d67cca",
+          "ProjectReferenceIds": [
+            "76d2a7cb-75ce-d9b2-2bc2-884816c28f60"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Access",
+          "ComponentName": "Agreement",
+          "ProjectType": 0
+        },
+        {
+          "Id": "c5cc3b54-c79f-e8ad-be80-eff670e58a85",
+          "FileId": "332a8f66-ef6f-1d4d-c2de-8a71dc135671",
+          "Name": "FixMe.Access.ESigning.Interface",
+          "NamespaceId": "c46bfbfc-d06a-ed4f-f199-b829be8aaf3e",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Access",
+          "ComponentName": "ESigning",
+          "ProjectType": 0
+        },
+        {
+          "Id": "33d99c17-869e-48bf-d5b3-686e06ba58c3",
+          "FileId": "80065ac2-01d6-ed4d-1297-857023664f6c",
+          "Name": "FixMe.Access.ESigning.Service",
+          "NamespaceId": "660e7508-ba2c-cf1c-0453-aeebe70fdde4",
+          "ProjectReferenceIds": [
+            "c5cc3b54-c79f-e8ad-be80-eff670e58a85"
+          ],
+          "Template": "method.service",
+          "ComponentType": "Access",
+          "ComponentName": "ESigning",
+          "ProjectType": 0
+        },
+        {
+          "Id": "6e3e7b16-3786-e0bd-80b2-66b142ada73a",
+          "FileId": "25f05b0d-aa07-e070-2791-9ffbe3fb19af",
+          "Name": "FixMe.Utility.Security.Interface",
+          "NamespaceId": "c96da8b8-d3fc-48c2-943f-fcdcd40fba15",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Utility",
+          "ComponentName": "Security",
+          "ProjectType": 0
+        },
+        {
+          "Id": "61ad08e2-077d-6f54-3562-9f05f83aae64",
+          "FileId": "acb865ca-576d-3b3b-75a4-f0d7b9e9bbfd",
+          "Name": "FixMe.Utility.Communication.Interface",
+          "NamespaceId": "3c303990-dd9e-22ad-8ba0-71964905c420",
+          "ProjectReferenceIds": [],
+          "Template": "method.interface",
+          "ComponentType": "Utility",
+          "ComponentName": "Communication",
+          "ProjectType": 0
+        },
+        {
+          "Id": "cf13242e-ff88-ed22-1874-9ec956a15851",
+          "FileId": "0948ad9d-8d69-d060-d7b1-af7de5bbd212",
+          "Name": "FixMe.Common.Identifier",
+          "NamespaceId": "97b77eec-38fe-beb5-cb0e-5f31e12fe3fd",
+          "ProjectReferenceIds": [],
+          "Template": "",
+          "ComponentType": "",
+          "ComponentName": "",
+          "ProjectType": 1
+        },
+        {
+          "Id": "9c9a9af2-4b05-4d0a-fa7a-7a4217036a05",
+          "FileId": "38243c3c-7819-48a4-8bd0-2e5fffff69cd",
+          "Name": "FixMe.Common.Value",
+          "NamespaceId": "4830278a-9339-1b43-5453-bbd741912a34",
+          "ProjectReferenceIds": [],
+          "Template": "",
+          "ComponentType": "",
+          "ComponentName": "",
+          "ProjectType": 2
+        }
+      ],
+      "Namespaces": [
+        {
+          "Id": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "Name": "FixMe.Manager.Membership.Interface"
+        },
+        {
+          "Id": "6ff92ee7-049f-0120-f084-59b4bd7f730b",
+          "Name": "FixMe.Manager.Membership.Service"
+        },
+        {
+          "Id": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "Name": "FixMe.Manager.Maintenance.Interface"
+        },
+        {
+          "Id": "84651f6a-6e42-4d5e-2b95-2b07bc3c460a",
+          "Name": "FixMe.Manager.Maintenance.Service"
+        },
+        {
+          "Id": "80b9dc56-5142-10a9-5c42-8ce7fca4e095",
+          "Name": "FixMe.Manager.Notification.Interface"
+        },
+        {
+          "Id": "98a7470c-5dfa-a1a8-546b-dcebeaa054b7",
+          "Name": "FixMe.Manager.Notification.Service"
+        },
+        {
+          "Id": "353b39ef-73fd-8586-4306-f25523de2b4c",
+          "Name": "FixMe.Manager.Tasking.Interface"
+        },
+        {
+          "Id": "1fab33cb-b803-1cdc-7ab7-945ab97cde5b",
+          "Name": "FixMe.Manager.Tasking.Service"
+        },
+        {
+          "Id": "0b69f479-8803-faae-7547-86f0d33dee62",
+          "Name": "FixMe.Engine.Matching.Interface"
+        },
+        {
+          "Id": "3ea13f2e-99c6-471c-a5de-8655332d9307",
+          "Name": "FixMe.Engine.Matching.Service"
+        },
+        {
+          "Id": "c03562ce-760f-480f-c78f-34a8bdd72913",
+          "Name": "FixMe.Engine.Scheduling.Interface"
+        },
+        {
+          "Id": "9444dca5-e14b-9d0b-4aa1-8003ddca8e9a",
+          "Name": "FixMe.Engine.Scheduling.Service"
+        },
+        {
+          "Id": "a7f5897e-c061-04bf-3ca9-491d8c76a7ba",
+          "Name": "FixMe.Engine.Policy.Interface"
+        },
+        {
+          "Id": "5a90bda5-d775-693c-db39-f87e8c6b3057",
+          "Name": "FixMe.Engine.Policy.Service"
+        },
+        {
+          "Id": "d0af1eaa-1072-0e87-0022-f2e5332d8915",
+          "Name": "FixMe.Access.Customer.Interface"
+        },
+        {
+          "Id": "c40fd299-1050-8c58-7919-f0d7bd739a82",
+          "Name": "FixMe.Access.Customer.Service"
+        },
+        {
+          "Id": "2a6daa9a-3f6a-9b7b-e24b-cf131e1a2fde",
+          "Name": "FixMe.Access.Equipment.Interface"
+        },
+        {
+          "Id": "ea8d06ee-7045-6204-1798-df914fe68af4",
+          "Name": "FixMe.Access.Equipment.Service"
+        },
+        {
+          "Id": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "Name": "FixMe.Access.Maintenance.Interface"
+        },
+        {
+          "Id": "32cc7cef-86b9-514c-bc19-590cb8d49025",
+          "Name": "FixMe.Access.Maintenance.Service"
+        },
+        {
+          "Id": "03a8e48f-d26e-7880-aef1-ddc817f20bae",
+          "Name": "FixMe.Access.Task.Interface"
+        },
+        {
+          "Id": "81a7b148-f509-06c7-4293-1e1dbdac4120",
+          "Name": "FixMe.Access.Task.Service"
+        },
+        {
+          "Id": "1837c258-f807-048f-4e78-a90d60a60e6a",
+          "Name": "FixMe.Access.Notification.Interface"
+        },
+        {
+          "Id": "f31df3c0-3546-bd56-ad55-1f93e8ac7b90",
+          "Name": "FixMe.Access.Notification.Service"
+        },
+        {
+          "Id": "989e8b39-1f9b-6b42-3f90-0dd09269c3ea",
+          "Name": "FixMe.Access.Agreement.Interface"
+        },
+        {
+          "Id": "a26b04e7-585b-c8a1-e40d-77daf8d67cca",
+          "Name": "FixMe.Access.Agreement.Service"
+        },
+        {
+          "Id": "c46bfbfc-d06a-ed4f-f199-b829be8aaf3e",
+          "Name": "FixMe.Access.ESigning.Interface"
+        },
+        {
+          "Id": "660e7508-ba2c-cf1c-0453-aeebe70fdde4",
+          "Name": "FixMe.Access.ESigning.Service"
+        },
+        {
+          "Id": "33755ed5-7fff-f735-9851-df3dd32db217",
+          "Name": "FixMe.Manager.Membership.Interface.Common"
+        },
+        {
+          "Id": "74474f56-9db0-b2d1-211a-d1161e187eab",
+          "Name": "FixMe.Access.Customer.Interface.Common"
+        },
+        {
+          "Id": "11b562ad-0aac-e909-e62b-b5920ed96871",
+          "Name": "FixMe.Manager.Notification.Interface.Common"
+        },
+        {
+          "Id": "c96da8b8-d3fc-48c2-943f-fcdcd40fba15",
+          "Name": "FixMe.Utility.Security.Interface"
+        },
+        {
+          "Id": "4d2332ea-7ac5-b1bc-2458-a9be36e0674f",
+          "Name": "FixMe.Utility.Security.Interface.Common"
+        },
+        {
+          "Id": "de72fa6c-297f-2099-dbec-031bd9fb2fc9",
+          "Name": "FixMe.Access.Equipment.Interface.Common"
+        },
+        {
+          "Id": "bfb35fcc-a764-7c8f-5b85-9126a6b14587",
+          "Name": "FixMe.Manager.Tasking.Interface.Common"
+        },
+        {
+          "Id": "8c8e2f19-c493-2558-dfdc-c56bdcfdbd48",
+          "Name": "FixMe.Manager.Maintenance.Interface.Common"
+        },
+        {
+          "Id": "8fd11571-f23b-a059-f429-133742c39b36",
+          "Name": "FixMe.Access.Maintenance.Interface.Common"
+        },
+        {
+          "Id": "dc403a0a-5578-11a6-9101-97cfcbfdec26",
+          "Name": "FixMe.Engine.Matching.Interface.Common"
+        },
+        {
+          "Id": "c25c13f9-f06a-1d3d-733a-f700c3ac2fb2",
+          "Name": "FixMe.Access.Task.Interface.Common"
+        },
+        {
+          "Id": "1ecfe86d-c923-e62b-0ba5-91f6c5661ac8",
+          "Name": "FixMe.Access.Agreement.Interface.Common"
+        },
+        {
+          "Id": "5548c3d6-d8e9-a56f-d2fd-bba4174ba39e",
+          "Name": "FixMe.Access.ESigning.Interface.Common"
+        },
+        {
+          "Id": "0e712ec1-3965-ba44-39b1-f234ecef45e5",
+          "Name": "FixMe.Engine.Scheduling.Interface.Common"
+        },
+        {
+          "Id": "7088d01d-4b16-94d2-1fb2-8f47b506cf17",
+          "Name": "FixMe.Access.Notification.Interface.Common"
+        },
+        {
+          "Id": "3c303990-dd9e-22ad-8ba0-71964905c420",
+          "Name": "FixMe.Utility.Communication.Interface"
+        },
+        {
+          "Id": "09e679a1-abc2-8e2a-552f-a4753b902c50",
+          "Name": "FixMe.Utility.Communication.Interface.Common"
+        },
+        {
+          "Id": "97b77eec-38fe-beb5-cb0e-5f31e12fe3fd",
+          "Name": "FixMe.Common.Identifier"
+        },
+        {
+          "Id": "4830278a-9339-1b43-5453-bbd741912a34",
+          "Name": "FixMe.Common.Value"
+        }
+      ],
+      "Interfaces": [
+        {
+          "Id": "e6f495c5-20ec-b20b-1601-1ca0807fa619",
+          "FileId": "bb42fa22-affa-6176-af5d-50c5099d8eb9",
+          "Name": "IMembershipManager",
+          "ModifierType": 68,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "RegisterAccount",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "RegisterAccountRequest"
+              ],
+              "ResponseParameterNames": [
+                "RegisterAccountResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "ConfirmUserEmail",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "ConfirmUserEmailRequest"
+              ],
+              "ResponseParameterNames": [
+                "ConfirmUserEmailResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "UpdateUserPassword",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "UpdateUserPasswordRequest"
+              ],
+              "ResponseParameterNames": [
+                "UpdateUserPasswordResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "SetUserPreferences",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "SetUserPreferencesRequest"
+              ],
+              "ResponseParameterNames": [
+                "SetUserPreferencesResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "CreatePendingRegistration",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "CreatePendingRegistrationRequest"
+              ],
+              "ResponseParameterNames": [
+                "PendingRegistration"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "ResolvePendingRegistration",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "ResolvePendingRegistrationRequest"
+              ],
+              "ResponseParameterNames": [
+                "ResolvePendingRegistrationResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "bcce0745-e128-364e-f47a-406b112d8adc",
+          "FileId": "953f6adf-9d39-3c50-57aa-9202b96d57e6",
+          "Name": "ICustomerAccess",
+          "ModifierType": 68,
+          "ProjectId": "726ba80e-10b2-9967-a9e9-24ec3e59c5bb",
+          "NamespaceId": "d0af1eaa-1072-0e87-0022-f2e5332d8915",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "Filter",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "CustomerCriteria"
+              ],
+              "ResponseParameterNames": [
+                "Customer"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "Store",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "Customer"
+              ],
+              "ResponseParameterNames": [
+                "Customer"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "b55eb9b1-5b56-8c83-74ac-b5229529a286",
+          "FileId": "db65dbc3-f85d-0f8c-80ee-d36d81d996e8",
+          "Name": "INotificationManager",
+          "ModifierType": 68,
+          "ProjectId": "8bc9cce9-4f79-cf39-698a-cd8de7b3812d",
+          "NamespaceId": "80b9dc56-5142-10a9-5c42-8ce7fca4e095",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "NotifyUser",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "NotifyUserRequest"
+              ],
+              "ResponseParameterNames": [
+                "NotifyUserResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "86c835ed-2695-b036-86fa-f81074766483",
+          "FileId": "b3e55c60-5f02-9d2d-8861-8bdde02dde42",
+          "Name": "ISecurityUtility",
+          "ModifierType": 68,
+          "ProjectId": "6e3e7b16-3786-e0bd-80b2-66b142ada73a",
+          "NamespaceId": "c96da8b8-d3fc-48c2-943f-fcdcd40fba15",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "HashPassword",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "HashPasswordRequest"
+              ],
+              "ResponseParameterNames": [
+                "HashResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "3e42a511-25d6-e78d-6cc2-b794f5df72ba",
+          "FileId": "3d15d529-d2e3-e90d-12a9-710f35c3f099",
+          "Name": "IEquipmentAccess",
+          "ModifierType": 68,
+          "ProjectId": "560edd3a-f594-5cb2-b79c-3ac433c7e908",
+          "NamespaceId": "2a6daa9a-3f6a-9b7b-e24b-cf131e1a2fde",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "Filter",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "FilterRequestBase"
+              ],
+              "ResponseParameterNames": [
+                "FilterResponseBase"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "Store",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "StoreRequestBase"
+              ],
+              "ResponseParameterNames": [
+                "StoreResponseBase"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "de88194e-e3d1-6a64-0e88-c5c170de0b82",
+          "FileId": "d1519d4d-ae96-eb7b-5684-f062ffea6db6",
+          "Name": "ITaskingManager",
+          "ModifierType": 68,
+          "ProjectId": "5e739d52-0efa-4afb-d5f9-1ce0d0b42ce0",
+          "NamespaceId": "353b39ef-73fd-8586-4306-f25523de2b4c",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "CreateBackofficeTask",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "CreateBackofficeTaskRequest"
+              ],
+              "ResponseParameterNames": [
+                "CreateBackofficeTaskResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "ConfirmMaintenanceProviderSlots",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "ConfirmMaintenanceProviderSlotsRequest"
+              ],
+              "ResponseParameterNames": [
+                "ConfirmMaintenanceProviderSlotsResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "82a432b8-99eb-a424-8c48-41245b26d4fe",
+          "FileId": "e8c5a835-e96a-f8ad-e066-0eae198b830c",
+          "Name": "IMaintenanceManager",
+          "ModifierType": 68,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "MatchMaintenancePlanOffering",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MatchMaintenancePlanOfferingRequest"
+              ],
+              "ResponseParameterNames": [
+                "MatchMaintenancePlanOfferingResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "CreatePendingMaintenancePlan",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "CreatePendingMaintenancePlanRequest"
+              ],
+              "ResponseParameterNames": [
+                "CreatePendingMaintenancePlanResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "ResolvePendingMaintenancePlan",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "ResolvePendingMaintenancePlanRequest"
+              ],
+              "ResponseParameterNames": [
+                "ResolvePendingMaintenancePlanResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "InitiateESigningForMaintenancePlan",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "InitiateESigningForMaintenancePlanRequest"
+              ],
+              "ResponseParameterNames": [
+                "InitiateESigningForMaintenancePlanResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "CreateMaintenanceJobSlotsProposal",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "CreateMaintenanceJobSlotsProposalRequest"
+              ],
+              "ResponseParameterNames": [
+                "CreateMaintenanceJobSlotsProposalResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "ConfirmMaintenanceProviderSlots",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "ConfirmMaintenanceProviderSlotsRequest"
+              ],
+              "ResponseParameterNames": [
+                "ConfirmMaintenanceProviderSlotsResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "ConfirmMaintenanceSlotsProposal",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "ConfirmMaintenanceSlotsProposalRequest"
+              ],
+              "ResponseParameterNames": [
+                "ConfirmMaintenanceSlotsProposalResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "AcceptMaintenanceSlotsProposal",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "AcceptMaintenanceSlotsProposalRequest"
+              ],
+              "ResponseParameterNames": [
+                "AcceptMaintenanceSlotsProposalResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "CancelMaintenanceJob",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "CancelMaintenanceJobRequest"
+              ],
+              "ResponseParameterNames": [
+                "CancelMaintenanceJobResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "7c32e902-8409-06ec-d11a-602bbe1ef45a",
+          "FileId": "ec563b4d-6778-efc0-7eba-fdbf4d4f6cbd",
+          "Name": "IMaintenanceAccess",
+          "ModifierType": 68,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "MaintenancePlanOfferingFilter",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MaintenancePlanOfferingCriteria"
+              ],
+              "ResponseParameterNames": [
+                "MaintenancePlanOffering"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "MaintenancePlanFilter",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MaintenancePlanCriteria"
+              ],
+              "ResponseParameterNames": [
+                "MaintenancePlan"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "MaintenancePlanStore",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MaintenancePlan"
+              ],
+              "ResponseParameterNames": [
+                "MaintenancePlan"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "MaintenanceJobSlotFilter",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MaintenanceJobSlotCriteria"
+              ],
+              "ResponseParameterNames": [
+                "MaintenanceJobSlot"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "MaintenanceJobSlotStore",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MaintenanceJobSlot"
+              ],
+              "ResponseParameterNames": [
+                "MaintenanceJobSlot"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "MaintenanceJobSlotsProposalStore",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MaintenanceJobSlotsProposal"
+              ],
+              "ResponseParameterNames": [
+                "MaintenanceJobSlotsProposal"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "MaintenanceJobSlotsProposalFilter",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MaintenanceJobSlotsProposalCriteria"
+              ],
+              "ResponseParameterNames": [
+                "MaintenanceJobSlotsProposal"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "MaintenanceJobStore",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MaintenanceJob"
+              ],
+              "ResponseParameterNames": [
+                "MaintenanceJob"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "MaintenanceJobFilter",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MaintenanceJobCriteria"
+              ],
+              "ResponseParameterNames": [
+                "MaintenanceJob"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "6f3b9bbc-df89-5806-4db2-c73ca9798707",
+          "FileId": "18b7058b-b542-e09e-2fda-1eb32c4e1a96",
+          "Name": "IMatchingEngine",
+          "ModifierType": 68,
+          "ProjectId": "da8b66a0-5e4d-9521-517a-a9fea18ddbee",
+          "NamespaceId": "0b69f479-8803-faae-7547-86f0d33dee62",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "MatchMaintenancePlanOffering",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "MatchMaintenancePlanOfferingRequest"
+              ],
+              "ResponseParameterNames": [
+                "MatchMaintenancePlanOfferingResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "b0d59d8e-f27c-8625-d6a3-4bd456f3a2a1",
+          "FileId": "d192f9ca-6582-b374-783d-5662011450c4",
+          "Name": "ITaskAccess",
+          "ModifierType": 68,
+          "ProjectId": "16e667f2-dfe2-f073-8c4e-358fbc7dda80",
+          "NamespaceId": "03a8e48f-d26e-7880-aef1-ddc817f20bae",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "Filter",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "TaskCriteria"
+              ],
+              "ResponseParameterNames": [
+                "Task"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "Store",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "Task"
+              ],
+              "ResponseParameterNames": [
+                "Task"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "56bea418-862e-37fb-32b9-f8d23e694294",
+          "FileId": "5770bf5d-c4b8-c6fe-0bb1-e85c4ec6e33d",
+          "Name": "IAgreementAccess",
+          "ModifierType": 68,
+          "ProjectId": "76d2a7cb-75ce-d9b2-2bc2-884816c28f60",
+          "NamespaceId": "989e8b39-1f9b-6b42-3f90-0dd09269c3ea",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "Filter",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "AgreementCriteria"
+              ],
+              "ResponseParameterNames": [
+                "Agreement"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "Store",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "Agreement"
+              ],
+              "ResponseParameterNames": [
+                "Agreement"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "0ae2c54f-8bad-142a-0d73-08118ba430b8",
+          "FileId": "93fbe354-bbbe-8969-a78a-95f79edfd103",
+          "Name": "IESigningAccess",
+          "ModifierType": 68,
+          "ProjectId": "c5cc3b54-c79f-e8ad-be80-eff670e58a85",
+          "NamespaceId": "c46bfbfc-d06a-ed4f-f199-b829be8aaf3e",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "SignatureRequestStore",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "SignatureRequest"
+              ],
+              "ResponseParameterNames": [
+                "SignatureRequest"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "a85ba46b-26c9-c6fa-26a3-6fe091f0c7aa",
+          "FileId": "bba1463e-7bbb-cdcb-a6bc-1935d4f4df78",
+          "Name": "ISchedulingEngine",
+          "ModifierType": 68,
+          "ProjectId": "a55a9849-b049-bdb0-55fd-36e10b90e7c8",
+          "NamespaceId": "c03562ce-760f-480f-c78f-34a8bdd72913",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "CreateMaintenanceJobSlotsProposal",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "CreateMaintenanceJobSlotsProposalRequest"
+              ],
+              "ResponseParameterNames": [
+                "CreateMaintenanceJobSlotsProposalResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "AcceptMaintenanceSlotsProposal",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "AcceptMaintenanceSlotsProposalRequest"
+              ],
+              "ResponseParameterNames": [
+                "AcceptMaintenanceSlotsProposalResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "b8911003-7f89-94a5-6fed-9323acf2b764",
+          "FileId": "1536d1d9-aa97-06f4-9322-d2484c1395e3",
+          "Name": "INotificationAccess",
+          "ModifierType": 68,
+          "ProjectId": "bc75f7ec-7bda-df16-6932-602649973c80",
+          "NamespaceId": "1837c258-f807-048f-4e78-a90d60a60e6a",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "NotificationTemplateFilter",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "NotificationTemplateCriteria"
+              ],
+              "ResponseParameterNames": [
+                "NotificationTemplate"
+              ],
+              "ResponseGenericWrapperName": ""
+            },
+            {
+              "Name": "Store",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "Notification"
+              ],
+              "ResponseParameterNames": [
+                "Notification"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "6949b773-e268-4903-2393-067390a86f52",
+          "FileId": "f1ea242d-8d8c-3202-939c-0a3be83cddc3",
+          "Name": "ICommunicationUtility",
+          "ModifierType": 68,
+          "ProjectId": "61ad08e2-077d-6f54-3562-9f05f83aae64",
+          "NamespaceId": "3c303990-dd9e-22ad-8ba0-71964905c420",
+          "ParentIds": [],
+          "Operations": [
+            {
+              "Name": "NotifyUser",
+              "ModifierType": 64,
+              "RequestParameterNames": [
+                "NotifyUserRequest"
+              ],
+              "ResponseParameterNames": [
+                "NotifyUserResponse"
+              ],
+              "ResponseGenericWrapperName": ""
+            }
+          ],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        }
+      ],
+      "Classes": [
+        {
+          "Id": "0baeaa3b-9604-864f-5123-f219fcf58d43",
+          "FileId": "e3bdc510-6762-a449-0256-5542d0026f0e",
+          "Name": "RegisterAccountRequest",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "5455f3f1-2246-5663-7872-ad14a5382cd6",
+          "FileId": "ffee5d5b-28fe-e36a-4e26-989ab22173b7",
+          "Name": "RegisterAccountResponse",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "3c2f1f65-d45a-b138-a2c2-94a3e8f89a46",
+          "FileId": "5ebc3760-d6fc-9d23-8ef7-d4109ffe4af4",
+          "Name": "ConfirmUserEmailRequest",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "dd941004-3ba7-95e9-a0bb-3dfe1774740f",
+          "FileId": "066bee3f-6c4b-9a34-5a87-d819805406a3",
+          "Name": "ConfirmUserEmailResponse",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "88b77972-78a3-b77e-216b-7c95f55837f9",
+          "FileId": "770c6ecc-cb32-7d75-8d92-44ffbf0f6033",
+          "Name": "UpdateUserPasswordRequest",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "816b733d-4275-c39a-89b9-a7b8cd981d3e",
+          "FileId": "5c4e159a-1b58-a4a5-37f6-9b88bd6ffe3f",
+          "Name": "UpdateUserPasswordResponse",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "be48cd67-982a-4e6c-5ef4-848b92e74075",
+          "FileId": "ff35840b-164b-fb93-a190-ddf519b6135e",
+          "Name": "SetUserPreferencesRequest",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "0717ffd8-88c6-f707-2c96-61f6d1f67765",
+          "FileId": "0b70f137-d457-2bf0-b99f-dd355b9a113d",
+          "Name": "SetUserPreferencesResponse",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "46389b6b-fd7e-bf97-5b8d-62c2ef652af9",
+          "FileId": "18179891-2bdb-7a4f-52a5-55a997b7abab",
+          "Name": "CreatePendingRegistrationRequest",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "b0145717-a6c4-4596-1372-cc6db7a03f7c",
+          "FileId": "d2cbbd05-9385-a8d9-a115-91f22af9ffa0",
+          "Name": "PendingRegistration",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "6b5bc8df-4788-52fa-aa15-73844309a132",
+          "FileId": "0ffe42dc-9eed-c95a-81dd-a310f42e949f",
+          "Name": "ResolvePendingRegistrationRequest",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "0dac5d7c-027f-1e30-72ab-8a73211b73ad",
+          "FileId": "b2e2b6ce-c254-27b5-66d4-04b9bb7d625e",
+          "Name": "ResolvePendingRegistrationResponse",
+          "ModifierType": 66,
+          "ProjectId": "d8d46e0d-3d6d-644e-9e7d-6906ab544428",
+          "NamespaceId": "ce64a0cf-2bab-5fce-183f-50f4d469bb92",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "64b895ba-e4f9-0b30-3894-51c6ec2a9e97",
+          "FileId": "8f10a863-210a-b175-5f1a-cfee46c3cea8",
+          "Name": "CustomerCriteria",
+          "ModifierType": 66,
+          "ProjectId": "726ba80e-10b2-9967-a9e9-24ec3e59c5bb",
+          "NamespaceId": "d0af1eaa-1072-0e87-0022-f2e5332d8915",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "165e1f65-fd90-077a-d4a2-f7d1fc80e0e4",
+          "FileId": "101bfcf3-5494-e691-11c5-5348546f3d4d",
+          "Name": "Customer",
+          "ModifierType": 66,
+          "ProjectId": "726ba80e-10b2-9967-a9e9-24ec3e59c5bb",
+          "NamespaceId": "d0af1eaa-1072-0e87-0022-f2e5332d8915",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "fd1e8373-325c-21d4-f548-cdb47020c2fe",
+          "FileId": "61de92fe-40aa-0e3e-cdb2-66c9366ec019",
+          "Name": "NotifyUserRequest",
+          "ModifierType": 66,
+          "ProjectId": "8bc9cce9-4f79-cf39-698a-cd8de7b3812d",
+          "NamespaceId": "80b9dc56-5142-10a9-5c42-8ce7fca4e095",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "bd970fbe-fd49-b065-6935-ef7a76674d8e",
+          "FileId": "0a227a54-7d1f-8dff-3726-fd20d44fe943",
+          "Name": "NotifyUserResponse",
+          "ModifierType": 66,
+          "ProjectId": "8bc9cce9-4f79-cf39-698a-cd8de7b3812d",
+          "NamespaceId": "80b9dc56-5142-10a9-5c42-8ce7fca4e095",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "cac859b5-54c0-dddc-17df-ad22720ee03d",
+          "FileId": "5be9adfd-7462-7529-3bd8-f0b80970dc37",
+          "Name": "HashPasswordRequest",
+          "ModifierType": 66,
+          "ProjectId": "6e3e7b16-3786-e0bd-80b2-66b142ada73a",
+          "NamespaceId": "c96da8b8-d3fc-48c2-943f-fcdcd40fba15",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "43be1d36-94e3-8950-31c5-76055f3daead",
+          "FileId": "fa02fb77-3752-4eaa-7c4b-60019ae37563",
+          "Name": "HashResponse",
+          "ModifierType": 66,
+          "ProjectId": "6e3e7b16-3786-e0bd-80b2-66b142ada73a",
+          "NamespaceId": "c96da8b8-d3fc-48c2-943f-fcdcd40fba15",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "1e58ab88-0fd0-2be6-a8a3-c57931a9563f",
+          "FileId": "bfe8f7b2-f108-f490-1cbf-b548f8e6cc70",
+          "Name": "FilterRequestBase",
+          "ModifierType": 71,
+          "ProjectId": "560edd3a-f594-5cb2-b79c-3ac433c7e908",
+          "NamespaceId": "de72fa6c-297f-2099-dbec-031bd9fb2fc9",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "60c5069a-9d45-26f8-a657-e725fc01ab3a",
+          "FileId": "56106cf2-814a-2b15-1efc-cf46e9a4ca81",
+          "Name": "CreateBackofficeTaskResponse",
+          "ModifierType": 66,
+          "ProjectId": "5e739d52-0efa-4afb-d5f9-1ce0d0b42ce0",
+          "NamespaceId": "353b39ef-73fd-8586-4306-f25523de2b4c",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "35e8d971-0abb-c736-f746-50f99e22b56a",
+          "FileId": "2ab2dfcf-ed75-c576-3ac5-478aa91c8b30",
+          "Name": "StoreRequestBase",
+          "ModifierType": 71,
+          "ProjectId": "560edd3a-f594-5cb2-b79c-3ac433c7e908",
+          "NamespaceId": "de72fa6c-297f-2099-dbec-031bd9fb2fc9",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "3eabb666-900d-4313-d2fc-0b9d51816d5b",
+          "FileId": "4875dc34-cc2f-7af2-4d11-64b49812c6b0",
+          "Name": "CreateBackofficeTaskRequest",
+          "ModifierType": 66,
+          "ProjectId": "5e739d52-0efa-4afb-d5f9-1ce0d0b42ce0",
+          "NamespaceId": "353b39ef-73fd-8586-4306-f25523de2b4c",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "69509438-d222-3c7a-2e6a-08b679d4bfb0",
+          "FileId": "70b4a144-ce18-cb79-eb8d-574490f2283c",
+          "Name": "EquipmentTypeCriteria",
+          "ModifierType": 66,
+          "ProjectId": "560edd3a-f594-5cb2-b79c-3ac433c7e908",
+          "NamespaceId": "2a6daa9a-3f6a-9b7b-e24b-cf131e1a2fde",
+          "ParentIds": [
+            "1e58ab88-0fd0-2be6-a8a3-c57931a9563f"
+          ],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "bb68ed83-360b-e4e7-0dd3-fc5d20d461b2",
+          "FileId": "9377f778-b44b-5760-e0a1-150ae56cefa3",
+          "Name": "EquipmentType",
+          "ModifierType": 66,
+          "ProjectId": "560edd3a-f594-5cb2-b79c-3ac433c7e908",
+          "NamespaceId": "2a6daa9a-3f6a-9b7b-e24b-cf131e1a2fde",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "5a069c60-67f7-cba5-c2e3-8fc1257f87ef",
+          "FileId": "58723b18-06d3-8a8a-b85c-97b71ac0a9ba",
+          "Name": "PendingRegistration",
+          "ModifierType": 66,
+          "ProjectId": "560edd3a-f594-5cb2-b79c-3ac433c7e908",
+          "NamespaceId": "2a6daa9a-3f6a-9b7b-e24b-cf131e1a2fde",
+          "ParentIds": [
+            "35e8d971-0abb-c736-f746-50f99e22b56a"
+          ],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "2f9c868b-4f8f-c215-878b-c2a018a8dcf1",
+          "FileId": "91d0ef57-78b2-d1f0-8588-75d2c4118ffe",
+          "Name": "PendingRegistrationCriteria",
+          "ModifierType": 66,
+          "ProjectId": "560edd3a-f594-5cb2-b79c-3ac433c7e908",
+          "NamespaceId": "2a6daa9a-3f6a-9b7b-e24b-cf131e1a2fde",
+          "ParentIds": [
+            "1e58ab88-0fd0-2be6-a8a3-c57931a9563f"
+          ],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "93308a6f-e839-3f8a-9fcf-4d058ef0ec6d",
+          "FileId": "7095fd46-e762-9880-3488-e53aa9db6158",
+          "Name": "Equipment",
+          "ModifierType": 66,
+          "ProjectId": "560edd3a-f594-5cb2-b79c-3ac433c7e908",
+          "NamespaceId": "2a6daa9a-3f6a-9b7b-e24b-cf131e1a2fde",
+          "ParentIds": [
+            "35e8d971-0abb-c736-f746-50f99e22b56a"
+          ],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "24be6503-4e8f-93d5-8311-c6c8e967694c",
+          "FileId": "e504480d-9bb7-3954-1b7e-1510ae4b39c3",
+          "Name": "EquipmentCriteria",
+          "ModifierType": 66,
+          "ProjectId": "560edd3a-f594-5cb2-b79c-3ac433c7e908",
+          "NamespaceId": "2a6daa9a-3f6a-9b7b-e24b-cf131e1a2fde",
+          "ParentIds": [
+            "1e58ab88-0fd0-2be6-a8a3-c57931a9563f"
+          ],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "5a316bf3-ec8e-c4cf-15c3-9ab9c62c75d5",
+          "FileId": "bf696eee-0544-f3f1-211d-a3cc0f1dd712",
+          "Name": "ConfirmMaintenanceProviderSlotsRequest",
+          "ModifierType": 66,
+          "ProjectId": "5e739d52-0efa-4afb-d5f9-1ce0d0b42ce0",
+          "NamespaceId": "353b39ef-73fd-8586-4306-f25523de2b4c",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "18dba4f1-0d8e-5920-5143-9644f1caaec2",
+          "FileId": "33b8ca6c-7775-66e2-89b9-0d6774caa70b",
+          "Name": "ConfirmMaintenanceProviderSlotsResponse",
+          "ModifierType": 66,
+          "ProjectId": "5e739d52-0efa-4afb-d5f9-1ce0d0b42ce0",
+          "NamespaceId": "353b39ef-73fd-8586-4306-f25523de2b4c",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "1f02b508-fdac-2955-2048-8483b96175d3",
+          "FileId": "305f38f9-c9c3-b493-875d-f064d98b07d5",
+          "Name": "MatchMaintenancePlanOfferingRequest",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "1afe1aae-2c35-c6ae-705f-413a0db1c884",
+          "FileId": "9b4c96ae-67bf-eb37-e424-48257350f696",
+          "Name": "MatchMaintenancePlanOfferingResponse",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "93e54eec-5225-6248-0a11-4e834b9abf7f",
+          "FileId": "f1977c55-8971-c1b5-5424-7b0bbc4afea8",
+          "Name": "CreatePendingMaintenancePlanRequest",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "05a90f5c-7589-8205-3c37-78f3853585e5",
+          "FileId": "742a3f3d-759c-36ae-04ec-3d8179ca0825",
+          "Name": "CreatePendingMaintenancePlanResponse",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "27f17ecb-027c-7488-caf8-daba0f3f2054",
+          "FileId": "08c18bd7-11ac-ef42-e2e4-36aa0394155d",
+          "Name": "ResolvePendingMaintenancePlanRequest",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "5b1d2047-5093-1ac5-10e7-a922a9098cfc",
+          "FileId": "6b54f03f-c40d-84b7-79d4-1e6396279c65",
+          "Name": "ResolvePendingMaintenancePlanResponse",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "d36cecd7-7692-d150-8090-99777a0c98e9",
+          "FileId": "271c5606-1bf4-475c-2348-9f78fd8cbfde",
+          "Name": "InitiateESigningForMaintenancePlanRequest",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "7f0a3fb6-cbf3-ccbd-a495-21ca39ddee58",
+          "FileId": "17dfcd31-dbae-89bc-f401-7b74b8d77054",
+          "Name": "InitiateESigningForMaintenancePlanResponse",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "28128f88-ed14-7f6c-881f-be272edca575",
+          "FileId": "0e348723-2daa-28a5-e35c-b568092a9c8d",
+          "Name": "CreateMaintenanceJobSlotsProposalRequest",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "7a795211-f8fd-28b3-f651-7ce57f1f93b0",
+          "FileId": "b07dcff5-2d19-637a-d15c-ab57966ff8ff",
+          "Name": "CreateMaintenanceJobSlotsProposalResponse",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "d8023f09-ae70-1ce3-723d-663e261918c4",
+          "FileId": "960c2e89-810a-1154-a1f2-5efaa29d23d7",
+          "Name": "ConfirmMaintenanceProviderSlotsRequest",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "8ca767ff-133b-514a-7a64-01e99f736f1d",
+          "FileId": "d208ffb6-c193-1456-2a76-ee1972b77752",
+          "Name": "ConfirmMaintenanceProviderSlotsResponse",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "6736b35d-6954-e820-2dce-ca6e652d7b54",
+          "FileId": "1ba32ef4-49c6-07f1-3cd4-0e1c6537f378",
+          "Name": "ConfirmMaintenanceSlotsProposalRequest",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "944f8668-d8ce-76a0-52d3-18770f4db547",
+          "FileId": "5de32bcd-0a8a-13ca-682c-3c7a0c2c23ba",
+          "Name": "ConfirmMaintenanceSlotsProposalResponse",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "69baa24b-0127-7174-0d58-960bd6083b9f",
+          "FileId": "07e65112-ea1a-ac84-aaec-3d1f455032d6",
+          "Name": "AcceptMaintenanceSlotsProposalRequest",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "f533e72e-0707-2220-2283-fbaeff6fca88",
+          "FileId": "5e86bfab-1f1b-a444-487e-eac13a7341af",
+          "Name": "AcceptMaintenanceSlotsProposalResponse",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "2d574f40-e073-6216-f5a8-80ffde17b47e",
+          "FileId": "8eb81bfa-1b26-84b2-44c5-f6553f248879",
+          "Name": "CancelMaintenanceJobRequest",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "de18d30a-7710-0838-2d21-0cd21f86df29",
+          "FileId": "2c9cbb46-7b1a-4e91-1c5d-44ba9c3e4768",
+          "Name": "CancelMaintenanceJobResponse",
+          "ModifierType": 66,
+          "ProjectId": "857561e2-e3ba-f36c-7c60-852239c8ad21",
+          "NamespaceId": "7bb2b497-44a5-19eb-a10c-9bceeb8f2c04",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "91ad0d2f-0d89-6dc1-ec9c-ec1564a4d484",
+          "FileId": "8d6d2219-482d-e389-1969-09bde76dbcef",
+          "Name": "MaintenancePlanOfferingCriteria",
+          "ModifierType": 66,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "4392a90c-3178-38b0-85ff-c0a46a71f25a",
+          "FileId": "9b9bf4fb-4803-0710-09ee-d0f72713c4fb",
+          "Name": "MaintenancePlanOffering",
+          "ModifierType": 66,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "d5a7556d-2c75-4ee5-cc5b-c285d8afa1b2",
+          "FileId": "b5410ade-f44c-47cd-fc4d-db62b54dcfdf",
+          "Name": "MaintenancePlanCriteria",
+          "ModifierType": 66,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "f4eb317b-a8e9-cd03-b81a-5c1ffd6782b9",
+          "FileId": "da25d527-1390-4271-0fb8-3376732f0e76",
+          "Name": "MaintenancePlan",
+          "ModifierType": 66,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "e0662349-6e52-cfd2-4706-2db319b26a08",
+          "FileId": "d7c7feb9-1ab8-528a-cfae-dc1046b89206",
+          "Name": "MaintenanceJobSlotCriteria",
+          "ModifierType": 66,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "5352ae15-d52b-335c-17b5-f0bd379a49e3",
+          "FileId": "6315e916-fa72-4d05-eba7-2b1a88e294c0",
+          "Name": "MaintenanceJobSlot",
+          "ModifierType": 66,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "286b0532-a18b-e53f-d3df-5fbb3c1ad401",
+          "FileId": "d0c1b5be-2230-4234-388d-245cdc9a58cc",
+          "Name": "MaintenanceJobSlotsProposal",
+          "ModifierType": 66,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "771febf0-3273-109e-7189-139e06703bbd",
+          "FileId": "311627ec-fa6f-49b5-42a5-23be5b1e7ab6",
+          "Name": "MaintenanceJobSlotsProposalCriteria",
+          "ModifierType": 66,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "afac48ed-2b07-57aa-5d25-edae65cd6e47",
+          "FileId": "57c7dc66-42e6-d95b-187d-fd3a9891d623",
+          "Name": "MaintenanceJob",
+          "ModifierType": 66,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "cee8a0e1-6795-5e6b-0cf1-5fb0b91543ce",
+          "FileId": "a9226546-2aac-9850-05f9-b89b38aa65bb",
+          "Name": "MaintenanceJobCriteria",
+          "ModifierType": 66,
+          "ProjectId": "4773db02-2740-8c68-6e74-46fccc1a9726",
+          "NamespaceId": "3298dc75-ef69-35f5-6764-eff8928fe135",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "f3c17a3a-d148-8f04-c859-82122c0e4893",
+          "FileId": "b91996b9-dcab-6702-a61b-08df38c827fd",
+          "Name": "MatchMaintenancePlanOfferingRequest",
+          "ModifierType": 66,
+          "ProjectId": "da8b66a0-5e4d-9521-517a-a9fea18ddbee",
+          "NamespaceId": "0b69f479-8803-faae-7547-86f0d33dee62",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "e4260717-9413-ac43-48b3-a747e7a07108",
+          "FileId": "7fe356d5-465e-6653-4019-a9ef33a4851f",
+          "Name": "MatchMaintenancePlanOfferingResponse",
+          "ModifierType": 66,
+          "ProjectId": "da8b66a0-5e4d-9521-517a-a9fea18ddbee",
+          "NamespaceId": "0b69f479-8803-faae-7547-86f0d33dee62",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "856d3d52-facf-247d-b9e1-a0e3f5b60656",
+          "FileId": "3e4d0070-37d9-2117-7415-db4497d621c7",
+          "Name": "TaskCriteria",
+          "ModifierType": 66,
+          "ProjectId": "16e667f2-dfe2-f073-8c4e-358fbc7dda80",
+          "NamespaceId": "03a8e48f-d26e-7880-aef1-ddc817f20bae",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "f9e6dda2-50ee-256a-d945-33ed34b0ff2f",
+          "FileId": "68794c74-7608-0489-2cd6-2c417dd0b6c9",
+          "Name": "Task",
+          "ModifierType": 66,
+          "ProjectId": "16e667f2-dfe2-f073-8c4e-358fbc7dda80",
+          "NamespaceId": "03a8e48f-d26e-7880-aef1-ddc817f20bae",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "448aff0d-c098-22ea-b5fa-da3aa656b9d7",
+          "FileId": "60667704-904c-df15-1cbb-41923dd6313a",
+          "Name": "AgreementCriteria",
+          "ModifierType": 66,
+          "ProjectId": "76d2a7cb-75ce-d9b2-2bc2-884816c28f60",
+          "NamespaceId": "989e8b39-1f9b-6b42-3f90-0dd09269c3ea",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "97fd9efa-bf21-fe6a-2dbf-f5b8d1e48a34",
+          "FileId": "e142df9b-b8bf-c888-a154-bda3acf1e7b2",
+          "Name": "Agreement",
+          "ModifierType": 66,
+          "ProjectId": "76d2a7cb-75ce-d9b2-2bc2-884816c28f60",
+          "NamespaceId": "989e8b39-1f9b-6b42-3f90-0dd09269c3ea",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "72827546-7d20-f6e8-b0bf-2b08d384b670",
+          "FileId": "8f130eeb-580a-8f12-57fd-b87bb3d4fdc8",
+          "Name": "SignatureRequest",
+          "ModifierType": 66,
+          "ProjectId": "c5cc3b54-c79f-e8ad-be80-eff670e58a85",
+          "NamespaceId": "c46bfbfc-d06a-ed4f-f199-b829be8aaf3e",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "97984727-5c55-a214-e465-3d6f0fefa286",
+          "FileId": "ff62359a-387d-3dd3-c5eb-8e85a60391ce",
+          "Name": "CreateMaintenanceJobSlotsProposalRequest",
+          "ModifierType": 66,
+          "ProjectId": "a55a9849-b049-bdb0-55fd-36e10b90e7c8",
+          "NamespaceId": "c03562ce-760f-480f-c78f-34a8bdd72913",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "e3aaa0bc-82b1-07f7-59ea-d3e61639ecee",
+          "FileId": "fcd97d15-031c-87e4-2594-e9971acc9e49",
+          "Name": "CreateMaintenanceJobSlotsProposalResponse",
+          "ModifierType": 66,
+          "ProjectId": "a55a9849-b049-bdb0-55fd-36e10b90e7c8",
+          "NamespaceId": "c03562ce-760f-480f-c78f-34a8bdd72913",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "622a03ec-83bd-4d38-cb47-66661abfc738",
+          "FileId": "4f06ea33-c4e2-4825-a131-ca767c687870",
+          "Name": "AcceptMaintenanceSlotsProposalRequest",
+          "ModifierType": 66,
+          "ProjectId": "a55a9849-b049-bdb0-55fd-36e10b90e7c8",
+          "NamespaceId": "c03562ce-760f-480f-c78f-34a8bdd72913",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "949b1b9f-66b0-543b-cb16-85abc7921785",
+          "FileId": "c3683500-22fd-ac8e-fc57-9d9768e43ab3",
+          "Name": "AcceptMaintenanceSlotsProposalResponse",
+          "ModifierType": 66,
+          "ProjectId": "a55a9849-b049-bdb0-55fd-36e10b90e7c8",
+          "NamespaceId": "c03562ce-760f-480f-c78f-34a8bdd72913",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "45bf1a90-9ddb-b907-e408-835ca69c4a4f",
+          "FileId": "0e399a2d-af32-146f-ef17-aa763f89e4fd",
+          "Name": "NotificationTemplateCriteria",
+          "ModifierType": 66,
+          "ProjectId": "bc75f7ec-7bda-df16-6932-602649973c80",
+          "NamespaceId": "1837c258-f807-048f-4e78-a90d60a60e6a",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "e4b3fbb3-8f57-e373-15ed-3928637fcfd9",
+          "FileId": "4771c9cb-3081-a34f-d8b1-10f2d71c04fc",
+          "Name": "NotificationTemplate",
+          "ModifierType": 66,
+          "ProjectId": "bc75f7ec-7bda-df16-6932-602649973c80",
+          "NamespaceId": "1837c258-f807-048f-4e78-a90d60a60e6a",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "a1695ca6-85c5-e951-8fc0-43dbbe6bff9a",
+          "FileId": "6910ac43-8bec-87ba-bcf6-f51988205942",
+          "Name": "Notification",
+          "ModifierType": 66,
+          "ProjectId": "bc75f7ec-7bda-df16-6932-602649973c80",
+          "NamespaceId": "1837c258-f807-048f-4e78-a90d60a60e6a",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "6c51128c-daa9-79ec-7398-f697d21eefa2",
+          "FileId": "1014522f-ecee-e420-aaaa-257ed420737b",
+          "Name": "NotifyUserRequest",
+          "ModifierType": 66,
+          "ProjectId": "61ad08e2-077d-6f54-3562-9f05f83aae64",
+          "NamespaceId": "3c303990-dd9e-22ad-8ba0-71964905c420",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        },
+        {
+          "Id": "0531c723-8832-bc4e-6b7b-aeab15d49fb4",
+          "FileId": "41eadea8-ba1f-6660-7676-a12c047a48c7",
+          "Name": "NotifyUserResponse",
+          "ModifierType": 66,
+          "ProjectId": "61ad08e2-077d-6f54-3562-9f05f83aae64",
+          "NamespaceId": "3c303990-dd9e-22ad-8ba0-71964905c420",
+          "ParentIds": [],
+          "Operations": [],
+          "Properties": [],
+          "InterfaceIds": [],
+          "GenericSymbols": []
+        }
+      ],
+      "Structs": []
+    }
+  }
+}

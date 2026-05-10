@@ -7,7 +7,7 @@ terraform {
   }
 
   backend "gcs" {
-    bucket = "otto-fixme-tfstate"
+    bucket = "otto-fixme-tfstate-europe"
     prefix = "terraform/state"
   }
 }

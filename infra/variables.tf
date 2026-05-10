@@ -7,13 +7,13 @@ variable "project_id" {
 variable "region" {
   type        = string
   description = "The GCP region"
-  default     = "us-central1"
+  default     = "europe-north1"
 }
 
 variable "zone" {
   type        = string
   description = "The GCP zone for the low-cost GKE cluster"
-  default     = "us-central1-a"
+  default     = "europe-north1-a"
 }
 
 variable "cluster_name" {
