@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
+      <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.0" />
       <ProjectReference Include="$(SolutionDir)\iFx\Proxy\$(SolutionName).iFx.Proxy.csproj" />
       <ProjectReference Include="$(SolutionDir)\iFx\Service\$(SolutionName).iFx.Service.csproj" />
       <ProjectReference Include="..\Interface\FixMe.Access.Customer.Interface.csproj" />

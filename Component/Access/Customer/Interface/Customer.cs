@@ -8,6 +8,8 @@ namespace FixMe.Access.Customer.Interface
 
         public bool IsEmailConfirmed { get; set; }
 
+        public bool MayRegisterEquipment => IsEmailConfirmed;
+
         public string? ConfirmationToken { get; set; }
 
         public DateTimeOffset? ConfirmationTokenExpiresAt { get; set; }

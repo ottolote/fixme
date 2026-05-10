@@ -77,6 +77,36 @@ public sealed class CustomerAccessTests
     }
 
     [Fact]
+    public async Task StorePersistsCustomerAcrossSqliteResourceInstances()
+    {
+        string databasePath = Path.Combine(Path.GetTempPath(), $"fixme-customer-test-{Guid.NewGuid():N}.db");
+
+        try
+        {
+            CustomerAccess firstAccess = new(new CustomerResource(databasePath));
+            Customer stored = await firstAccess.Store(NewCustomer());
+
+            CustomerAccess secondAccess = new(new CustomerResource(databasePath));
+            Customer? byId = await secondAccess.Filter(new CustomerCriteria { CustomerId = stored.CustomerId });
+            Customer? byEmail = await secondAccess.Filter(new CustomerCriteria { Email = "USER@example.com" });
+            Customer? byToken = await secondAccess.Filter(new CustomerCriteria { ConfirmationToken = stored.ConfirmationToken });
+            Customer? byProfile = await secondAccess.Filter(new CustomerCriteria { ProfileReference = stored.ProfileReference });
+
+            Assert.Equal(stored.Email, byId?.Email);
+            Assert.Equal(stored.CustomerId, byEmail?.CustomerId);
+            Assert.Equal(stored.CustomerId, byToken?.CustomerId);
+            Assert.Equal(stored.CustomerId, byProfile?.CustomerId);
+        }
+        finally
+        {
+            if (File.Exists(databasePath))
+            {
+                File.Delete(databasePath);
+            }
+        }
+    }
+
+    [Fact]
     public async Task StoreUpdatesExistingCustomerWithoutChangingUnrelatedFields()
     {
         CustomerAccess access = new(new CustomerResource());
@@ -140,6 +170,32 @@ public sealed class CustomerAccessTests
 
         Customer? existing = await access.Filter(new CustomerCriteria { CustomerId = "customer-1" });
         Assert.Equal("one@example.com", existing?.Email);
+    }
+
+    [Fact]
+    public async Task ConfirmedCustomerMayRegisterEquipment()
+    {
+        CustomerAccess access = new(new CustomerResource());
+        Customer customer = NewCustomer();
+        customer.IsEmailConfirmed = true;
+        await access.Store(customer);
+
+        Customer? match = await access.Filter(new CustomerCriteria { CustomerId = customer.CustomerId });
+
+        Assert.True(match?.MayRegisterEquipment);
+    }
+
+    [Fact]
+    public async Task MissingOrUnconfirmedCustomerMayNotRegisterEquipment()
+    {
+        CustomerAccess access = new(new CustomerResource());
+        Customer customer = await access.Store(NewCustomer());
+
+        Customer? unconfirmed = await access.Filter(new CustomerCriteria { CustomerId = customer.CustomerId });
+        Customer? missing = await access.Filter(new CustomerCriteria { CustomerId = "missing-customer" });
+
+        Assert.False(unconfirmed?.MayRegisterEquipment);
+        Assert.Null(missing);
     }
 
     private static Customer NewCustomer(
