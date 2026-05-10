@@ -5,42 +5,35 @@ start
 :Receive email confirmation request;
 
 if (confirmation token exists?) then ([Yes])
-  if (confirmation token expired?) then ([No])
-    if (confirmation token unused?) then ([Yes])
-      :Load unconfirmed user account;
-      if (unconfirmed user account found?) then ([Yes])
-        :Mark email as confirmed;
-        :Invalidate confirmation token;
-        :Produce business event
+  if (confirmation token belongs to already-confirmed account?) then ([Yes])
+    :Return success;
+    stop
+  else ([No])
+    if (confirmation token expired?) then ([No])
+      if (confirmation token unused?) then ([Yes])
+        :Load unconfirmed user account;
+        if (unconfirmed user account found?) then ([Yes])
+          :Mark email as confirmed;
+          :Invalidate confirmation token;
+          :Produce business event
 User email confirmed; <<sendSignal>>
-        :Return success;
-        stop
-      else ([No])
-        :Load already-confirmed account for token;
-        if (already-confirmed account found?) then ([Yes])
           :Return success;
           stop
         else ([No])
-          :Return account-not-found failure;
+          :Return confirmation failure;
           stop
         endif
-      endif
-    else ([No])
-      :Load already-confirmed account for token;
-      if (already-confirmed account found?) then ([Yes])
-        :Return success;
-        stop
       else ([No])
-        :Return used-token failure;
+        :Return confirmation failure;
         stop
       endif
+    else ([Yes])
+      :Return confirmation failure;
+      stop
     endif
-  else ([Yes])
-    :Return expired-token failure;
-    stop
   endif
 else ([No])
-  :Return invalid-token failure;
+  :Return confirmation failure;
   stop
 endif
 
