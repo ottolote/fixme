@@ -27,7 +27,13 @@ namespace FixMe.Access.ESigning.Service
             {
                 SignatureRequest storedRequest = await _externalESigningResource.SignatureRequestStore(request).ConfigureAwait(false);
 
-                if (storedRequest.State != SignatureRequestState.Accepted || string.IsNullOrWhiteSpace(storedRequest.ExternalSignatureOrderReference))
+                if (storedRequest.State == SignatureRequestState.Accepted && string.IsNullOrWhiteSpace(storedRequest.ExternalSignatureOrderReference))
+                {
+                    storedRequest.State = SignatureRequestState.Rejected;
+                    storedRequest.ExternalSignatureOrderReference = null;
+                    storedRequest.FailureReason = "missing-external-signature-order-reference";
+                }
+                else if (storedRequest.State != SignatureRequestState.Accepted)
                 {
                     storedRequest.State = storedRequest.State == SignatureRequestState.Pending
                         ? SignatureRequestState.Rejected

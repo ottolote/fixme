@@ -55,6 +55,24 @@ public sealed class ESigningAccessTests
     }
 
     [Fact]
+    public async Task SignatureRequestStoreRejectsAcceptedProviderStateWithoutOrderReference()
+    {
+        ESigningAccess access = new(new StubExternalESigningResource(request =>
+        {
+            request.State = SignatureRequestState.Accepted;
+            request.ExternalSignatureOrderReference = " ";
+            return request;
+        }));
+
+        SignatureRequest result = await access.SignatureRequestStore(ValidRequest());
+
+        Assert.Equal(SignatureRequestState.Rejected, result.State);
+        Assert.False(result.IsAccepted);
+        Assert.Null(result.ExternalSignatureOrderReference);
+        Assert.Equal("missing-external-signature-order-reference", result.FailureReason);
+    }
+
+    [Fact]
     public async Task SignatureRequestStoreReturnsFailedWhenProviderIsUnavailable()
     {
         ESigningAccess access = new(new UnavailableExternalESigningResource());
