@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Component\Access\Customer\Interface\FixMe.Access.Customer.Interface.csproj" />
     <ProjectReference Include="..\..\Component\Access\Customer\Service\FixMe.Access.Customer.Service.csproj" />
+    <ProjectReference Include="..\..\Component\Access\Equipment\Interface\FixMe.Access.Equipment.Interface.csproj" />
     <ProjectReference Include="..\..\Component\Access\Equipment\Service\FixMe.Access.Equipment.Service.csproj" />
     <ProjectReference Include="..\..\Component\Manager\Membership\Interface\FixMe.Manager.Membership.Interface.csproj" />
     <ProjectReference Include="..\..\Component\Manager\Membership\Service\FixMe.Manager.Membership.Service.csproj" />

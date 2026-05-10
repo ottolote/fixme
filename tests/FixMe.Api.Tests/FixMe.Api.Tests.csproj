@@ -32,6 +32,7 @@
     <ProjectReference Include="..\..\Component\Access\Notification\Interface\FixMe.Access.Notification.Interface.csproj" />
     <ProjectReference Include="..\..\Component\Access\Notification\Service\FixMe.Access.Notification.Service.csproj" />
     <ProjectReference Include="..\..\Host\Api\FixMe.Api.csproj" />
+    <ProjectReference Include="..\..\Component\Manager\Membership\Interface\FixMe.Manager.Membership.Interface.csproj" />
     <ProjectReference Include="..\..\Component\Access\Maintenance\Interface\FixMe.Access.Maintenance.Interface.csproj" />
     <ProjectReference Include="..\..\Component\Access\Maintenance\Service\FixMe.Access.Maintenance.Service.csproj" />
     <ProjectReference Include="..\..\Component\Access\Task\Interface\FixMe.Access.Task.Interface.csproj" />
