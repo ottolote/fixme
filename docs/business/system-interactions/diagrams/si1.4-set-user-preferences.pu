@@ -4,35 +4,22 @@ title SI1.4 Set user preferences
 start
 :Receive preferences update request;
 
-if (name valid?) then ([Yes])
-  if (email valid?) then ([Yes])
-    if (phone number valid?) then ([Yes])
-      if (location valid?) then ([Yes])
-        :Load user profile;
-        if (user profile found?) then ([Yes])
-          :Store name, email, phone number, and location;
-          :Produce business event
+if (profile data valid?) then ([Yes])
+  :Load user profile;
+  if (user profile found?) then ([Yes])
+    :Store name, email, phone number, and location;
+    :Produce business event
 User preferences set; <<sendSignal>>
-          :Return success;
-          stop
-        else ([No])
-          :Return profile-not-found failure;
-          stop
-        endif
-      else ([No])
-        :Return invalid-location failure;
-        stop
-      endif
-    else ([No])
-      :Return invalid-phone-number failure;
-      stop
-    endif
+    :Return success;
+    stop
   else ([No])
-    :Return invalid-email failure;
+    :Return profile-not-found failure;
     stop
   endif
 else ([No])
-  :Return invalid-name failure;
+  :Return profile validation failure
+(invalid-name, invalid-email,
+invalid-phone-number, or invalid-location);
   stop
 endif
 

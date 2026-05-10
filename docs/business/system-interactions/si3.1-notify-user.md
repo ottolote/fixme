@@ -4,13 +4,15 @@
 
 Sources: `BP1.1-onboard.bpmn`, `BP1.2-register-equipment.bpmn`, `BP1.3-enroll-in-maintenance-plan.bpmn`, and `BP1.4-schedule-maintenance-job.bpmn`.
 
-The BPMNs use this as a generic user notification interaction. In onboarding, it sends the activation link after `SI1.1 Register account`. In equipment registration, it notifies the customer after an accepted equipment registration. In maintenance-plan enrollment, it notifies the customer after a rejected plan request. In maintenance-job scheduling, it notifies the customer after a maintenance slots proposal is confirmed.
+The BPMNs use this as a generic user notification interaction. In onboarding, it sends the activation link after `SI1.1 Register account`. In equipment registration, it notifies the customer after equipment registration is accepted, either directly by `SI1.6 Submit registration` or through `SI1.7 Resolve pending registration`. In maintenance-plan enrollment, it notifies the customer after a rejected plan request. In maintenance-job scheduling, it notifies the customer after a maintenance slots proposal is confirmed.
 
 The system consumes a notification-triggering business event, validates the notification request data in separate checks, resolves the recipient and channel, renders the message content using the supplied template name or template ID, and sends it. For maintenance slots proposal notifications, the event payload must identify a confirmed proposal with active reserved slots so the template can render selectable options. Successful processing emits a generic notification-sent event with a notification type in the event payload. Invalid or synchronously failed event processing is nacked to the DLQ. Email is the primary modeled channel; other channels can be added as delivery details without splitting this into separate system interactions.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Consume event: notification-triggering business event | Consumes a business event that requires user notification. |
 | 2 | Check whether recipient can be resolved | Validates that the event identifies a notifiable user. |
@@ -31,7 +33,7 @@ The system consumes a notification-triggering business event, validates the noti
 
 Consumed:
 - `preliminaryUserCreated` to send the activation notification.
-- `Equipment registration accepted` to send the accepted-registration notification.
+- `Equipment registration accepted` to send the accepted-registration notification after direct registration or pending-registration acceptance.
 - `Maintenance plan rejected` to send the rejected-plan notification.
 - `Maintenance slots proposal confirmed` to send the maintenance-slots-proposal notification.
 

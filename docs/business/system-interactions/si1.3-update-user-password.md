@@ -6,9 +6,11 @@ Source: `BP1.1-onboard.bpmn`.
 
 After confirming the email, the user enters a password. The system receives the password update request from the client browser, validates the request context, validates the password policy, loads the account, hashes and stores the password credential, and returns success.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Receive password update request | Receives the password submission from the client browser. |
 | 2 | Check whether request context is valid | Validates that the password request is authorized for the target account. |

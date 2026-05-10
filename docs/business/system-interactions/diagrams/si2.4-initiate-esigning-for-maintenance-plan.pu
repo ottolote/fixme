@@ -5,36 +5,26 @@ start
 :Consume event
 Maintenance plan request approved; <<acceptEvent>>
 
-:Load pending maintenance plan;
-if (pending maintenance plan found?) then ([Yes])
-  if (plan approved?) then ([Yes])
-    if (customer signable?) then ([Yes])
-      :Mark plan approved pending signature;
-      :Generate maintenance plan agreement;
-      :Request customer signature; <<sendCommand>>
-      if (eSigning request accepted?) then ([Yes])
-        :Store signature order reference;
-        :Produce business event
+if (pending maintenance plan can be signed?) then ([Yes])
+  :Load pending maintenance plan;
+  :Mark plan approved pending signature;
+  :Generate maintenance plan agreement;
+  :Request customer signature; <<sendCommand>>
+  if (eSigning request accepted?) then ([Yes])
+    :Store signature order reference;
+    :Produce business event
 Maintenance plan signature requested; <<sendSignal>>
-        stop
-      else ([No])
-        :Nack event to DLQ <<sendSignal>>
-esigning-request-failed failure;
-        stop
-      endif
-    else ([No])
-      :Nack event to DLQ <<sendSignal>>
-customer-not-signable failure;
-      stop
-    endif
+    stop
   else ([No])
     :Nack event to DLQ <<sendSignal>>
-plan-not-approved failure;
+esigning-request-failed failure;
     stop
   endif
 else ([No])
   :Nack event to DLQ <<sendSignal>>
-plan-not-found failure;
+signing validation failure
+(plan-not-found, plan-not-approved,
+or customer-not-signable);
   stop
 endif
 

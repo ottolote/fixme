@@ -4,31 +4,18 @@ title SI2.7 Accept maintenance slots proposal
 start
 :Receive selected maintenance slot request;
 
-:Load maintenance slots proposal;
-if (proposal found?) then ([Yes])
-  if (proposal selectable?) then ([Yes])
-    if (selected slot belongs to proposal?) then ([Yes])
-      if (selected slot still available?) then ([Yes])
-        :Remove reserved slots from proposal;
-        :Schedule accepted maintenance slot;
-        :Produce business event
+if (proposal and selected slot valid?) then ([Yes])
+  :Load maintenance slots proposal;
+  :Remove reserved slots from proposal;
+  :Schedule accepted maintenance slot;
+  :Produce business event
 Maintenance job scheduled; <<sendSignal>>
-        :Return scheduled maintenance slot;
-        stop
-      else ([No])
-        :Return selected-slot-unavailable failure;
-        stop
-      endif
-    else ([No])
-      :Return selected-slot-not-in-proposal failure;
-      stop
-    endif
-  else ([No])
-    :Return proposal-not-selectable failure;
-    stop
-  endif
+  :Return scheduled maintenance slot;
+  stop
 else ([No])
-  :Return proposal-not-found failure;
+  :Return selected-slot validation failure
+(proposal-not-found, proposal-not-selectable,
+selected-slot-not-in-proposal, or selected-slot-unavailable);
   stop
 endif
 

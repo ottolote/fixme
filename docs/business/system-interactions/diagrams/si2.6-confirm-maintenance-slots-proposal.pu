@@ -4,43 +4,19 @@ title SI2.6 Confirm maintenance slots proposal
 start
 :Receive provider slot confirmation request;
 
-:Load confirmation task;
-if (task found?) then ([Yes])
-  if (task open?) then ([Yes])
-    if (task type is maintenance slots proposal confirmation?) then ([Yes])
-      :Load maintenance slots proposal;
-      if (proposal found?) then ([Yes])
-        if (proposal can be confirmed?) then ([Yes])
-          if (confirmed slots match proposal?) then ([Yes])
-            :Record provider slot confirmation;
-            :Close confirmation task;
-            :Mark maintenance slots proposal as confirmed;
-            :Produce business event
+if (task, proposal, and confirmed slots valid?) then ([Yes])
+  :Record provider slot confirmation;
+  :Close confirmation task;
+  :Mark maintenance slots proposal as confirmed;
+  :Produce business event
 Maintenance slots proposal confirmed; <<sendSignal>>
-            :Return success;
-            stop
-          else ([No])
-            :Return slot-mismatch failure;
-            stop
-          endif
-        else ([No])
-          :Return proposal-not-confirmable failure;
-          stop
-        endif
-      else ([No])
-        :Return proposal-not-found failure;
-        stop
-      endif
-    else ([No])
-      :Return invalid-task-type failure;
-      stop
-    endif
-  else ([No])
-    :Return task-not-open failure;
-    stop
-  endif
+  :Return success;
+  stop
 else ([No])
-  :Return task-not-found failure;
+  :Return confirmation validation failure
+(task-not-found, task-not-open, invalid-task-type,
+proposal-not-found, proposal-not-confirmable,
+or slot-mismatch);
   stop
 endif
 

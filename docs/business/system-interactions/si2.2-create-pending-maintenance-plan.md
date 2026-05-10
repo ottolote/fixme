@@ -6,9 +6,11 @@ Source: `BP1.3-enroll-in-maintenance-plan.bpmn`.
 
 After receiving plan options, the user picks a maintenance plan. The system receives the selected-plan request from the client browser, validates the selected option in separate checks, rejects duplicate pending or active plans for the same equipment, loads the customer, equipment, and offering, locks the selected offering price, creates a pending maintenance plan, and returns success. The BPMN then creates a backoffice task for maintenance plan review.
 
+The PlantUML diagram combines validation branches into a single gate; the table keeps the specific failure outcomes.
+
 ## Steps
 
-| Step | PlantUML step | Actions performed |
+| Step | Step detail | Actions performed |
 |---|---|---|
 | 1 | Receive selected-plan request | Receives the selected maintenance plan offering from the client browser. |
 | 2 | Check whether selected offering exists | Validates that the selected offering can be found. |

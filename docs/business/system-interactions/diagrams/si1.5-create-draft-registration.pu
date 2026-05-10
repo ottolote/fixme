@@ -1,0 +1,18 @@
+@startuml si1.5-create-draft-registration
+title SI1.5 Create draft registration
+
+start
+:Receive draft registration request;
+
+if (customer may register equipment?) then ([Yes])
+  :Create draft equipment registration;
+  :Produce business event
+Pending equipment registration created; <<sendSignal>>
+  :Return draft registration;
+  stop
+else ([No])
+  :Return invalid-customer failure;
+  stop
+endif
+
+@enduml

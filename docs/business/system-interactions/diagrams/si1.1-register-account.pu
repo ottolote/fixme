@@ -14,7 +14,7 @@ preliminaryUserCreated; <<sendSignal>>
       :Return registration accepted;
       stop
     else ([No])
-      :Return user-exists failure;
+      :Return registration accepted;
       stop
     endif
   else ([No])

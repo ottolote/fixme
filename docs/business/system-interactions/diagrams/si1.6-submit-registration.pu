@@ -1,0 +1,40 @@
+@startuml si1.6-submit-registration
+title SI1.6 Submit registration
+
+start
+:Receive registration submission request;
+
+if (request valid?) then ([Yes])
+  :Load draft registration;
+
+  if (draft registration found?) then ([Yes])
+    :Check policy engine
+PolicyEngine.ValidateEquipmentRegistration();
+
+    if (policy result valid?) then ([valid])
+      :Create registered equipment;
+      :Mark registration as accepted;
+      :Produce business event
+Equipment registration accepted; <<sendSignal>>
+      :Return accepted registration;
+      stop
+    elseif (policy result needs review?) then ([needs review])
+      :Mark draft registration as pending;
+      :Produce business event
+Equipment registration review requested; <<sendSignal>>
+      :Return pending registration;
+      stop
+    else ([No])
+      :Return registration failure;
+      stop
+    endif
+  else ([No])
+    :Return draft-registration-not-found failure;
+    stop
+  endif
+else ([No])
+  :Return invalid-request failure;
+  stop
+endif
+
+@enduml

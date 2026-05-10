@@ -15,7 +15,8 @@ System interaction IDs use the first number to identify the owning manager from 
 | SI1.2 | Confirm user email |
 | SI1.3 | Update user password |
 | SI1.4 | Set user preferences |
-| SI1.5 | Create pending registration |
+| SI1.5 | Create draft registration |
+| SI1.6 | Submit registration |
 | SI1.7 | Resolve pending registration |
 | SI2.1 | Match maintenance plan offering |
 | SI2.2 | Create pending maintenance plan |
