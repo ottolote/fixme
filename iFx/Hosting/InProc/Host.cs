@@ -1,14 +1,15 @@
 using System.Reflection;
+using FixMe.iFx.Convention;
+using FixMe.iFx.Observability;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SoEx.Context;
 using SoEx.Hosting;
 using SoEx.Topology;
 using SoEx.Transport.InProc;
-using FixMe.iFx.Convention;
-using FixMe.iFx.Observability;
 
 namespace FixMe.iFx.Hosting;
+
 public static class Host
 {
     public static InProcHostApplications InProc(string[] args, Dictionary<Type, Action<IServiceCollection>>? scd = null)

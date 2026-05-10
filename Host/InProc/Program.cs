@@ -18,7 +18,6 @@ namespace FixMe.Host.InProc
             {
                 // var proxy = Proxy.ForService<I_XXX_Manager>();
                 // await proxy._Operation_();
-                throw new NotImplementedException();
             }
             await Task.Delay(1000);
         }

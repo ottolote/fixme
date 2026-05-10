@@ -1,13 +1,13 @@
 
 using System.Reflection;
+using FixMe.iFx.Convention;
+using FixMe.iFx.Observability;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SoEx.Context;
 using SoEx.Hosting;
 using SoEx.Topology;
 using SoEx.Transport.NamedPipe;
-using FixMe.iFx.Convention;
-using FixMe.iFx.Observability;
 
 namespace FixMe.iFx.Hosting.Component;
 

@@ -13,6 +13,9 @@
   <Folder Name="/Host/">
     <Project Path="Host/InProc/FixMe.Host.InProc.csproj" />
   </Folder>
+  <Folder Name="/Host/Api/">
+    <Project Path="Host/Api/FixMe.Api.csproj" />
+  </Folder>
   <Folder Name="/iFx/">
     <Project Path="iFx/Client/FixMe.iFx.Client.csproj" />
     <Project Path="iFx/Convention/FixMe.iFx.Convention.csproj" />
@@ -22,5 +25,8 @@
     <Project Path="iFx/Observability/FixMe.iFx.Observability.csproj" />
     <Project Path="iFx/Proxy/FixMe.iFx.Proxy.csproj" />
     <Project Path="iFx/Service/FixMe.iFx.Service.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FixMe.Api.Tests/FixMe.Api.Tests.csproj" />
   </Folder>
 </Solution>

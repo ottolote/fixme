@@ -44,6 +44,6 @@ public static class ObservabilityExtensions
 
     private static string EntryAssemblyHostName()
     {
-        return Assembly.GetEntryAssembly()?.GetName().Name ??  "unknown host";
+        return Assembly.GetEntryAssembly()?.GetName().Name ?? "unknown host";
     }
 }

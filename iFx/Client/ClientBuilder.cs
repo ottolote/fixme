@@ -5,13 +5,14 @@ public class ClientBuilder
 {
     private List<SoEx.Topology.Client> _clients = new List<SoEx.Topology.Client>();
 
-    public void AddClientFor<I>(Type bindingType,  string subSystem) where I : class
+    public void AddClientFor<I>(Type bindingType, string subSystem) where I : class
     {
         var genericType = bindingType.MakeGenericType(typeof(I));
         var binding = (Binding)Activator.CreateInstance(genericType, subSystem)!;
         _clients.Add(new SoEx.Topology.Client<I>()
         {
-            Service = binding, SubSystem = subSystem
+            Service = binding,
+            SubSystem = subSystem
         });
     }
 

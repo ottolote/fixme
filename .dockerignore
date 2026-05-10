@@ -1,0 +1,17 @@
+.git/
+.github/
+.opencode/
+.claude/
+.codex/
+.gemini/
+.tessl/
+.vscode/
+**/bin/
+**/obj/
+**/TestResults/
+artifacts/
+node_modules/
+.env
+*.user
+*.suo
+*.log
