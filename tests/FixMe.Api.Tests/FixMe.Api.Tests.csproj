@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Component\Access\Agreement\Service\FixMe.Access.Agreement.Service.csproj" />
     <ProjectReference Include="..\..\Host\Api\FixMe.Api.csproj" />
   </ItemGroup>
 
